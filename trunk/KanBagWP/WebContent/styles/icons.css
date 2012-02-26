@@ -1,0 +1,70 @@
+/* by Dervis Yilmaz */
+.buton-ara {
+	background-image:url(icons/search.png) !important;
+}
+.buton-show {
+	background-image:url(icons/eye.png) !important;
+}
+.buton-sil {
+	background-image:url(icons/delete.png) !important ;
+}
+.buton-yeni {
+	background-image:url(icons/new.png) !important ;
+}
+.buton-yenile {
+	background-image:url(icons/refresh.png) !important ;
+}
+.buton-kapat {
+	background-image:url(icons/delete.png) !important ;
+}
+.buton-kaydet {
+	background-image:url(icons/save.png) !important ;
+}
+.buton-cikis {
+	background-image:url(icons/logout.png) !important ;
+}
+.buton-sec {
+	background-image:url(icons/accepted.png) !important ;
+}
+.buton-yardim {
+	background-image:url(icons/help.png) !important ;
+}
+.buton-iptal {
+	background-image:url(icons/cancel.png) !important ;
+}
+.buton-istek {
+	background-image:url(icons/istek.png) !important ;
+}
+.buton-ekle {
+	background-image:url(icons/add.png) !important ;
+}
+.buton-duzenle {
+	background-image:url(icons/edit.gif) !important ;
+}
+.buton-sicil {
+	background-image:url(icons/sicil.png) !important ;
+}
+.buton-kim {
+	background-image:url(icons/kim.png) !important ;
+}
+.buton-liste {
+	background-image:url(icons/liste.png) !important ;
+}
+.buton-bugun {
+	background-image:url(icons/asterisk.png) !important ;
+}
+.buton-hazir {
+	background-image:url(icons/hazirmetin.png) !important ;
+}
+.buton-detay {
+	background-image:url(icons/detay.png) !important ;
+}
+.buton-camera {
+	background-image:url(icons/camera.png) !important ;
+}
+.buton-gonder {
+	background-image:url(icons/gonder.png) !important ;
+}
+.buton-resimCek {
+	background-image:url(icons/resimCek.png) !important ;
+}
