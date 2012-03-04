@@ -13,16 +13,16 @@
 
 <link rel="stylesheet" type="text/css" id="theme" href=""/>
 
-<style type="text/css">
+<!-- <style type="text/css">
 
-	.empty .x-panel-body {
+/* 	.empty .x-panel-body {
 		padding-top: 20px;
 		text-align: center;
 		font-style: italic;
 		/* color: white;
 		/* font-size: 11px; */ 
-	}
-</style>
+	} */
+</style> -->
 
 
 <script type="text/javascript">
