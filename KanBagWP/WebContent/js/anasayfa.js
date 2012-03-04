@@ -34,7 +34,8 @@ Ext.onReady(function(){
 		
 		var menuBar = new Ext.Panel({
 			layout: 'accordion',
-			flex: 2,
+			region: 'west',
+//			flex: 2,
 			width: 300,
 			defaults: {
 			 	hideCollapseTool : true,
@@ -53,21 +54,22 @@ Ext.onReady(function(){
 		
 		
 		var content = new Ext.Panel({
+			region: 'center',
 			margins:'5 5 5 0',
-			flex: 3,
+//			flex: 3,
 			html:'Ajax content will come here'
 		});
 		
 		
-		var body = new Ext.Panel({
-			height: 500,
-			region: 'center',
-			layout: 'hbox',
-			layoutConfig : {
-				align : 'stretch'
-			},
-			items:[ menuBar, content ] 
-		});
+//		var body = new Ext.Panel({
+//			height: 500,
+//			region: 'center',
+//			layout: 'hbox',
+//			layoutConfig : {
+//				align : 'stretch'
+//			},
+//			items:[ menuBar, content ] 
+//		});
 		
 		
 		var view = new Ext.Viewport({
@@ -81,7 +83,7 @@ Ext.onReady(function(){
 				html: 'Header will be here',
 		        height:100
 //		        border: false
-			},body
+			},menuBar
 //				{
 //				region: 'west',
 ////				layoutConfig : {
@@ -98,7 +100,7 @@ Ext.onReady(function(){
 				region: 'south',
 		        collapsible: false,
 		        height: 100
-			}
+			},content
 //			,content
 //				{
 //				region : 'center',
