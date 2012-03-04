@@ -8,9 +8,9 @@ import org.springframework.web.servlet.ModelAndView;
 //@RequestMapping("/sistem")
 public class GenView {
 	
-	@RequestMapping(value="/testing")
+	@RequestMapping(value="/anasayfa")
 	public ModelAndView testing(){
-		return new ModelAndView("testing");
+		return new ModelAndView("anasayfa");
 	}
 
 }
