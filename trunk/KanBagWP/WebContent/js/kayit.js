@@ -3,6 +3,9 @@
 		var myWin= new Ext.Window({
 			height		:	300,
 			title		:	'Kayıt İşlemi',
+			modal		:	true,
+			resizable	:	false,
+			draggable	:	false,
 			width		:	260,
 			layout		:	'form',
 			bodyStyle	:	'padding : 10px',
