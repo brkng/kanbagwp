@@ -7,39 +7,56 @@ Ext.onReady(function(){
 		
 		
 		var item1 = new Ext.Panel({
-                title: 'Basliq 1',
-                html: '&lt;icerik&gt;'
+                title: 'Kan Bağışı',
+                html: '<a href="#">Nerede Kan verebilirim?</a><br/>' +
+                	  '<a href="#">Kan Bağışlama Süreci</a>'
             });
 
             var item2 = new Ext.Panel({
-                title: 'Basliq 2',
-                html: '&lt;icerik&gt;'
+                title: 'Kan Hakkında',
+                html: '<a href="#">Kanın Yapısı ve Görevleri Nelerdir?</a><br/>' +
+                	  '<a href="#">Kan Bağışlarım Nerede kullanılıyor</a><br/>'+
+                	  '<a href="#">Kan Grupları Hakkında Bilgiler</a><br/>'+
+                	  '<a href="#">Kana Yapılan Testler</a><br/>'+
+                	  '<a href="#">Dünya ve Türkiyede Kan Bağışı</a>'
             });
 
             var item3 = new Ext.Panel({
-                title: 'Basliq 3',
-                html: '&lt;icerik&gt;'
+                title: 'Sıkça Sorulan Sorular',
+                collapsible	:false,
+                titleCollapse: false, 
+                listeners: {
+   				'render': function(panel) {
+      			 panel.body.on('click', function() {
+      		     alert('onclick');
+     	    });
+    }
+}
+
             });
 
             var item4 = new Ext.Panel({
-                title: 'Basliq 4',
-                html: '&lt;icerik&gt;'
+                title: 'Site Kullanımı',
+                html: '<a href="#">Site Nasıl Çalışmaktadır</a><br/>' +
+                	  '<a href="#">Kan İsteğinde Nasıl Bulunabilirim?</a><br/>'
             });
 
 		
 		
 		var menuBar = new Ext.Panel({
 			layout: 'accordion',
+			defaults: {autoScroll: true},
 			region: 'west',
 			width: 300,
 			defaults: {
-			 	hideCollapseTool : true,
+			 	hideCollapseTool : false,
 			 	border: true
 		    },
 		    layoutConfig: {
 //		        titleCollapse: false,
-		        animate: true
+		        animate: true,
 //		        activeOnTop: true,
+		        autoScroll: true
 		    },
 		   
 		    margins:'5 0 5 5',
@@ -62,20 +79,19 @@ Ext.onReady(function(){
 		
 			layout: 'border',
 			border: true,
-			
 			items:[{
 				region: 'north',
-				html: 'Header will be here',
+				html: '<img src="../images/banner.jpg" />',
 		        height:100
 			},menuBar
 			,{
 				region: 'south',
 		        collapsible: false,
+		        border: true,
 		        height: 100
 			},content
 			]
 			
 		});
 //		view.render('anasayfa');
-		
 });	
