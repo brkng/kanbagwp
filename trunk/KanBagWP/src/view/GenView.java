@@ -8,6 +8,11 @@ import org.springframework.web.servlet.ModelAndView;
 //@RequestMapping("/sistem")
 public class GenView {
 	
+	@RequestMapping(value="/kayit")
+	public ModelAndView kayit(){
+		return new ModelAndView("kayit");
+	}
+	
 	@RequestMapping(value="/anasayfa")
 	public ModelAndView testing(){
 		return new ModelAndView("anasayfa");
