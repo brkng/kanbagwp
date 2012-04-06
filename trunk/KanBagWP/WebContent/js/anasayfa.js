@@ -72,16 +72,7 @@ Ext.onReady(function(){
             });
 		
             var item6 =new Ext.Panel({
-            	html:   '<object'+  
-						'classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" '+
-						'codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0"'+
-						 'width="234" height="60">'+
-						'<param name="movie" value="http://www.kanver.org/banner/234x60.swf" />'+
-						'<param name="quality" value="high" />'+
-      					'<embed src="http://www.kanver.org/banner/234x60.swf"'+ 
-						'quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer"'+
- 						'type="application/x-shockwave-flash" width="300" '+
-						'height="60"></embed></object>'
+            	html: '<a href="#"><img src="../images/kaydol.jpg" /></a>'
             });
 		
 		var menuBar = new Ext.Panel({
