@@ -72,7 +72,7 @@ Ext.onReady(function(){
             });
 		
             var item6 =new Ext.Panel({
-            	html: '<a href="#"><img src="../images/kaydol.jpg" /></a>'
+            	html: '<a href="kayit.html"><img src="../images/kaydol.jpg" /></a>'
             });
 		
 		var menuBar = new Ext.Panel({
