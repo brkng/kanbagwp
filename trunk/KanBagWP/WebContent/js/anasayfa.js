@@ -6,8 +6,6 @@ Ext.onReady(function(){
 		Ext.QuickTips.init();
 		
 		
-		
-		
 		var item1 = new Ext.Panel({
                 title: 'Kan Bağışı',
                 collapsible	:	true,
@@ -29,7 +27,10 @@ Ext.onReady(function(){
                 title: 'Sıkça Sorulan Sorular',
                 collapsible	:false,
                 titleCollapse: false
+         		
             });
+            
+            
 
             var item4 = new Ext.Panel({
                 title: 'Site Kullanımı',
@@ -66,6 +67,7 @@ Ext.onReady(function(){
 					}
             	},
             	{
+            		border	: false,
             		html:'<a href="#">Şifremi Unuttum</a>'
             	}
             	]
@@ -77,6 +79,7 @@ Ext.onReady(function(){
 		
 		var menuBar = new Ext.Panel({
 			//layout: 'accordion',
+			autoScroll: true,
 			defaults: {autoScroll: true},
 			region: 'west',
 			width: 300,
@@ -99,6 +102,7 @@ Ext.onReady(function(){
 		
 		var content = new Ext.Panel({
 			region: 'center',
+			autoScroll: true,
 			margins:'5 5 5 0',
 			layoutConfig : {
 				align : 'stretch'
@@ -109,10 +113,12 @@ Ext.onReady(function(){
 		
 		var view = new Ext.Viewport({
 			layout: 'border',
+			boxMinHeight	: 800,
+			autoScroll: true,
 			border: true,
 			items:[{
 				region: 'north',
-				html: '<img src="../images/banner.jpg" />',
+				html: '<img src="../images/banner.jpg" align="middle"/>',
 		        height:100
 			},menuBar
 			,{
