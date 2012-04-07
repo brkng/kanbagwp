@@ -12,7 +12,7 @@
 <!-- <link type="text/css" rel="stylesheet" href="../scripts/ext-3.3.1/resources/slicknessthemev2/css/xtheme-slickness.css">
  --><link type="text/css" rel="stylesheet" href="../scripts/ext-3.3.1/resources/css/ext-all.css">
  
-<link rel="stylesheet" type="text/css" id="theme" href=""/>
+<link rel="stylesheet" type="text/css" id="theme" href="../styles/anasayfa.css"/>
 
 <!-- <style type="text/css">
 
@@ -27,6 +27,8 @@
 
 
 <script type="text/javascript">
+
+
 function swapCSS(n){
     var themeUrl =  "../scripts/ext-3.3.1/resources/css/xtheme-kanbagwp.css";
     Ext.util.CSS.swapStyleSheet("theme", themeUrl);
