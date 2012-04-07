@@ -9,3 +9,11 @@
 	color: #333;
 	background: #DF0101;
 }
+
+.div1
+{
+    overflow: scroll;
+    height: 1000px;
+    width: 1000px;
+    align: center;
+} 
