@@ -6,6 +6,7 @@
 			modal		:	true,
 			resizable	:	false,
 			draggable	:	false,
+			closable	:	false,
 			width		:	260,
 			layout		:	'form',
 			bodyStyle	:	'padding : 10px',
@@ -14,7 +15,9 @@
 			defaultType	:	'field',
 			items		:	[{
 				fieldLabel	:	'Ad',
-				width		:	130
+				width		:	130,
+				allowBlank:     false
+
 			},{
 				fieldLabel	:	'TC Kimlik No',
 				width		:	130
@@ -32,7 +35,7 @@
 			},{
 				fieldLabel	:	'Adres',
 				xtype		:	'textarea',
-				width		:	130,
+				width		:	130
 			}],
 			buttons			:	[{
 				xtype		:	'button',
