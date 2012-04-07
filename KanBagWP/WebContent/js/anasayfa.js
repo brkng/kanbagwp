@@ -4,6 +4,57 @@ Ext.onReady(function(){
 
 
 			Ext.QuickTips.init();
+			
+	function deneme1()
+	{
+		var myWin= new Ext.Window({
+			height		:	300,
+			title		:	'KayÄ±t Ä°ÅŸlemi',
+			modal		:	true,
+			resizable	:	false,
+			draggable	:	false,
+			width		:	260,
+			layout		:	'form',
+			bodyStyle	:	'padding : 10px',
+		    buttonAlign : 'center',
+			labelWidth	:	80,
+			defaultType	:	'field',
+			items		:	[{
+				fieldLabel	:	'Ad',
+				width		:	130,
+				allowBlank:     false
+
+			},{
+				fieldLabel	:	'TC Kimlik No',
+				width		:	130
+			},{
+				fieldLabel	:	'Telefon',
+				width		:	130
+			},{
+				xtype		:	'combo',
+				fieldLabel	:	'Kan Grubu',
+				width		:	50,
+				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
+			},{
+				fieldLabel	:	'E-posta',
+				width		:	130
+			},{
+				fieldLabel	:	'Adres',
+				xtype		:	'textarea',
+				width		:	130,
+			}],
+			buttons			:	[{
+				xtype		:	'button',
+				text		:	'Kaydol',
+				handler		:	function(btn){
+					Ext.MessageBox.alert('','KayÄ±t Ä°ÅŸlemi TamamlandÄ±');
+				}
+			}]
+		});
+		
+		myWin.show();
+		
+	}
 		
 		
 			var item1 = new Ext.Panel({
@@ -252,6 +303,8 @@ Ext.onReady(function(){
 		templates.show();*/
 		
 		content.load({ url: 'anaicerik', nocache: true, timeout: 30, scripts: true });
+		
+		
 		
 		
 //		view.render('anasayfa');
