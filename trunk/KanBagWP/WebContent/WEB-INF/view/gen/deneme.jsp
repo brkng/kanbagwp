@@ -38,12 +38,13 @@ function swapCSS(n){
 </script>
 
 
-<script type="text/javascript" src="../js/anasayfa.js"></script>
+
 
 
 
 
 
 <body>
+İletisim Bilgileri...
 </body>
 </html>

@@ -92,10 +92,11 @@ Ext.onReady(function(){
 			//layout: 'accordion',
 			autoScroll: true,
 			defaults: {autoScroll: true},
+			anchor	:	'20%',
 			region: 'west',
 			width: 310,
 			defaults: {
-			 	hideCollapseTool : false,
+			 	hideCollapseTool : false
 			 	//border: true
 		    },
 		    layoutConfig: {
@@ -112,11 +113,61 @@ Ext.onReady(function(){
 		});
 		
 		
+		var arama = new Ext.Panel({
+            	padding: '5 15 5 15' ,
+            	title: 'Arama',
+            	bodyStyle	:	'padding : 10px',
+            	layout		:	'hbox',
+            	items:	[
+            	{
+            		xtype:	'field',
+            		flex : 2,
+            		height: 28
+            	},
+            	{
+            		xtype:	'button',
+            		flex: 1,
+            		height: 28,
+            		text: 	'Ara',
+            		handler		:	function(btn){
+					Ext.MessageBox.alert('','kontrol yapılacak!!');
+					}
+            	}
+            	]
+            });
+		
+		
+		var menuBar2 = new Ext.Panel({
+			//layout: 'accordion',
+			autoScroll: true,
+			defaults: {autoScroll: true},
+			region: 'east',
+			width: 310,
+			defaults: {
+			 	hideCollapseTool : false
+			 	//border: true
+		    },
+		    layoutConfig: {
+//		        titleCollapse: false,
+		        animate: true,
+//		        activeOnTop: true,
+		        autoScroll: true
+		        
+		    },
+		    items : [arama],
+			
+		    margins:'5 0 5 5',
+		    split:false
+		});
+		
+		
 		var content = new Ext.Panel({
+			id: 'center',
 			region: 'center',
 			autoScroll: true,
 			border: false,
 			margins:'5 5 5 0',
+			padding: '10 10 10 10',
 			layoutConfig : {
 				align : 'stretch'
 			},
@@ -126,6 +177,9 @@ Ext.onReady(function(){
 		var header=new Ext.Panel({
 			renderTo: document.body,
           	//layout: 'fit',
+			layoutConfig : {
+				align : 'stretch'
+			},
 			region: 'north',
 			border: false,
 			html: '<p align="center"><img src="../images/banner.jpg" align="middle"/></p>',
@@ -139,7 +193,10 @@ Ext.onReady(function(){
     		{
        			text: '<b>Ana Sayfa</b>',
        			iconCls: 'bmenu',  
-       			handler: function(){ alert('blah'); }
+       			handler: function()
+       			{
+       				content.load({ url: 'anaicerik', nocache: true, timeout: 30, scripts: true });
+       			}
    			},
    			{
         		text: '<b>Hakkımızda</b>',
@@ -155,7 +212,9 @@ Ext.onReady(function(){
     		{
         		text: '<b>İletişim</b>',
         		iconCls: 'bmenu',  // <-- icon
-       			handler: function(){ alert('blah'); }
+       			handler: function(){
+       				content.load({ url: 'deneme', nocache: true, timeout: 30, scripts: true }); 
+       			}
     		}]
 		});
 		
@@ -163,11 +222,14 @@ Ext.onReady(function(){
 			layout: 'border',
 			autoScroll: true,
 			border: false,
-			items:[header,menuBar
+			items:[header,menuBar,menuBar2
 			,{
 				region: 'south',
 		        collapsible: false,
 		        padding: '10 10 10 10' ,
+		        layoutConfig : {
+				align : 'stretch'
+				},
 		        html:'<br/><br/><p align="center"><b>Sanguis Team 2012</b></p>',
 		        border: true,
 		        height: 60
@@ -189,7 +251,7 @@ Ext.onReady(function(){
 
 		templates.show();*/
 		
-		
+		content.load({ url: 'anaicerik', nocache: true, timeout: 30, scripts: true });
 		
 		
 //		view.render('anasayfa');

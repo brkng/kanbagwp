@@ -22,4 +22,9 @@ public class GenView {
 	public ModelAndView deneme(){
 		return new ModelAndView("deneme");
 	}
+	
+	@RequestMapping(value="/anaicerik")
+	public ModelAndView anaicerik(){
+		return new ModelAndView("anaicerik");
+	}
 }
