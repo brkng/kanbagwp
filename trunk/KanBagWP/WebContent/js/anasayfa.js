@@ -9,12 +9,14 @@ Ext.onReady(function(){
 		var item1 = new Ext.Panel({
                 title: 'Kan Bağışı',
                 collapsible	:	true,
+                padding: '0 5 0 5' ,
                 html: '<a href="#">Nerede Kan verebilirim?</a><br/>' +
                 	  '<a href="#">Kan Bağışlama Süreci</a>'
             });
 
             var item2 = new Ext.Panel({
                 title: 'Kan Hakkında',
+                padding: '0 5 0 5' ,
                 collapsible	:	true,
                 html: '<a href="#">Kanın Yapısı ve Görevleri Nelerdir?</a><br/>' +
                 	  '<a href="#">Kan Bağışlarım Nerede kullanılıyor</a><br/>'+
@@ -34,12 +36,14 @@ Ext.onReady(function(){
 
             var item4 = new Ext.Panel({
                 title: 'Site Kullanımı',
+                padding: '0 5 0 5' ,
                 collapsible	:	true,
                 html: '<a href="#">Site Nasıl Çalışmaktadır</a><br/>' +
                 	  '<a href="#">Kan İsteğinde Nasıl Bulunabilirim?</a><br/>'
             });
 
             var item5 = new Ext.Panel({
+            	padding: '0 5 0 5' ,
             	title: 'Kullanıcı Girişi',
             	bodyStyle	:	'padding : 10px',
             	layout		:	'form',
@@ -84,20 +88,22 @@ Ext.onReady(function(){
 			autoScroll: true,
 			defaults: {autoScroll: true},
 			region: 'west',
-			width: 300,
+			width: 320,
 			defaults: {
 			 	hideCollapseTool : false,
 			 	border: true
+			 	
 		    },
 		    layoutConfig: {
 //		        titleCollapse: false,
 		        animate: true,
 //		        activeOnTop: true,
 		        autoScroll: true
+		        
 		    },
-		   
+			
 		    margins:'5 0 5 5',
-		    split:true,
+		    split:false,
     		items: [item1, item2, item4, item3, item5,item6]
 		});
 		
@@ -116,7 +122,6 @@ Ext.onReady(function(){
 		
 		var view = new Ext.Viewport({
 			layout: 'border',
-			anchor: '80%',
 			autoScroll: true,
 			border: true,
 			items:[{
@@ -127,6 +132,8 @@ Ext.onReady(function(){
 			,{
 				region: 'south',
 		        collapsible: false,
+		        padding: '25 25 25 25' ,
+		        html:'<br/><br/><p align="center"><b>Sanguis Team 2012</b></p>',
 		        border: true,
 		        height: 100
 			},content
