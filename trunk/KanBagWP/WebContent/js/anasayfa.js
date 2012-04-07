@@ -24,7 +24,7 @@ Ext.onReady(function(){
             });
 
             var item3 = new Ext.Panel({
-                title: 'Sıkça Sorulan Sorular',
+                title: '<a href="#">Sıkça Sorulan Sorular</a>',
                 collapsible	:false,
                 titleCollapse: false
          		
@@ -76,6 +76,8 @@ Ext.onReady(function(){
             var item6 =new Ext.Panel({
             	html: '<a href="kayit.html"><img src="../images/kaydol.jpg" /></a>'
             });
+            
+           
 		
 		var menuBar = new Ext.Panel({
 			//layout: 'accordion',
@@ -109,6 +111,7 @@ Ext.onReady(function(){
 			},
 			html:'Ajax content will come here'
 		});
+		
 		
 		
 		var view = new Ext.Viewport({
