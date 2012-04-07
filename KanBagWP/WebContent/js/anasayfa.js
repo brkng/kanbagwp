@@ -9,14 +9,16 @@ Ext.onReady(function(){
 		var item1 = new Ext.Panel({
                 title: 'Kan Bağışı',
                 collapsible	:	true,
-                padding: '0 5 0 5' ,
+                collapsed: true,
+                padding: '5 5 5 5' ,
                 html: '<a href="#">Nerede Kan verebilirim?</a><br/>' +
                 	  '<a href="#">Kan Bağışlama Süreci</a>'
             });
 
             var item2 = new Ext.Panel({
                 title: 'Kan Hakkında',
-                padding: '0 5 0 5' ,
+                collapsed: true,
+                padding: '5 5 5 5' ,
                 collapsible	:	true,
                 html: '<a href="#">Kanın Yapısı ve Görevleri Nelerdir?</a><br/>' +
                 	  '<a href="#">Kan Bağışlarım Nerede kullanılıyor</a><br/>'+
@@ -36,14 +38,15 @@ Ext.onReady(function(){
 
             var item4 = new Ext.Panel({
                 title: 'Site Kullanımı',
-                padding: '0 5 0 5' ,
+                collapsed: true,
+                padding: '5 5 5 5' ,
                 collapsible	:	true,
                 html: '<a href="#">Site Nasıl Çalışmaktadır</a><br/>' +
                 	  '<a href="#">Kan İsteğinde Nasıl Bulunabilirim?</a><br/>'
             });
 
             var item5 = new Ext.Panel({
-            	padding: '0 5 0 5' ,
+            	padding: '5 5 5 5' ,
             	title: 'Kullanıcı Girişi',
             	bodyStyle	:	'padding : 10px',
             	layout		:	'form',
@@ -92,7 +95,6 @@ Ext.onReady(function(){
 			defaults: {
 			 	hideCollapseTool : false,
 			 	border: true
-			 	
 		    },
 		    layoutConfig: {
 //		        titleCollapse: false,
@@ -118,17 +120,41 @@ Ext.onReady(function(){
 			html:'Ajax content will come here'
 		});
 		
-		
+		var header=new Ext.Panel({
+			renderTo: document.body,
+          	layout: 'fit',
+			region: 'north',
+			html: '<p align="center"><img src="../images/banner.jpg" align="middle"/></p>',
+		    height:150,
+		    tbar: [
+    		{
+       			text: '<b>Ana Sayfa</b>',
+       			iconCls: 'bmenu',  
+       			handler: function(){ alert('blah'); }
+   			},
+   			{
+        		text: '<b>Hakkımızda</b>',
+        		iconCls: 'bmenu', 
+       		 	handler: function(){ alert('blah'); }
+    		},
+    		{
+     		    text: '<b>Duyurular</b>',
+     		    iconCls: 'bmenu', 
+    	        handler: function(){ 
+       		}
+    		},
+    		{
+        		text: '<b>İletişim</b>',
+        		iconCls: 'bmenu',  // <-- icon
+       			handler: function(){ alert('blah'); }
+    		}]
+		});
 		
 		var view = new Ext.Viewport({
 			layout: 'border',
 			autoScroll: true,
 			border: true,
-			items:[{
-				region: 'north',
-				html: '<p align="center"><img src="../images/banner.jpg" align="middle"/></p>',
-		        height:100
-			},menuBar
+			items:[header,menuBar
 			,{
 				region: 'south',
 		        collapsible: false,
