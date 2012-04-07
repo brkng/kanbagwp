@@ -18,4 +18,8 @@ public class GenView {
 		return new ModelAndView("anasayfa");
 	}
 
+	@RequestMapping(value="/deneme")
+	public ModelAndView deneme(){
+		return new ModelAndView("deneme");
+	}
 }

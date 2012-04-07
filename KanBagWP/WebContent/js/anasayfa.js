@@ -116,12 +116,12 @@ Ext.onReady(function(){
 		
 		var view = new Ext.Viewport({
 			layout: 'border',
-			boxMinHeight	: 800,
+			anchor: '80%',
 			autoScroll: true,
 			border: true,
 			items:[{
 				region: 'north',
-				html: '<img src="../images/banner.jpg" align="middle"/>',
+				html: '<p align="center"><img src="../images/banner.jpg" align="middle"/></p>',
 		        height:100
 			},menuBar
 			,{
