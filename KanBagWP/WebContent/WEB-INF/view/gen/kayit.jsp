@@ -10,7 +10,9 @@
 <script src="../scripts/ext-3.3.1/ext-all.js"></script>
 <!-- <link type="text/css" rel="stylesheet" href="../scripts/ext-3.3.1/resources/xtheme-kanbagwp/css/xtheme-kanbagwp.css"> -->
 <!-- <link type="text/css" rel="stylesheet" href="../scripts/ext-3.3.1/resources/slicknessthemev2/css/xtheme-slickness.css">
- --><link type="text/css" rel="stylesheet" href="../scripts/ext-3.3.1/resources/css/ext-all.css">
+ -->
+ <link type="text/css" rel="stylesheet" href="../scripts/ext-3.3.1/resources/css/ext-all.css">
+ <link rel="stylesheet" type="text/css" href="../scripts/ext-3.3.1/resources/css/xtheme-silverCherry.css" />
  
 <link rel="stylesheet" type="text/css" id="theme" href=""/>
 

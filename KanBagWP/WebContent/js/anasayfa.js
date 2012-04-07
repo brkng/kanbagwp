@@ -1,12 +1,12 @@
 Ext.onReady(function(){
 //var topHTML = '<img style="margin-left: 5px" src="Google_maps_logo.png" alt="logo" height="60" width="380">';
 //Ext.BLANK_IMAGE_URL = 'extjs/resources/images/default/s.gif';
-		
 
-		Ext.QuickTips.init();
+
+			Ext.QuickTips.init();
 		
 		
-		var item1 = new Ext.Panel({
+			var item1 = new Ext.Panel({
                 title: 'Kan Bağışı',
                 collapsible	:	true,
                 collapsed: true,
@@ -28,7 +28,7 @@ Ext.onReady(function(){
             });
 
             var item3 = new Ext.Panel({
-                title: '<a href="#">Sıkça Sorulan Sorular</a>',
+                title: '<a style="color: #FFFFFF;" href="#">Sıkça Sorulan Sorular</a>',
                 collapsible	:false,
                 titleCollapse: false
          		
@@ -55,18 +55,19 @@ Ext.onReady(function(){
             	{
             		xtype:	'field',
             		fieldLabel:	'E-posta',
-            		width:	100
+            		width:	150
             	},{
             		xtype:	'field',
             		fieldLabel:	'Şifre',
             		inputType:'password',
-            		width:	100
+            		width:	150
             	},
             	{
             		xtype:	'button',
+            		width	:	80,
             		text: 	'Giriş',
             		style: {
-            		marginLeft: '170px'
+            		marginLeft: '175px'
             		},
             		align:	'right',
             		handler		:	function(btn){
@@ -82,7 +83,7 @@ Ext.onReady(function(){
 		
             var item6 =new Ext.Panel({
             	border: false,
-            	html: '<a href="kayit.html"><img src="../images/kaydol.jpg" /></a>'
+            	html: '<p align="center"><a href="kayit.html"><img width=250 height=250 src="../images/kaydol.jpg" /></a></p>'
             });
             
            
@@ -92,7 +93,7 @@ Ext.onReady(function(){
 			autoScroll: true,
 			defaults: {autoScroll: true},
 			region: 'west',
-			width: 320,
+			width: 310,
 			defaults: {
 			 	hideCollapseTool : false,
 			 	//border: true
@@ -114,6 +115,7 @@ Ext.onReady(function(){
 		var content = new Ext.Panel({
 			region: 'center',
 			autoScroll: true,
+			border: false,
 			margins:'5 5 5 0',
 			layoutConfig : {
 				align : 'stretch'
@@ -123,11 +125,17 @@ Ext.onReady(function(){
 		
 		var header=new Ext.Panel({
 			renderTo: document.body,
-          	layout: 'fit',
+          	//layout: 'fit',
 			region: 'north',
+			border: false,
 			html: '<p align="center"><img src="../images/banner.jpg" align="middle"/></p>',
 		    height:150,
 		    tbar: [
+		    //{Sağa dayamak için
+		    //	xtype: 'tbfill',
+		    //	width: 30
+		    //	
+		    //},
     		{
        			text: '<b>Ana Sayfa</b>',
        			iconCls: 'bmenu',  
@@ -154,19 +162,32 @@ Ext.onReady(function(){
 		var view = new Ext.Viewport({
 			layout: 'border',
 			autoScroll: true,
-			border: true,
+			border: false,
 			items:[header,menuBar
 			,{
 				region: 'south',
 		        collapsible: false,
-		        padding: '25 25 25 25' ,
+		        padding: '10 10 10 10' ,
 		        html:'<br/><br/><p align="center"><b>Sanguis Team 2012</b></p>',
 		        border: true,
-		        height: 100
+		        height: 60
 			},content
 			]
-			
 		});
+		
+		/*var templates = new Ext.Window({
+			width:900,
+			height:700,
+			id:'Templates',
+			resizable:false,
+			//layout:'border',
+			//border:true,
+			closable:false,
+			title:'Plantillas',
+			items:view
+		});
+
+		templates.show();*/
 		
 		
 		
