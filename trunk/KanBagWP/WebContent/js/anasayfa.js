@@ -81,6 +81,7 @@ Ext.onReady(function(){
             });
 		
             var item6 =new Ext.Panel({
+            	border: false,
             	html: '<a href="kayit.html"><img src="../images/kaydol.jpg" /></a>'
             });
             
@@ -94,7 +95,7 @@ Ext.onReady(function(){
 			width: 320,
 			defaults: {
 			 	hideCollapseTool : false,
-			 	border: true
+			 	//border: true
 		    },
 		    layoutConfig: {
 //		        titleCollapse: false,
@@ -166,5 +167,9 @@ Ext.onReady(function(){
 			]
 			
 		});
+		
+		
+		
+		
 //		view.render('anasayfa');
 });	
