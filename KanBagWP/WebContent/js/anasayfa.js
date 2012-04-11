@@ -41,7 +41,7 @@ Ext.onReady(function(){
 			},{
 				fieldLabel	:	'Adres',
 				xtype		:	'textarea',
-				width		:	130,
+				width		:	130
 			}],
 			buttons			:	[{
 				xtype		:	'button',
@@ -77,9 +77,14 @@ Ext.onReady(function(){
                 	  '<a href="#">Kana Yapılan Testler</a><br/>'+
                 	  '<a href="#">Dünya ve Türkiyede Kan Bağışı</a>'
             });
+            
+            
+            this.sss = function(){
+       			 content.load({ url: 'sss.html', nocache: true, timeout: 30, scripts: true });
+   			};
 
             var item3 = new Ext.Panel({
-                title: '<a style="color: #FFFFFF;" href="#">Sıkça Sorulan Sorular</a>',
+                title: '<a style="color: #FFFFFF;" href="#" onClick="sss();" >Sıkça Sorulan Sorular</a>',
                 collapsible	:false,
                 titleCollapse: false
          		
@@ -131,13 +136,21 @@ Ext.onReady(function(){
             	}
             	]
             });
+            
+            this.kayitsayfasiniyukle = function(){
+       			 content.load({ url: 'kayit', nocache: true, timeout: 30, scripts: true });
+   			};
 		
             var item6 =new Ext.Panel({
             	border: false,
-            	html: '<p align="center"><a href="kayit.html"><img width=250 height=250 src="../images/kaydol.jpg" /></a></p>'
+            	//kayit sayfasını merkeze yuklemeyi denedim ama başarısız. Görüntü çok bozuldu ama yöntem öğrenildi.
+            	//html: '<p align="center"><a class="test" id="test" href="#" onClick="kayitsayfasiniyukle();"><img width=250 height=250 src="../images/kaydol.jpg" /></a></p>'
+            	html: '<p align="center"><a href="kayit.html" ><img width=250 height=250 src="../images/kaydol.jpg" /></a></p>'
+            	
             });
             
            
+            
 		
 		var menuBar = new Ext.Panel({
 			//layout: 'accordion',

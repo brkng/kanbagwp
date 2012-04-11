@@ -27,4 +27,9 @@ public class GenView {
 	public ModelAndView anaicerik(){
 		return new ModelAndView("anaicerik");
 	}
+	
+	@RequestMapping(value="/sss")
+	public ModelAndView sss(){
+		return new ModelAndView("sss");
+	}
 }
