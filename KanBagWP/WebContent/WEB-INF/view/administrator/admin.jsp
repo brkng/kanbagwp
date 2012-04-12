@@ -45,6 +45,5 @@ function swapCSS(n){
 
 
 <body>
-Salam
 </body>
 </html>
