@@ -23,5 +23,4 @@ public class ApplicationContextProvider implements ApplicationContextAware{
 		this.context=context;
 		
 	}
-	
 }
