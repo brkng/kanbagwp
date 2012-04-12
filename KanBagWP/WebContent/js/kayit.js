@@ -1,7 +1,7 @@
 	function deneme1()
 	{
 		var myWin= new Ext.Window({
-			height		:	300,
+			height		:	400,
 			title		:	'Kayıt İşlemi',
 			modal		:	true,
 			resizable	:	false,
@@ -33,6 +33,31 @@
 				fieldLabel	:	'E-posta',
 				width		:	130
 			},{
+            		xtype:	'field',
+            		fieldLabel:	'Şifre',
+            		inputType:'password',
+            		width:	130
+            },{
+            		xtype:	'field',
+            		fieldLabel:	'Şifre Tekrar',
+            		inputType:'password',
+            		width:	130
+            },{
+				xtype		:	'combo',
+				fieldLabel	:	'Semt',
+				width		:	130,
+				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
+			},{
+				xtype		:	'combo',
+				fieldLabel	:	'İl',
+				width		:	130,
+				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
+			},{
+				xtype		:	'combo',
+				fieldLabel	:	'İlçe',
+				width		:	130,
+				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
+			},{
 				fieldLabel	:	'Adres',
 				xtype		:	'textarea',
 				width		:	130
@@ -41,7 +66,7 @@
 				xtype		:	'button',
 				text		:	'Kaydol',
 				handler		:	function(btn){
-					Ext.MessageBox.alert('','Kayıt İşlemi Tamamlandı');
+					Ext.MessageBox.alert('','KayÄ±t Ä°ÅŸlemi TamamlandÄ±');
 				}
 			}]
 		});

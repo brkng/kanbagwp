@@ -24,11 +24,10 @@
 			<value>org.springframework.web.servlet.view.JstlView</value>
 		</property>
 		<property name="prefix">
-			<value>/WEB-INF/view/gen/</value>
+			<value>/WEB-INF/view/administrator/</value>
 		</property>
 		<property name="suffix">
 			<value>.jsp</value>
 		</property>
 	</bean>
-	
 </beans>
