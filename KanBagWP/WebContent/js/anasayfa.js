@@ -4,6 +4,90 @@ Ext.onReady(function(){
 
 
 			Ext.QuickTips.init();
+			
+		this.kayit = function()
+		{
+		var myWin= new Ext.Window({
+			height		:	420,
+			title		:	'Kayıt İşlemi',
+			modal		:	true,
+			resizable	:	false,
+			draggable	:	false,
+			//closable	:	false,
+			width		:	260,
+			layout		:	'form',
+			bodyStyle	:	'padding : 10px',
+		    buttonAlign : 'center',
+			labelWidth	:	80,
+			defaultType	:	'field',
+			items		:	[{
+				//xtype		:	'textfield',
+				fieldLabel	:	'Ad',
+				width		:	130,
+				allowBlank:     false
+
+			},{
+				xtype		:	'numberfield',
+				fieldLabel	:	'TC Kimlik No',
+				minLength	:	11,
+				maxLength	:	11,
+				width		:	130
+			},{
+				xtype		:	'numberfield',
+				fieldLabel	:	'Telefon',
+				width		:	130
+			},{
+				xtype		:	'combo',
+				fieldLabel	:	'Kan Grubu',
+				width		:	50,
+				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
+			},{
+				fieldLabel	:	'E-posta',
+				width		:	130
+			},{
+            		xtype:	'field',
+            		fieldLabel:	'Şifre',
+            		minLength	:	8,
+            		inputType:'password',
+            		width:	130
+            },{
+            		xtype:	'field',
+            		fieldLabel:	'Şifre Tekrar',
+            		minLength	:	8,
+            		inputType:'password',
+            		width:	130
+            },{
+				xtype		:	'combo',
+				fieldLabel	:	'Semt',
+				width		:	130,
+				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
+			},{
+				xtype		:	'combo',
+				fieldLabel	:	'İl',
+				width		:	130,
+				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
+			},{
+				xtype		:	'combo',
+				fieldLabel	:	'İlçe',
+				width		:	130,
+				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
+			},{
+				fieldLabel	:	'Adres',
+				xtype		:	'textarea',
+				width		:	130
+			}],
+			buttons			:	[{
+				xtype		:	'button',
+				text		:	'Kaydol',
+				handler		:	function(btn){
+					Ext.MessageBox.alert('','Kayıt İşlemi Tamamlandı');
+				}
+			}]
+		});
+		
+		myWin.show();
+		
+	}
 					
 			var item1 = new Ext.Panel({
                 title: 'Kan Bağışı',
@@ -93,8 +177,7 @@ Ext.onReady(function(){
             	border: false,
             	//kayit sayfasını merkeze yuklemeyi denedim ama başarısız. Görüntü çok bozuldu ama yöntem öğrenildi.
             	//html: '<p align="center"><a class="test" id="test" href="#" onClick="kayitsayfasiniyukle();"><img width=250 height=250 src="../images/kaydol.jpg" /></a></p>'
-            	html: '<p align="center"><a href="kayit.html" ><img width=250 height=250 src="../images/kaydol.jpg" /></a></p>'
-            	
+            	html: '<p align="center"><a href="#" onClick="kayit();" ><img width=250 height=250 src="../images/kaydol.jpg" /></a></p>'
             });
             
            
