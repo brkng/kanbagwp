@@ -1,9 +1,6 @@
-Ext.onReady(function(){
-//var topHTML = '<img style="margin-left: 5px" src="Google_maps_logo.png" alt="logo" height="60" width="380">';
-//Ext.BLANK_IMAGE_URL = 'extjs/resources/images/default/s.gif';
+function anasayfa() {
 
-
-			Ext.QuickTips.init();
+		Ext.QuickTips.init();
 			
 		this.kayit = function()
 		{
@@ -111,11 +108,16 @@ Ext.onReady(function(){
             });
             
             
-            this.sss = function(){
-       			 content.load({ url: 'sss.html', nocache: true, timeout: 30, scripts: true });
-   			};
-
+            this.sss = function(){	
+           		content.update('');
+       	   		content.removeAll(true);
+       	  	 	content.add(sssPanel);
+       	   		content.doLayout();
+		   };
+            
+          
             var item3 = new Ext.Panel({
+            	
                 title: '<a style="color: #FFFFFF;" href="#" onClick="sss();" >Sıkça Sorulan Sorular</a>',
                 collapsible	:false,
                 titleCollapse: false
@@ -123,7 +125,6 @@ Ext.onReady(function(){
             });
             
             
-
             var item4 = new Ext.Panel({
                 title: 'Site Kullanımı',
                 collapsed: true,
@@ -290,6 +291,7 @@ Ext.onReady(function(){
        			iconCls: 'bmenu',  
        			handler: function()
        			{
+       				console.log(document.getElementById('sss'));
        				content.load({ url: 'anaicerik', nocache: true, timeout: 30, scripts: true });
        			}
    			},
@@ -352,4 +354,6 @@ Ext.onReady(function(){
 		
 		
 //		view.render('anasayfa');
-});	
+}
+
+Ext.onReady(anasayfa);

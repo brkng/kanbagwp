@@ -16,17 +16,6 @@
  
 <link rel="stylesheet" type="text/css" id="theme" href="../styles/anasayfa.css"/>
 
-<!-- <style type="text/css">
-
-/* 	.empty .x-panel-body {
-		padding-top: 20px;
-		text-align: center;
-		font-style: italic;
-		/* color: white;
-		/* font-size: 11px; */ 
-	} */
-</style> -->
-
 
 <script type="text/javascript">
 
@@ -37,10 +26,8 @@ function swapCSS(n){
 }
 </script>
 
-
 <script type="text/javascript" src="../js/anasayfa.js"></script>
-
-
+<script type="text/javascript" src="../js/sss.js"></script>
 
 
 
