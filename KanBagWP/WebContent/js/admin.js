@@ -999,7 +999,7 @@ Ext.onReady(function(){
         		text: '<b>Yardım</b>',
         		iconCls: 'bmenu',  // <-- icon
        			handler: function(){
-       				content.load({ url: 'deneme', nocache: true, timeout: 30, scripts: true }); 
+       				content.load({ url: 'resources/static/yardim.html', nocache: true, timeout: 30, scripts: true }); 
        			}
     		}]
 		});
