@@ -26,7 +26,7 @@
 			<value>org.springframework.web.servlet.view.JstlView</value>
 		</property>
 		<property name="prefix">
-			<value>/WEB-INF/view/administrator/</value>
+			<value>/WEB-INF/view/kullanici/</value>
 		</property>
 		<property name="suffix">
 			<value>.jsp</value>
