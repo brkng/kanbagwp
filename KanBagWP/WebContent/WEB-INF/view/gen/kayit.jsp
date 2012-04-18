@@ -41,5 +41,12 @@ function swapCSS(n){
 
 
 <body>
+		<table width="100%" align="center">
+			<tr>
+				<td width="100%" align="center" style="padding-top:100px;">
+					<div id="mydiv"></div>
+				</td>
+			</tr>
+		</table>
 </body>
 </html>

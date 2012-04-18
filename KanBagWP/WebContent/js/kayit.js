@@ -1,5 +1,19 @@
 	function deneme1()
 	{
+		Ext.QuickTips.init();
+		
+		Ext.apply(Ext.form.VTypes, {
+			passwordCheck: function(val, field) {
+				if (field.initialPassField) {
+					var pwd = Ext.getCmp(field.initialPassField);
+					return (val == pwd.getValue());
+				}
+				return true;
+			},
+			passwordCheckText: 'What are you doing?<br/>The passwords entered do not match!'
+		});
+		
+		
 		var myWin= new Ext.Window({
 			height		:	400,
 			title		:	'Kayıt İşlemi',
@@ -20,7 +34,9 @@
 
 			},{
 				fieldLabel	:	'TC Kimlik No',
-				width		:	130
+				name: 'tcKimlik',
+				allowBlank: false,
+				width		:	130,
 			},{
 				fieldLabel	:	'Telefon',
 				width		:	130
@@ -33,14 +49,18 @@
 				fieldLabel	:	'E-posta',
 				width		:	130
 			},{
-            		xtype:	'field',
+            		xtype:	'textfield',
             		fieldLabel:	'Şifre',
+            		id:'pwd',
             		inputType:'password',
             		width:	130
             },{
-            		xtype:	'field',
+            		xtype:	'textfield',
+            		id: 'pwd-confirm',
             		fieldLabel:	'Şifre Tekrar',
             		inputType:'password',
+            		vType: 'passwordCheck',
+            		initialPassField: 'pwd',
             		width:	130
             },{
 				xtype		:	'combo',
@@ -65,8 +85,12 @@
 			buttons			:	[{
 				xtype		:	'button',
 				text		:	'Kaydol',
-				handler		:	function(btn){
-					Ext.MessageBox.alert('','KayÄ±t Ä°ÅŸlemi TamamlandÄ±');
+				handler		:	function(){
+					
+		        		myWin.getForm().getEl().dom.action = 'register';
+		        		myWin.getForm().getEl().dom.method = 'POST';
+		        		myWin.getForm().submit();
+					
 				}
 			}]
 		});
