@@ -32,6 +32,7 @@ function anasayfa() {
 			},{
 				xtype		:	'numberfield',
 				fieldLabel	:	'Telefon',
+				allowBlank: false,
 				width		:	130
 			},{
 				xtype		:	'combo',
@@ -144,10 +145,13 @@ function anasayfa() {
             	{
             		xtype:	'field',
             		fieldLabel:	'E-posta',
+            		allowBlank: false,
+            		name: 'ePosta',
             		width:	150
             	},{
             		xtype:	'field',
             		fieldLabel:	'Şifre',
+            		allowBlank: false,
             		inputType:'password',
             		width:	150
             	},
@@ -160,7 +164,9 @@ function anasayfa() {
             		},
             		align:	'right',
             		handler		:	function(btn){
-					Ext.MessageBox.alert('','kontrol yapılacak!!');
+            			
+            			Ext.MessageBox.alert('','E-posta adresi',ePosta);
+            				
 					}
             	},
             	{
