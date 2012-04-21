@@ -1,7 +1,7 @@
 function anasayfa() {
 
 		Ext.QuickTips.init();
-			
+
 		this.kayit = function()
 		{
 		var myWin= new Ext.Window({
@@ -16,7 +16,7 @@ function anasayfa() {
 			bodyStyle	:	'padding : 10px',
 		    buttonAlign : 'center',
 			labelWidth	:	80,
-			defaultType	:	'field',
+			defaultType	:	'textfield',
 			items		:	[{
 				//xtype		:	'textfield',
 				fieldLabel	:	'Ad',
@@ -28,46 +28,55 @@ function anasayfa() {
 				fieldLabel	:	'TC Kimlik No',
 				minLength	:	11,
 				maxLength	:	11,
-				width		:	130
+				width		:	130,
+				allowBlank  :   false
 			},{
 				xtype		:	'numberfield',
 				fieldLabel	:	'Telefon',
-				allowBlank: false,
+				allowBlank  :   false,
 				width		:	130
 			},{
 				xtype		:	'combo',
+				allowBlank  :   false,
 				fieldLabel	:	'Kan Grubu',
 				width		:	50,
 				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
 			},{
 				fieldLabel	:	'E-posta',
-				width		:	130
+				width		:	130,
+				allowBlank  :   false
 			},{
-            		xtype:	'field',
-            		fieldLabel:	'Şifre',
+            		xtype		:	'textfield',
+            		fieldLabel	:	'Şifre',
             		minLength	:	8,
-            		inputType:'password',
-            		width:	130
+            		inputType	:	'password',
+            		width		:	130,
+            		allowBlank  :   false
             },{
-            		xtype:	'field',
-            		fieldLabel:	'Şifre Tekrar',
+            		xtype		:	'textfield',
+            		fieldLabel	:	'Şifre Tekrar',
             		minLength	:	8,
-            		inputType:'password',
-            		width:	130
+            		name		:	'pwd-confirm',
+            		inputType	:	'password',
+            		width		:	130,
+            		allowBlank  :   false,
             },{
 				xtype		:	'combo',
 				fieldLabel	:	'Semt',
 				width		:	130,
+				allowBlank  :   false,
 				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
 			},{
 				xtype		:	'combo',
 				fieldLabel	:	'İl',
 				width		:	130,
+				allowBlank  :   false,
 				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
 			},{
 				xtype		:	'combo',
 				fieldLabel	:	'İlçe',
 				width		:	130,
+				allowBlank  :   false,
 				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
 			},{
 				fieldLabel	:	'Adres',
@@ -143,13 +152,13 @@ function anasayfa() {
 
             	items:	[
             	{
-            		xtype:	'field',
+            		xtype:	'textfield',
             		fieldLabel:	'E-posta',
             		allowBlank: false,
             		name: 'ePosta',
             		width:	150
             	},{
-            		xtype:	'field',
+            		xtype:	'textfield',
             		fieldLabel:	'Şifre',
             		allowBlank: false,
             		inputType:'password',
