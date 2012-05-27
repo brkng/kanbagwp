@@ -1,12 +1,20 @@
 package view;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller(value = "genController")
-//@RequestMapping("/sistem")
+import bus.GenBUS;
+
+@Controller
 public class GenView {
+	
+	
+	@Autowired
+	private GenBUS genBUS;
+	
+	
 	
 	@RequestMapping(value="/kayit")
 	public ModelAndView kayit(){

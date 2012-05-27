@@ -1,3 +1,1 @@
-<%
-response.sendRedirect("gen/anasayfa");
-%>
+hello
