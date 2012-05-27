@@ -27,7 +27,6 @@ function swapCSS(n){
 </script>
 
 <script type="text/javascript" src="../js/anasayfa.js"></script>
-<script type="text/javascript" src="../js/sss.js"></script>
 
 
 

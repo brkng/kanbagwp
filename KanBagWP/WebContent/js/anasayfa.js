@@ -94,7 +94,7 @@ function anasayfa() {
 		
 		myWin.show();
 		
-	}
+	};
 					
 			var item1 = new Ext.Panel({
                 title: 'Kan Bağışı',
@@ -119,7 +119,88 @@ function anasayfa() {
             
             
             this.sss = function(){	
-           		content.update('');
+            	
+            	var sssPanel = new Ext.Panel({
+	            	title: 'SÄ±kÃ§a Sorulan Sorular',
+	            	//closeAction: 'hide',
+	            	id:'sss',
+	            	bodyStyle:'padding:10px;font-size:12px;background-color:#E6E6E2;',
+	            	items : [
+	            	{
+	            		title: 'Ã‡ok canÄ±m yanar mÄ±?',
+	                	collapsed: true,
+	               		collapsible	:true,
+	               		html : 'KullanÄ±lan iÄŸnenin kalÄ±nlÄ±ÄŸÄ± uluslararasÄ± standartlarda bu iÅŸlem iÃ§in uygulanan kalÄ±nlÄ±ktadÄ±r. Hayat kurtarmak iÃ§in alÄ±nan kanÄ±n iÃ§indeki hÃ¼crelere zarar verilmemesi aÃ§Ä±sÄ±ndan iÄŸnenin kalÄ±n olmasÄ± gerekmektedir. Ä°ÄŸnenin kalÄ±n olmasÄ± kan alÄ±mÄ± sÄ±rasÄ±nda iÄŸne iÃ§inden geÃ§en kan hÃ¼crelerinin parÃ§alanmasÄ±nÄ± engeller, oluÅŸabilecek hasarÄ± azaltÄ±r. AcÄ±nÄ±n az hissedilmesi iÃ§in iÄŸne ucu Ã¶zel bir iÅŸlemle lazerle kesilmiÅŸ, silikon ile kaplanmÄ±ÅŸtÄ±r. Personelimiz kan alÄ±mÄ± konusunda Ã¶zel eÄŸitim almÄ±ÅŸ uzmanlardÄ±r. HissettiÄŸiniz acÄ± Ã§ok azdÄ±r.'
+	            	},
+	            	{
+	            		title: 'Kimller kan baÄŸÄ±ÅŸlayabilir?',
+	                	collapsed: true,
+	               		collapsible	:true,
+	               		html : '18-65 YaÅŸ arasÄ±nda, aÄŸÄ±rlÄ±ÄŸÄ± en az 50 kg ve Ã¼zerinde olan her saÄŸlÄ±klÄ± birey kan baÄŸÄ±ÅŸÄ±nda bulunabilir. '
+	            	},
+	            	{
+	            		title: 'Kan baÄŸÄ±ÅŸÄ± ne kadar sÃ¼rer?',
+	                	collapsed: true,
+	               		collapsible	:true,
+	               		html : 'KayÄ±t, muayene, kan verme ve ikram iÅŸlemlerinin tamamÄ± yaklaÅŸÄ±k olarak 30-35 dakika sÃ¼rmektedir. Bir hayat kurtarÄ±lmasÄ± iÃ§in bu sÃ¼reyi gÃ¶zden Ã§Ä±karmaya deÄŸmez mi? '
+	            	},
+	            	{
+	            		title: 'korkuyorum. Kan baÄŸÄ±ÅŸlayabilir miyim?',
+	                	collapsed: true,
+	               		collapsible	:true,
+	               		html : 'EÄŸer korkunuz sizi bayÄ±ltacak kadar Ã§ok ise kan vermeniz uygun deÄŸildir. Bir yaÅŸam kurtarma dÃ¼ÅŸÃ¼ncesi, bÃ¼tÃ¼n korkularÄ±nÄ±zÄ± yener. '
+	            	},
+	            	{
+	            		title: 'Tarama test sonuÃ§larÄ±m bana bildirilecek mi?',
+	                	collapsed: true,
+	               		collapsible	:true,
+	               		html : 'EÄŸer sonuÃ§larÄ±nÄ±z negatif bulunmuÅŸsa size herhangi bir bildirimde bulunulmayacaktÄ±r. '
+	            	},
+	            	{
+	            		title: 'Tarama test sonuÃ§larÄ±m bana bildirilecek mi?',
+	                	collapsed: true,
+	               		collapsible	:true,
+	               		html : 'EÄŸer sonuÃ§larÄ±nÄ±z negatif bulunmuÅŸsa size herhangi bir bildirimde bulunulmayacaktÄ±r. '
+	            	},
+	            	{
+	            		title: 'Ã‡ok canÄ±m yanar mÄ±?',
+	                	collapsed: true,
+	               		collapsible	:true,
+	               		html : 'KullanÄ±lan iÄŸnenin kalÄ±nlÄ±ÄŸÄ± uluslararasÄ± standartlarda bu iÅŸlem iÃ§in uygulanan kalÄ±nlÄ±ktadÄ±r. Hayat kurtarmak iÃ§in alÄ±nan kanÄ±n iÃ§indeki hÃ¼crelere zarar verilmemesi aÃ§Ä±sÄ±ndan iÄŸnenin kalÄ±n olmasÄ± gerekmektedir. Ä°ÄŸnenin kalÄ±n olmasÄ± kan alÄ±mÄ± sÄ±rasÄ±nda iÄŸne iÃ§inden geÃ§en kan hÃ¼crelerinin parÃ§alanmasÄ±nÄ± engeller, oluÅŸabilecek hasarÄ± azaltÄ±r. AcÄ±nÄ±n az hissedilmesi iÃ§in iÄŸne ucu Ã¶zel bir iÅŸlemle lazerle kesilmiÅŸ, silikon ile kaplanmÄ±ÅŸtÄ±r. Personelimiz kan alÄ±mÄ± konusunda Ã¶zel eÄŸitim almÄ±ÅŸ uzmanlardÄ±r. HissettiÄŸiniz acÄ± Ã§ok azdÄ±r.'
+	            	},
+	            	{
+	            		title: 'Kimller kan baÄŸÄ±ÅŸlayabilir?',
+	                	collapsed: true,
+	               		collapsible	:true,
+	               		html : '18-65 YaÅŸ arasÄ±nda, aÄŸÄ±rlÄ±ÄŸÄ± en az 50 kg ve Ã¼zerinde olan her saÄŸlÄ±klÄ± birey kan baÄŸÄ±ÅŸÄ±nda bulunabilir. '
+	            	},
+	            	{
+	            		title: 'Kan baÄŸÄ±ÅŸÄ± ne kadar sÃ¼rer?',
+	                	collapsed: true,
+	               		collapsible	:true,
+	               		html : 'KayÄ±t, muayene, kan verme ve ikram iÅŸlemlerinin tamamÄ± yaklaÅŸÄ±k olarak 30-35 dakika sÃ¼rmektedir. Bir hayat kurtarÄ±lmasÄ± iÃ§in bu sÃ¼reyi gÃ¶zden Ã§Ä±karmaya deÄŸmez mi? '
+	            	},
+	            	{
+	            		title: 'korkuyorum. Kan baÄŸÄ±ÅŸlayabilir miyim?',
+	                	collapsed: true,
+	               		collapsible	:true,
+	               		html : 'EÄŸer korkunuz sizi bayÄ±ltacak kadar Ã§ok ise kan vermeniz uygun deÄŸildir. Bir yaÅŸam kurtarma dÃ¼ÅŸÃ¼ncesi, bÃ¼tÃ¼n korkularÄ±nÄ±zÄ± yener. '
+	            	},
+	            	{
+	            		title: 'Tarama test sonuÃ§larÄ±m bana bildirilecek mi?',
+	                	collapsed: true,
+	               		collapsible	:true,
+	               		html : 'EÄŸer sonuÃ§larÄ±nÄ±z negatif bulunmuÅŸsa size herhangi bir bildirimde bulunulmayacaktÄ±r. '
+	            	},
+	            	{
+	            		title: 'Tarama test sonuÃ§larÄ±m bana bildirilecek mi?',
+	                	collapsed: true,
+	               		collapsible	:true,
+	               		html : 'EÄŸer sonuÃ§larÄ±nÄ±z negatif bulunmuÅŸsa size herhangi bir bildirimde bulunulmayacaktÄ±r. '
+	            	}
+	            	]
+	            });
+            	
        	   		content.removeAll(true);
        	  	 	content.add(sssPanel);
        	   		content.doLayout();
@@ -305,9 +386,11 @@ function anasayfa() {
        			text: '<b>Ana Sayfa</b>',
        			iconCls: 'bmenu',  
        			handler: function()
-       			{
-       				console.log(document.getElementById('sss'));
+       			{       				
+       				content.removeAll(true);
        				content.load({ url: 'anaicerik', nocache: true, timeout: 30, scripts: true });
+           	   		content.doLayout();
+       				
        			}
    			},
    			{
@@ -325,6 +408,7 @@ function anasayfa() {
         		text: '<b>İletişim</b>',
         		iconCls: 'bmenu',  // <-- icon
        			handler: function(){
+       				content.removeAll(true);
        				content.load({ url: 'deneme', nocache: true, timeout: 30, scripts: true }); 
        			}
     		}]
