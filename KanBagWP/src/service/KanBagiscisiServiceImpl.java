@@ -82,7 +82,14 @@ public class KanBagiscisiServiceImpl implements KanBagiscisiService {
 			obj.put("telefonnumarasi", kan.getTelefon());
 			obj.put("hastaneid", kan.getHastaneid());
 			obj.put("kangrubu", kan.getKangrubu());
-			obj.put("sonkanbagistarihi", formatter.format(kan.getSonkanbagistarihi()));
+			
+			try{
+				obj.put("sonkanbagistarihi", formatter.format(kan.getSonkanbagistarihi()));
+			}
+			catch(Exception e)
+			{
+				obj.put("sonkanbagistarihi","");
+			}
 			obj.put("semtid", kan.getSemtid());
 			obj.put("email", kan.getEmail());
 
