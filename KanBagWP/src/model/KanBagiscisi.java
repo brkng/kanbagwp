@@ -32,7 +32,7 @@ public class KanBagiscisi {
 	private String telefon;
 	
 	@Column(name = "kangrubu")
-	private int kangrubu;
+	private String kangrubu;
 	
 	@Column(name = "hastaneid")
 	private int hastaneid;
@@ -41,7 +41,7 @@ public class KanBagiscisi {
 	private Date sonkanbagistarihi;
 	
 	@Column(name = "semtid")
-	private int semtid;
+	private String semtid;
 	
 	@Column(name = "email")
 	private String email;
@@ -78,11 +78,11 @@ public class KanBagiscisi {
 		this.telefon = telefon;
 	}
 
-	public int getKangrubu() {
+	public String getKangrubu() {
 		return kangrubu;
 	}
 
-	public void setKangrubu(int kangrubu) {
+	public void setKangrubu(String kangrubu) {
 		this.kangrubu = kangrubu;
 	}
 
@@ -102,11 +102,11 @@ public class KanBagiscisi {
 		this.sonkanbagistarihi = sonkanbagistarihi;
 	}
 
-	public int getSemtid() {
+	public String getSemtid() {
 		return semtid;
 	}
 
-	public void setSemtid(int semtid) {
+	public void setSemtid(String semtid) {
 		this.semtid = semtid;
 	}
 

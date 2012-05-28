@@ -18,34 +18,32 @@ function anasayfa() {
 			labelWidth	:	80,
 			defaultType	:	'textfield',
 			items		:	[{
+				id			:	'isimsoyisim',
 				//xtype		:	'textfield',
 				fieldLabel	:	'Ad',
 				width		:	130,
 				allowBlank:     false
 
 			},{
-				xtype		:	'numberfield',
-				fieldLabel	:	'TC Kimlik No',
-				minLength	:	11,
-				maxLength	:	11,
-				width		:	130,
-				allowBlank  :   false
-			},{
+				id			:	'telefon',
 				xtype		:	'numberfield',
 				fieldLabel	:	'Telefon',
 				allowBlank  :   false,
 				width		:	130
 			},{
+				id			:	'kangrubu',
 				xtype		:	'combo',
 				allowBlank  :   false,
 				fieldLabel	:	'Kan Grubu',
 				width		:	50,
 				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
 			},{
+				id			:	'email',
 				fieldLabel	:	'E-posta',
 				width		:	130,
 				allowBlank  :   false
 			},{
+					id			:	'sifre1',
             		xtype		:	'textfield',
             		fieldLabel	:	'Şifre',
             		minLength	:	8,
@@ -53,6 +51,7 @@ function anasayfa() {
             		width		:	130,
             		allowBlank  :   false
             },{
+            		id			:	'sifre2',
             		xtype		:	'textfield',
             		fieldLabel	:	'Şifre Tekrar',
             		minLength	:	8,
@@ -61,24 +60,28 @@ function anasayfa() {
             		width		:	130,
             		allowBlank  :   false,
             },{
+            	id			:	'semt',
 				xtype		:	'combo',
 				fieldLabel	:	'Semt',
 				width		:	130,
 				allowBlank  :   false,
-				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
+				store		:	['Göztepe','BeylerBeyi','Bakırkoy','YeniMahalle','Semt2','Semt5','Semt6','Semt7']
 			},{
+				id			:	'il',
 				xtype		:	'combo',
 				fieldLabel	:	'İl',
 				width		:	130,
 				allowBlank  :   false,
-				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
+				store		:	['Ankara','İstanbul','Bursa','Çanakkale','Ağrı','İzmir','Bolu','Antalya']
 			},{
+				id			:	'ilce',
 				xtype		:	'combo',
 				fieldLabel	:	'İlçe',
 				width		:	130,
 				allowBlank  :   false,
-				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
+				store		:	['Kadıköy','Umraniye','Uskudar','Taşdelen']
 			},{
+				id			:	'adres',
 				fieldLabel	:	'Adres',
 				xtype		:	'textarea',
 				width		:	130
@@ -87,7 +90,36 @@ function anasayfa() {
 				xtype		:	'button',
 				text		:	'Kaydol',
 				handler		:	function(btn){
-					Ext.MessageBox.alert('','Kayıt İşlemi Tamamlandı');
+					//Kayıt İşlemleri
+					Ext.Ajax.request({
+    					url		: 'yenikullaniciekle',
+    					params	: {
+    						isimsoyisim:Ext.getCmp('isimsoyisim').getValue(),
+    						kangrubu:Ext.getCmp('kangrubu').getValue(),
+    						email:Ext.getCmp('email').getValue(),
+    						telefon:Ext.getCmp('telefon').getValue(),
+    						sifre1:Ext.getCmp('sifre1').getValue(),
+    						sifre2:Ext.getCmp('sifre2').getValue(),
+    						semt:Ext.getCmp('semt').getValue(),
+    						il:Ext.getCmp('il').getValue(),
+    						ilce:Ext.getCmp('ilce').getValue(),
+    						adres:Ext.getCmp('adres').getValue()
+    					},
+    					success : function(response) {
+    						Ext.MessageBox.alert("Kullanıcı Başarılı bir şekilde sisteme kaydedildi");
+    						
+    						myWin.close();
+    					},
+    					failure : function(response) {
+    						
+    						Ext.MessageBox.alert("Kayıt sırasında bir hata oluştu!");
+    						
+    						myWin.close();
+    					}	
+    				});
+					
+					
+					//Kayıt işlemleri
 				}
 			}]
 		});
@@ -268,16 +300,26 @@ function anasayfa() {
         					success : function(response) {
         						obj = Ext.util.JSON.decode(response.responseText);
         						
-        						if(obj.rol == 1)
+        						if(obj.rol == 1)//admin
         						{
         							window.location = '../administrator/admin';
         						}
+        						else if(obj.rol == 2)//Kullanici
+        						{
+        							//window.location = '../gen/anasayfa';
+        						}
+        						else if(obj.rol ==3)//Doktor
+        						{
+        							//window.location = '../gen/anasayfa';
+        						}
+        						else if(obj.rol== -1)
+        						{
+        							Ext.MessageBox.alert("","Şifre Yanlış");
+        						}
         						else
         						{
-        							Ext.MessageBox.alert(obj.rol);
+        							Ext.MessageBox.alert("","Böyle bir kullanıcı adı mevcut değil");
         						}
-        							
-        
         					},
         					failure : function(response) {
         						
