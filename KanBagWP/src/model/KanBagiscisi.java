@@ -10,6 +10,8 @@ import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 
+
+
 @JsonAutoDetect
 @Entity
 @Table(name = "kanbagiscisi")

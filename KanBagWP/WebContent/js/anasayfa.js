@@ -233,12 +233,16 @@ function anasayfa() {
 
             	items:	[
             	{
+            		name : 'username',
+            		id: 'username',
             		xtype:	'textfield',
             		fieldLabel:	'E-posta',
             		allowBlank: false,
             		name: 'ePosta',
             		width:	150
             	},{
+            		name  : 'password',
+            		id: 'password',
             		xtype:	'textfield',
             		fieldLabel:	'Şifre',
             		allowBlank: false,
@@ -253,9 +257,33 @@ function anasayfa() {
             		marginLeft: '175px'
             		},
             		align:	'right',
-            		handler		:	function(btn){
+            		handler		:	function(btn){         			
             			
-            			Ext.MessageBox.alert('','E-posta adresi',ePosta);
+        				Ext.Ajax.request({
+        					url		: 'login',
+        					params	: {
+        						uname:Ext.getCmp('username').getValue(),
+        						pass:Ext.getCmp('password').getValue()
+        					},
+        					success : function(response) {
+        						obj = Ext.util.JSON.decode(response.responseText);
+        						
+        						if(obj.rol == 1)
+        						{
+        							window.location = '../administrator/admin';
+        						}
+        						else
+        						{
+        							Ext.MessageBox.alert(obj.rol);
+        						}
+        							
+        
+        					},
+        					failure : function(response) {
+        						
+        						Ext.MessageBox.alert("no");
+        					}	
+        				});
             				
 					}
             	},
