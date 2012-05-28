@@ -63,7 +63,10 @@ public class KanBagiscisiDaoImpl implements KanBagiscisiDao {
 
 	@Override
 	public KanBagiscisi save(KanBagiscisi article) {
-		sessionFactory.getCurrentSession().save(article);
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		tx.commit();
+		session.save(article);
 		return article;
 	}
 

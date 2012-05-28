@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.KanBagiscisi;
 import model.Kullanici;
 import net.sf.json.JSONObject;
 
@@ -30,6 +31,37 @@ public class GenView {
 	
 	@Autowired
 	private KullaniciService kulServ;
+	
+	@Autowired
+	private KanBagiscisiService kanBagServ;
+	
+	@RequestMapping(value="/yenikullaniciekle")
+	public void yenikullaniciekle(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+		KanBagiscisi bagisci=new KanBagiscisi();
+		Kullanici kullanici=new Kullanici();
+		
+		bagisci.setIsimsoyisim(req.getParameter("isimsoyisim"));
+		bagisci.setKangrubu(req.getParameter("kangrubu"));
+		bagisci.setEmail(req.getParameter("email"));
+		bagisci.setTelefon(req.getParameter("telefon"));
+		bagisci.setSemtid(req.getParameter("semt"));
+		bagisci.setAdres(req.getParameter("adres"));
+		
+		kanBagServ.saveArticle(bagisci);
+		
+		//
+		//bagisci.set(req.getParameter("sifre1"));
+		//bagisci.setIsimsoyisim(req.getParameter("sifre2"));
+		
+		
+		
+		kullanici.setUsername(req.getParameter("email"));
+		kullanici.setPassword(req.getParameter("sifre1"));
+		kullanici.setRolId(2);
+		
+		kulServ.saveKullanici(kullanici);
+	}
+	
 	
 	@RequestMapping(value="/login")
 	public void loadStore(HttpServletRequest req, HttpServletResponse resp) throws IOException{

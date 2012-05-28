@@ -51,7 +51,11 @@ public class KullaniciDaoImpl implements KullaniciDao {
 
 	@Override
 	public Kullanici save(Kullanici kullanici) {
-		sessionFactory.getCurrentSession().save(kullanici);
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		tx.commit();
+		session.save(kullanici);
+		
 		return kullanici;
 	}
 

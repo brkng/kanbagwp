@@ -34,8 +34,7 @@ public class KullaniciServiceImpl implements KullaniciService {
 
 	@Override
 	public void saveKullanici(Kullanici kullanici) {
-		// TODO Auto-generated method stub
-		
+		kullaniciDao.save(kullanici);
 	}
 
 	@Override
