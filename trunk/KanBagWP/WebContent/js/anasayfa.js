@@ -331,7 +331,7 @@ function anasayfa() {
             	},
             	{
             		border	: false,
-            		html:'<a href="#">Şifremi Unuttum</a>'
+            		html:'<a href="#" onClick="sifreunuttum();"  >Şifremi Unuttum</a>'
             	}
             	]
             });
@@ -503,19 +503,70 @@ function anasayfa() {
 			]
 		});
 		
-		/*var templates = new Ext.Window({
-			width:900,
-			height:700,
-			id:'Templates',
-			resizable:false,
-			//layout:'border',
-			//border:true,
-			closable:false,
-			title:'Plantillas',
-			items:view
-		});
 
-		templates.show();*/
+		
+		
+		///////////Sifremi Unuttum/////////////////////////////////////////////////		
+		this.sifreunuttum = function()
+		{
+		var sifreWin= new Ext.Window({
+			height		:	150,
+			title		:	'Kayıt İşlemi',
+			modal		:	true,
+			resizable	:	false,
+			draggable	:	false,
+			//closable	:	false,
+			width		:	260,
+			layout		:	'form',
+			bodyStyle	:	'padding : 10px',
+		    buttonAlign : 'center',
+			labelWidth	:	80,
+			defaultType	:	'textfield',
+			items		:	[{
+				id			:	'eposta',
+				//xtype		:	'textfield',
+				fieldLabel	:	'Eposta',
+				width		:	130,
+				allowBlank:     false
+			}],
+			buttons			:	[{
+				xtype		:	'button',
+				text		:	'Gönder',
+				handler		:	function(btn){
+					//Kayıt İşlemleri
+					Ext.Ajax.request({
+    					url		: 'sifregonder',
+    					params	: {
+    						eposta:Ext.getCmp('eposta').getValue(),
+    					},
+    					success : function(response) {
+    						obj = Ext.util.JSON.decode(response.responseText);
+    						
+    						if(obj.cevap==1)
+    						{
+    							Ext.MessageBox.alert("","Şifre Gönderildi! Lütfen epostanızı kontrol edin");
+    						}
+    						else
+    						{
+    							Ext.MessageBox.alert("","Sistemde bu epostaya sahip kullanıcı bulunamadı");
+    						}
+    					},
+    					failure : function(response) {
+    						
+    					}	
+    				});
+					
+					
+					//Kayıt işlemleri
+				}
+			}]
+		});
+		
+		sifreWin.show();
+		
+	};
+		///////////Sifremi Unuttum/////////////////////////////////////////////////
+		
 		
 		content.load({ url: 'anaicerik', nocache: true, timeout: 30, scripts: true });
 		

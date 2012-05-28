@@ -3,6 +3,10 @@ package view;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import javax.mail.*;
+import javax.mail.internet.*;
+import java.util.*;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -62,6 +66,77 @@ public class GenView {
 		kulServ.saveKullanici(kullanici);
 	}
 	
+	public class KullaniciBilgi extends javax.mail.Authenticator {
+	    public PasswordAuthentication getPasswordAuthentication() {
+	       String username = "faridmovsumov@gmail.com";
+	       String password = "15011988fz";
+	       return new PasswordAuthentication(username, password);
+	    }
+	}
+	
+	private void Gonder(String toMail, String pass){
+		final String username = "faridmovsumov@gmail.com";
+		final String password = "";
+ 
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.port", "587");
+ 
+		Session session = Session.getInstance(props,
+		  new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		  });
+ 
+		try {
+ 
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress("info@microsoft.com"));
+			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(toMail));
+			message.setSubject("Sanguis Kan Baðýþ Uygulamasý");
+			message.setText("Merhaba,"+ "\n\n Þifreniz:"+pass);
+ 
+			Transport.send(message);
+ 
+			System.out.println("Done");
+ 
+		} catch (MessagingException e) {
+			throw new RuntimeException(e);
+		}
+    }
+	
+	@RequestMapping(value="/sifregonder")
+	public void sifregonder(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+		 
+		Kullanici kullanici=new Kullanici();
+		
+		String mail=req.getParameter("eposta");
+		
+		kullanici=kulServ.getKullaniciByName(mail);
+		
+		int cevap;
+
+		if(kullanici!=null)
+		{
+			cevap=1;
+			//Eposta Gonder
+			Gonder(mail,kullanici.getPassword());
+		}
+		else
+		{
+			cevap=-1;
+		}
+		
+		JSONObject obj = new JSONObject();
+		
+		obj.put("cevap", cevap);
+		obj.put("success", true);
+
+		resp.getWriter().print(obj);
+	}
 	
 	@RequestMapping(value="/login")
 	public void loadStore(HttpServletRequest req, HttpServletResponse resp) throws IOException{
