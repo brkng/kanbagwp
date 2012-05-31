@@ -6,7 +6,7 @@ function anasayfa() {
 		{
 		var myWin= new Ext.Window({
 			height		:	420,
-			title		:	'Kayıt İşlemi',
+			title		:	'KayÄ±t Ä°ÅŸlemi',
 			modal		:	true,
 			resizable	:	false,
 			draggable	:	false,
@@ -45,7 +45,7 @@ function anasayfa() {
 			},{
 					id			:	'sifre1',
             		xtype		:	'textfield',
-            		fieldLabel	:	'Şifre',
+            		fieldLabel	:	'Åifre',
             		minLength	:	8,
             		inputType	:	'password',
             		width		:	130,
@@ -53,7 +53,7 @@ function anasayfa() {
             },{
             		id			:	'sifre2',
             		xtype		:	'textfield',
-            		fieldLabel	:	'Şifre Tekrar',
+            		fieldLabel	:	'Åifre Tekrar',
             		minLength	:	8,
             		name		:	'pwd-confirm',
             		inputType	:	'password',
@@ -65,21 +65,21 @@ function anasayfa() {
 				fieldLabel	:	'Semt',
 				width		:	130,
 				allowBlank  :   false,
-				store		:	['Göztepe','BeylerBeyi','Bakırkoy','YeniMahalle','Semt2','Semt5','Semt6','Semt7']
+				store		:	['GÃ¶ztepe','BeylerBeyi','BakÄ±rkoy','YeniMahalle','Semt2','Semt5','Semt6','Semt7']
 			},{
 				id			:	'il',
 				xtype		:	'combo',
-				fieldLabel	:	'İl',
+				fieldLabel	:	'Ä°l',
 				width		:	130,
 				allowBlank  :   false,
-				store		:	['Ankara','İstanbul','Bursa','Çanakkale','Ağrı','İzmir','Bolu','Antalya']
+				store		:	['Ankara','Ä°stanbull','Bursa','Ã§anakkale','AÄŸrÄ±','Ä°zmir','Bolu','Antalya']
 			},{
 				id			:	'ilce',
 				xtype		:	'combo',
-				fieldLabel	:	'İlçe',
+				fieldLabel	:	'Ä°lÃ§e',
 				width		:	130,
 				allowBlank  :   false,
-				store		:	['Kadıköy','Umraniye','Uskudar','Taşdelen']
+				store		:	['KadÄ±kÃ¶y','Ãœmraniye','Ãœskudar','TaÅŸdelen']
 			},{
 				id			:	'adres',
 				fieldLabel	:	'Adres',
@@ -90,7 +90,7 @@ function anasayfa() {
 				xtype		:	'button',
 				text		:	'Kaydol',
 				handler		:	function(btn){
-					//Kayıt İşlemleri
+					//Kayï¿½t ï¿½ï¿½lemleri
 					Ext.Ajax.request({
     					url		: 'yenikullaniciekle',
     					params	: {
@@ -106,20 +106,20 @@ function anasayfa() {
     						adres:Ext.getCmp('adres').getValue()
     					},
     					success : function(response) {
-    						Ext.MessageBox.alert("Kullanıcı Başarılı bir şekilde sisteme kaydedildi");
+    						Ext.MessageBox.alert("KullanÄ±cÄ± BaÅŸarÄ±lÄ± bir ÅŸekilde sisteme kaydedildi");
     						
     						myWin.close();
     					},
     					failure : function(response) {
     						
-    						Ext.MessageBox.alert("Kayıt sırasında bir hata oluştu!");
+    						Ext.MessageBox.alert("KayÄ±t sÄ±rasÄ±nda bir hata oluÅŸtu!");
     						
     						myWin.close();
     					}	
     				});
 					
 					
-					//Kayıt işlemleri
+					//Kayï¿½t iï¿½lemleri
 				}
 			}]
 		});
@@ -129,94 +129,94 @@ function anasayfa() {
 	};
 					
 			var item1 = new Ext.Panel({
-                title: 'Kan Bağışı',
+                title: 'Kan BaÄŸÄ±ÅŸÄ±',
                 collapsible	:	true,
                 collapsed: true,
                 padding: '5 5 5 5' ,
                 html: '<a href="#"  onClick="urlhandler(&#34;nerede-kan-verebilirim.html&#34;);" >Nerede Kan verebilirim?</a><br/>' +
-                	  '<a href="#" onClick="urlhandler(&#34;kan-bagislama-sureci.html&#34;);"  >Kan Bağışlama Süreci</a>'
+                	  '<a href="#" onClick="urlhandler(&#34;kan-bagislama-sureci.html&#34;);"  >Kan BaÄŸÄ±ÅŸlama SÃ¼reci</a>'
             });
 
             var item2 = new Ext.Panel({
-                title: 'Kan Hakkında',
+                title: 'Kan HakkÄ±nda',
                 collapsed: true,
                 padding: '5 5 5 5' ,
                 collapsible	:	true,
-                html: '<a href="#" onClick="urlhandler(&#34;kan-yapisi-ve-gorevleri-nelerdir.html&#34;);" >Kanın Yapısı ve Görevleri Nelerdir?</a><br/>' +
-                	  '<a href="#" onClick="urlhandler(&#34;kan-bagislarim-nerelerde-kullaniliyor.html&#34;);" >Kan Bağışlarım Nerede kullanılıyor</a><br/>'+
-                	  '<a href="#" onClick="urlhandler(&#34;kan-gruplari-hakkinda-bilgiler.html&#34;);" >Kan Grupları Hakkında Bilgiler</a><br/>'+
-                	  '<a href="#" onClick="urlhandler(&#34;kana-yapilan-testler.html&#34;);" >Kana Yapılan Testler</a><br/>'+
-                	  '<a href="#" onClick="urlhandler(&#34;dunya-ve-turkiyede-kan-bagisi.html&#34;);">Dünya ve Türkiyede Kan Bağışı</a>'
+                html: '<a href="#" onClick="urlhandler(&#34;kan-yapisi-ve-gorevleri-nelerdir.html&#34;);" >Kanï¿½n YapÄ±sÄ± ve GÃ¶revleri Nelerdir?</a><br/>' +
+                	  '<a href="#" onClick="urlhandler(&#34;kan-bagislarim-nerelerde-kullaniliyor.html&#34;);" >Kan BaÄŸÄ±ÅŸlarÄ±m Nerede kullanÄ±lÄ±yor</a><br/>'+
+                	  '<a href="#" onClick="urlhandler(&#34;kan-gruplari-hakkinda-bilgiler.html&#34;);" >Kan GruplarÄ± HakkÄ±nda Bilgiler</a><br/>'+
+                	  '<a href="#" onClick="urlhandler(&#34;kana-yapilan-testler.html&#34;);" >Kana YapÄ±lan Testler</a><br/>'+
+                	  '<a href="#" onClick="urlhandler(&#34;dunya-ve-turkiyede-kan-bagisi.html&#34;);">DÃ¼nya ve TÃ¼rkiyede Kan BaÄŸÄ±ÅŸÄ±</a>'
             });
             
             
             this.sss = function(){	
             	
-            	var sssPanel = new Ext.Panel({
-	            	title: 'Sıkça Sorulan Sorular',
+               	var sssPanel = new Ext.Panel({
+	            	title: 'SÄ±kÃ§a Sorulan Sorular',
 	            	//closeAction: 'hide',
 	            	id:'sss',
 	            	bodyStyle:'padding:10px;font-size:12px;background-color:#E6E6E2;',
 	            	items : [
 	            	{
-	            		title: 'Çok canım yanar mı?',
+	            		title: 'Ã‡ok canÄ±m yanar mÄ±?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : 'Kullanılan iğnenin kalınlığı uluslararası standartlarda bu işlem için uygulanan kalınlıktadır. Hayat kurtarmak için alınan kanın içindeki hücrelere zarar verilmemesi açısından iğnenin kalın olması gerekmektedir. İğnenin kalın olması kan alımı sırasında iğne içinden geçen kan hücrelerinin parçalanmasını engeller, oluşabilecek hasarı azaltır. Acının az hissedilmesi için iğne ucu özel bir işlemle lazerle kesilmiş, silikon ile kaplanmıştır. Personelimiz kan alımı konusunda özel eğitim almış uzmanlardır. Hissettiğiniz acı çok azdır.'
+	               		html : 'KullanÄ±lan iÄŸnenin kalÄ±nlÄ±ÄŸÄ± uluslararasÄ± standartlarda bu iÅŸlem iÃ§in uygulanan kalÄ±nlÄ±ktadÄ±r. Hayat kurtarmak iÃ§in alÄ±nan kanÄ±n iÃ§indeki hÃ¼crelere zarar verilmemesi aÃ§Ä±sÄ±ndan iÄŸnenin kalÄ±n olmasÄ± gerekmektedir. Ä°ÄŸnenin kalÄ±n olmasÄ± kan alÄ±mÄ± sÄ±rasÄ±nda iÄŸne iÃ§inden geÃ§en kan hÃ¼crelerinin parÃ§alanmasÄ±nÄ± engeller, oluÅŸabilecek hasarÄ± azaltÄ±r. AcÄ±nÄ±n az hissedilmesi iÃ§in iÄŸne ucu Ã¶zel bir iÅŸlemle lazerle kesilmiÅŸ, silikon ile kaplanmÄ±ÅŸtÄ±r. Personelimiz kan alÄ±mÄ± konusunda Ã¶zel eÄŸitim almÄ±ÅŸ uzmanlardÄ±r. HissettiÄŸiniz acÄ± Ã§ok azdÄ±r.'
 	            	},
 	            	{
-	            		title: 'Kimller kan bağışlayabilir?',
+	            		title: 'Kimller kan baÄŸÄ±ÅŸlayabilir?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : '18-65 YaÅŸ arasÄ±nda, aÄŸÄ±rlÄ±ÄŸÄ± en az 50 kg ve Ã¼zerinde olan her saÄŸlÄ±klÄ± birey kan baÄŸÄ±ÅŸÄ±nda bulunabilir.'
+	               		html : '18-65 YaÃ…Å¸ arasÃ„Â±nda, aÃ„Å¸Ã„Â±rlÃ„Â±Ã„Å¸Ã„Â± en az 50 kg ve ÃƒÂ¼zerinde olan her saÃ„Å¸lÃ„Â±klÃ„Â± birey kan baÃ„Å¸Ã„Â±Ã…Å¸Ã„Â±nda bulunabilir.'
 	            	},
 	            	{
-	            		title: 'Kan bağışı ne kadar sürer?',
+	            		title: 'Kan baÄŸÄ±ÅŸÄ± ne kadar sÃ¼rer?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : 'Kayıt, muayene, kan verme ve ikram işlemlerinin tamamı yaklaşık olarak 30-35 dakika sürmektedir. Bir hayat kurtarılması için bu süreyi gözden çıkarmaya değmez mi?'
+	               		html : 'KayÄ±t, muayene, kan verme ve ikram iÅŸlemlerinin tamamÄ± yaklaÅŸÄ±k olarak 30-35 dakika sÃ¼rmektedir. Bir hayat kurtarÄ±lmasÄ± iÃ§in bu sÃ¼reyi gÃ¶zden Ã§Ä±karmaya deÄŸmez mi?'
 	            	},
 	            	{
-	            		title: 'korkuyorum. Kan bağışlayabilir miyim?',
+	            		title: 'korkuyorum. Kan baÄŸÄ±ÅŸlayabilir miyim?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : 'Eğer korkunuz sizi bayıltacak kadar çok ise kan vermeniz uygun değildir. Bir yaşam kurtarma düşüncesi, bütün korkularınızı yener. '
+	               		html : 'EÄŸer korkunuz sizi bayÄ±ltacak kadar Ã§ok ise kan vermeniz uygun deÄŸildir. Bir yaÅŸam kurtarma dÃ¼ÅŸÃ¼ncesi, bÃ¼tÃ¼n korkularÄ±nÄ±zÄ± yener. '
 	            	},
 	            	{
-	            		title: 'Tarama test sonuçlarım bana bildirilecek mi?',
+	            		title: 'Tarama test sonuÃ§larÄ±m bana bildirilecek mi?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : 'Eğer sonuçlarınız negatif bulunmuşsa size herhangi bir bildirimde bulunulmayacaktır.'
+	               		html : 'EÄŸer sonuÃ§larÄ±nÄ±z negatif bulunmuÅŸsa size herhangi bir bildirimde bulunulmayacaktÄ±r.'
 	            	},
 	            	{
-	            		title: 'çok canım yanar mı?',
+	            		title: 'Ã§ok canÄ±m yanar mÄ±?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : 'Kullanılan iğnenin kalınlığı uluslararası standartlarda bu işlem için uygulanan kalınlıktadır. Hayat kurtarmak için alınan kanın içindeki hücrelere zarar verilmemesi açısından iğnenin kalın olması gerekmektedir. İğnenin kalın olması kan alımı sırasında iğne içinden geçen kan hücrelerinin parçalanmasını engeller, oluşabilecek hasarı azaltır. Acının az hissedilmesi için iğne ucu özel bir işlemle lazerle kesilmiş, silikon ile kaplanmıştır. Personelimiz kan alımı konusunda özel eğitim almış uzmanlardır. Hissettiğiniz acı çok azdır.'
+	               		html : 'KullanÄ±lan iÄŸnenin kalÄ±nlÄ±ÄŸÄ± uluslararasÄ± standartlarda bu iÅŸlem iÃ§in uygulanan kalÄ±nlÄ±ktadÄ±r. Hayat kurtarmak iÃ§in alÄ±nan kanÄ±n iÃ§indeki hÃ¼crelere zarar verilmemesi aÃ§Ä±sÄ±ndan iÄŸnenin kalÄ±n olmasÄ± gerekmektedir. Ä°ÄŸnenin kalÄ±n olmasÄ± kan alÄ±mÄ± sÄ±rasÄ±nda iÄŸne iÃ§inden geÃ§en kan hÃ¼crelerinin parÃ§alanmasÄ±nÄ± engeller, oluÅŸabilecek hasarÄ± azaltÄ±r. AcÄ±nÄ±n az hissedilmesi iÃ§in iÄŸne ucu Ã¶zel bir iÅŸlemle lazerle kesilmiÅŸ, silikon ile kaplanmÄ±ÅŸtÄ±r. Personelimiz kan alÄ±mÄ± konusunda Ã¶zel eÄŸitim almÄ±ÅŸ uzmanlardÄ±r. HissettiÄŸiniz acÄ± Ã§ok azdÄ±r.'
 	            	},
 	            	{
-	            		title: 'Kimller kan bağışlayabilir?',
+	            		title: 'Kimller kan baÄŸÄ±ÅŸlayabilir?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : '18-65 YaÅŸ arasÄ±nda, aÄŸÄ±rlÄ±ÄŸÄ± en az 50 kg ve Ã¼zerinde olan her saÄŸlÄ±klÄ± birey kan baÄŸÄ±ÅŸÄ±nda bulunabilir.'
+	               		html : '18-65 YaÃ…Å¸ arasÃ„Â±nda, aÃ„Å¸Ã„Â±rlÃ„Â±Ã„Å¸Ã„Â± en az 50 kg ve ÃƒÂ¼zerinde olan her saÃ„Å¸lÃ„Â±klÃ„Â± birey kan baÃ„Å¸Ã„Â±Ã…Å¸Ã„Â±nda bulunabilir.'
 	            	},
 	            	{
-	            		title: 'Kan bağışı ne kadar sürer?',
+	            		title: 'Kan baÄŸÄ±ÅŸÄ± ne kadar sÃ¼rer?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : 'Kayıt, muayene, kan verme ve ikram işlemlerinin tamamı yaklaşık olarak 30-35 dakika sürmektedir. Bir hayat kurtarılması için bu süreyi gözden çıkarmaya değmez mi?'
+	               		html : 'KayÄ±t, muayene, kan verme ve ikram iÅŸlemlerinin tamamÄ± yaklaÅŸÄ±k olarak 30-35 dakika sÃ¼rmektedir. Bir hayat kurtarÄ±lmasÄ± iÃ§in bu sÃ¼reyi gÃ¶zden Ã§Ä±karmaya deÄŸmez mi?'
 	            	},
 	            	{
-	            		title: 'korkuyorum. Kan bağışlayabilir miyim?',
+	            		title: 'korkuyorum. Kan baÄŸÄ±ÅŸlayabilir miyim?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : 'Eğer korkunuz sizi bayıltacak kadar çok ise kan vermeniz uygun değildir. Bir yaşam kurtarma düşüncesi, bütün korkularınızı yener. '
+	               		html : 'EÄŸer korkunuz sizi bayÄ±ltacak kadar Ã§ok ise kan vermeniz uygun deÄŸildir. Bir yaÅŸam kurtarma dÃ¼ÅŸÃ¼ncesi, bÃ¼tÃ¼n korkularÄ±nÄ±zÄ± yener. '
 	            	},
 	            	{
-	            		title: 'Tarama test sonuçlarım bana bildirilecek mi?',
+	            		title: 'Tarama test sonuÃ§larÄ±m bana bildirilecek mi?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : 'Eğer sonuçlarınız negatif bulunmuşsa size herhangi bir bildirimde bulunulmayacaktır.'
+	               		html : 'EÄŸer sonuÃ§larÄ±nÄ±z negatif bulunmuÅŸsa size herhangi bir bildirimde bulunulmayacaktÄ±r.'
 	            	}
 	            	]
 	            });
@@ -238,7 +238,7 @@ function anasayfa() {
 		   
             var item3 = new Ext.Panel({
             	
-                title: '<a style="color: #FFFFFF;" href="#" onClick="sss();" >Sıkça Sorulan Sorular</a>',
+                title: '<a style="color: #FFFFFF;" href="#" onClick="sss();" >sÄ±kÃ§a Sorulan Sorular</a>',
                 collapsible	:false,
                 titleCollapse: false
          		
@@ -246,12 +246,12 @@ function anasayfa() {
             
             
             var item4 = new Ext.Panel({
-                title: 'Site Kullanımı',
+                title: 'Site KullanÄ±mÄ±',
                 collapsed: true,
                 padding: '5 5 5 5' ,
                 collapsible	:	true,
-                html: '<a href="#" onClick="urlhandler(&#34;site-nasil-calismaktadir.html&#34;);" >Site Nasıl Çalışmaktadır</a><br/>' +
-                	  '<a href="#" onClick="urlhandler(&#34;kan-isteginde-nasil-bulunabilirim.html&#34;);"  >Kan İsteğinde Nasıl Bulunabilirim?</a><br/>'
+                html: '<a href="#" onClick="urlhandler(&#34;site-nasil-calismaktadir.html&#34;);" >Site NasÄ±l Ã‡alÄ±ÅŸmaktadÄ±r</a><br/>' +
+                	  '<a href="#" onClick="urlhandler(&#34;kan-isteginde-nasil-bulunabilirim.html&#34;);"  >Kan Ä°steÄŸinde NasÄ±l Bulunabilirim?</a><br/>'
             });
 
 			Ext.Ajax.request({
@@ -259,20 +259,38 @@ function anasayfa() {
 				success : function(response) {
 					obj = Ext.util.JSON.decode(response.responseText);
 					//obj.username
-					Ext.getCmp('kullanicibilgileri').update("<br/><b>Kullanıcı Adı:</b> "+obj.username+"<br/><b>Kan Grubu:</b> "+obj.kangrubu+"<br/><b>Son Kan Bağış Tarihi:</b> "+obj.sonbagistarihi);
+					s = '<br/><a href="#" onClick="cikisyap();" >Ã‡Ä±kÄ±ÅŸ Yap</a><br/>';
+					Ext.getCmp('kullanicibilgileri').update("<b>KullanÄ±cÄ± AdÄ±:</b> "+obj.isim+"<br/><b>Kan Grubu:</b> "+
+							obj.kangrubu+"<br/><b>Son Kan BaÄŸÄ±ÅŸ Tarihi:</b> "+obj.sonbagistarihi+s);
 				},
 				failure : function(response) {
-					
+					window.location = '../gen/anasayfa';
 				}	
 			});
+			
+			this.cikisyap = function()
+			{
+				Ext.Ajax.request({
+					url		: 'cikis',
+					success : function(response) {
+						window.location = '../gen/anasayfa';
+					},
+					failure : function(response) {
+						
+					}	
+				});
+			};
            
 		
     		var kullanicibilgileri = new Ext.Panel({
     			id		:	'kullanicibilgileri',
             	padding: '5 15 5 15' ,
-            	title: 'Kullanıcı Bilgileri',
-            	bodyStyle:'padding:10px;font-size:12px;background-color:#FFFFFF;',
-            	layout		:	'hbox'
+            	title: 'Kullanï¿½cï¿½ Bilgileri',
+            	bodyStyle:'padding:10px;font-size:16px;background-color:#FFFFFF;',
+            	layout		:	'hbox',
+            	items		:	[{
+            		
+            	}]
             });
             
            
@@ -361,7 +379,7 @@ function anasayfa() {
 			html: '<p align="center"><img src="../images/banner.jpg" align="middle"/></p>',
 		    height:150,
 		    tbar: [
-		    //{Sağa dayamak için
+		    //{Saï¿½a dayamak iï¿½in
 		    //	xtype: 'tbfill',
 		    //	width: 30
 		    //	
@@ -379,7 +397,7 @@ function anasayfa() {
        			}
    			},
    			{
-        		text: '<b>Hakkımızda</b>',
+        		text: '<b>HakkÄ±mÄ±zda</b>',
         		iconCls: 'bmenu', 
        		 	handler: function(){
        		 		urlhandler("hakkimizda.html"); 
@@ -393,7 +411,7 @@ function anasayfa() {
        		}
     		},
     		{
-        		text: '<b>İletişim</b>',
+        		text: '<b>Ä°letiÅŸim</b>',
         		iconCls: 'bmenu',  // <-- icon
        			handler: function(){
 //       				content.removeAll(true);
@@ -430,7 +448,7 @@ function anasayfa() {
 		{
 		var sifreWin= new Ext.Window({
 			height		:	150,
-			title		:	'Kayıt İşlemi',
+			title		:	'KayÄ±t Ä°ÅŸlemi',
 			modal		:	true,
 			resizable	:	false,
 			draggable	:	false,
@@ -450,9 +468,9 @@ function anasayfa() {
 			}],
 			buttons			:	[{
 				xtype		:	'button',
-				text		:	'Gönder',
+				text		:	'Gï¿½nder',
 				handler		:	function(btn){
-					//Kayıt İşlemleri
+					//Kayï¿½t ï¿½ï¿½lemleri
 					Ext.Ajax.request({
     					url		: 'sifregonder',
     					params	: {
@@ -463,11 +481,11 @@ function anasayfa() {
     						
     						if(obj.cevap==1)
     						{
-    							Ext.MessageBox.alert("","Şifre Gönderildi! Lütfen epostanızı kontrol edin");
+    							Ext.MessageBox.alert("","Åifreniz gÃ¶nderildi. LÃ¼tfen epostanÄ±zÄ± kontrol edin");
     						}
     						else
     						{
-    							Ext.MessageBox.alert("","Sistemde bu epostaya sahip kullanıcı bulunamadı");
+    							Ext.MessageBox.alert("","Sistemde bu epostaya sahip kullanÄ±cÄ± bulunamadÄ±");
     						}
     					},
     					failure : function(response) {
@@ -476,7 +494,7 @@ function anasayfa() {
     				});
 					
 					
-					//Kayıt işlemleri
+					//Kayï¿½t iï¿½lemleri
 				}
 			}]
 		});
