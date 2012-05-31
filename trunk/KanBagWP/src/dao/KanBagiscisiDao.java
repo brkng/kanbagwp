@@ -18,4 +18,6 @@ public interface KanBagiscisiDao {
 	public void deleteArticle(int id);
 
 	public KanBagiscisi save(KanBagiscisi article);
+	
+	public KanBagiscisi getKanBagiscisiByUsername(String username);
 }

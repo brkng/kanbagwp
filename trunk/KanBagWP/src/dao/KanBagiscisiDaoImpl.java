@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import model.KanBagiscisi;
+import model.Kullanici;
 
 
 @Repository("KanBagiscisiDao")
@@ -68,6 +69,24 @@ public class KanBagiscisiDaoImpl implements KanBagiscisiDao {
 		tx.commit();
 		session.save(article);
 		return article;
+	}
+
+	@Override
+	public KanBagiscisi getKanBagiscisiByUsername(String username) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		tx.commit();
+		
+		List<KanBagiscisi> kul= session.createQuery("from KanBagiscisi where email=:username").setParameter("username", username).list();
+		
+		if(kul.size()!=0)
+		{
+			return kul.get(0);
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 }

@@ -107,4 +107,9 @@ public class KanBagiscisiServiceImpl implements KanBagiscisiService {
 		return null;
 	}
 
+	@Override
+	public KanBagiscisi getKanBagiscisiByUsername(String username) {
+		return kanBagiscisiDao.getKanBagiscisiByUsername(username);
+	}
+
 }

@@ -112,8 +112,10 @@
 	</error-page>
 -->
 
-<!--
-	<filter>
+
+
+  
+  	<filter>
 		<filter-name>SecurityFilter</filter-name>
 		<filter-class>filter.SecurityFilter</filter-class>
 	</filter>
@@ -123,7 +125,24 @@
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>*.json</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
 		<url-pattern>*.ajax</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>*.xml</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>*</url-pattern>
 	</filter-mapping>
 
 
@@ -134,8 +153,11 @@
 	<filter-mapping>
 		<filter-name>EncodingFilter</filter-name>
 		<url-pattern>*</url-pattern>
-	</filter-mapping>	
--->
+	</filter-mapping>
+
+
+
+
 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

@@ -303,7 +303,7 @@ function anasayfa() {
         						}
         						else if(obj.rol == 2)//Kullanici
         						{
-        							window.location = '../kullanicilar/anasayfa';
+        							window.location = '../kullanici/kullanici';
         						}
         						else if(obj.rol ==3)//Doktor
         						{
@@ -372,25 +372,10 @@ function anasayfa() {
 		
 		var arama = new Ext.Panel({
             	padding: '5 15 5 15' ,
-            	title: 'Arama',
-            	bodyStyle	:	'padding : 10px',
+            	title: '<p align="center">www.kanver.org</p>',
+            	bodyStyle:'padding:10px;font-size:12px;background-color:#E6E6E2;',
             	layout		:	'hbox',
-            	items:	[
-            	{
-            		xtype:	'field',
-            		flex : 2,
-            		height: 28
-            	},
-            	{
-            		xtype:	'button',
-            		flex: 1,
-            		height: 28,
-            		text: 	'Ara',
-            		handler		:	function(btn){
-					Ext.MessageBox.alert('','kontrol yapılacak!!');
-					}
-            	}
-            	]
+            	html        : '<p align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0"width="120" height="600"><param name="movie" value="http://www.kanver.org/banner/120x600.swf" /><param name="quality" value="high" /><embed src="http://www.kanver.org/banner/120x600.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer"type="application/x-shockwave-flash" width="120" height="600"></embed></object></p>'
             });
 		
 		
@@ -399,7 +384,7 @@ function anasayfa() {
 			autoScroll: true,
 			defaults: {autoScroll: true},
 			region: 'east',
-			width: 310,
+			width: 200,
 			defaults: {
 			 	hideCollapseTool : false
 			 	//border: true
@@ -422,6 +407,7 @@ function anasayfa() {
 			id: 'center',
 			region: 'center',
 			autoScroll: true,
+			bodyStyle:'padding:10px;font-size:12px;background-color:#E6E6E2;',
 			border: false,
 			margins:'5 5 5 0',
 			padding: '10 10 10 10',
@@ -496,7 +482,7 @@ function anasayfa() {
 		        layoutConfig : {
 				align : 'stretch'
 				},
-		        html:'<br/><br/><p align="center"><b>Sanguis Team 2012</b></p>',
+		        html:'<br/><br/><p align="center"><b>Copyright 2012</b></p>',
 		        border: true,
 		        height: 60
 			},content
