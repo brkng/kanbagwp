@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import security.SessionClientData;
 import service.KanBagiscisiService;
 import service.KullaniciService;
 
@@ -64,14 +65,6 @@ public class GenView {
 		kullanici.setRolId(2);
 		
 		kulServ.saveKullanici(kullanici);
-	}
-	
-	public class KullaniciBilgi extends javax.mail.Authenticator {
-	    public PasswordAuthentication getPasswordAuthentication() {
-	       String username = "faridmovsumov@gmail.com";
-	       String password = "15011988fz";
-	       return new PasswordAuthentication(username, password);
-	    }
 	}
 	
 	private void Gonder(String toMail, String pass){
@@ -163,6 +156,19 @@ public class GenView {
 			{
 				//Doðru;
 				rol=kullanici.getRolId();
+				
+				
+				SessionClientData scd = new SessionClientData();
+				
+				scd.setUsername(kullanici.getUsername());
+				scd.setPassword(kullanici.getPassword());
+				scd.setRoleId(kullanici.getRolId());
+				
+				scd.setSistemGirisZamani(Calendar.getInstance().getTime().toGMTString());
+				
+				req.getSession().setAttribute("scd", scd);
+				
+				
 			}
 			else
 			{

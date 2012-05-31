@@ -12,6 +12,8 @@ public interface KanBagiscisiService {
 	public List<KanBagiscisi> getArticleByArticleId(int articleId);
 	public void saveArticle(KanBagiscisi article);
 	
+	public KanBagiscisi getKanBagiscisiByUsername(String username);
+	
 	//this functions are for Ext Crud datagrid!
 	public List<KanBagiscisi> create(Object data);
 	public List<KanBagiscisi> update(Object data);

@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
+import security.SessionClientData;
 import service.KanBagiscisiService;
 import service.KanBagiscisiServiceImpl;
 
@@ -49,6 +50,10 @@ public class AdminView {
 	@RequestMapping(value="/loadStore")
 	public void loadStore(HttpServletRequest req, HttpServletResponse resp) throws IOException{
 		 
+		SessionClientData scd = (SessionClientData) req.getSession().getAttribute("scd");
+		
+		System.out.println("****Ýndiki user "+scd.getUsername());
+		
 		JSONObject sendJSON = new JSONObject();
 		sendJSON = kanBagServ.listKanBagiscisisAsJson();
 		resp.getWriter().print(sendJSON);

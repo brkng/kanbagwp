@@ -1021,7 +1021,7 @@ Ext.onReady(function(){
 			border  : false,
 			layout  : 'fit',
 			items   : grid
-		})
+		});
 
 
 		remoteJsonStore.load({
@@ -1034,7 +1034,7 @@ Ext.onReady(function(){
 		content.removeAll(true);
 		content.add(istekgridi);
 		content.doLayout();
-	}
+	};
 //	END/////////////////////////////////////////////////////////////////////////////////////////////
 
 
