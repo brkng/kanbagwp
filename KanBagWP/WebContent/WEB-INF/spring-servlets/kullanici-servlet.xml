@@ -10,7 +10,13 @@
 	 Validation -> XML Validator -> Exclude Group -> Add Rule -->
 	 
 	<mvc:annotation-driven />
-	<mvc:default-servlet-handler /> 	
+	<mvc:annotation-driven />
+	
+	<context:component-scan base-package="view" />
+	<context:component-scan base-package="bus" />
+	<context:component-scan base-package="dao" />
+	<context:component-scan base-package="service" />
+	<context:component-scan base-package="model" />
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -133,7 +133,7 @@ function anasayfa() {
                 collapsible	:	true,
                 collapsed: true,
                 padding: '5 5 5 5' ,
-                html: '<a href="#">Nerede Kan verebilirim?</a><br/>' +
+                html: '<a href="#"  onClick="urlhandler(&#34;nerede-kan-verebilirim.html&#34;);" >Nerede Kan verebilirim?</a><br/>' +
                 	  '<a href="#">Kan Bağışlama Süreci</a>'
             });
 
@@ -232,13 +232,22 @@ function anasayfa() {
 	            	}
 	            	]
 	            });
-            	
+            	content.update('');
        	   		content.removeAll(true);
        	  	 	content.add(sssPanel);
        	   		content.doLayout();
 		   };
             
-          
+
+		   this.urlhandler = function(s)
+		   {
+			   	content.update("");
+  				content.removeAll(true);
+   				content.load({ url: '../resources/static/'+s, nocache: true, timeout: 30, scripts: true });
+       	   		content.doLayout();
+		   };
+		   
+		   
             var item3 = new Ext.Panel({
             	
                 title: '<a style="color: #FFFFFF;" href="#" onClick="sss();" >Sıkça Sorulan Sorular</a>',
@@ -306,7 +315,7 @@ function anasayfa() {
         						}
         						else if(obj.rol == 2)//Kullanici
         						{
-        							//window.location = '../gen/anasayfa';
+        							window.location = '../kullanicilar/anasayfa';
         						}
         						else if(obj.rol ==3)//Doktor
         						{
@@ -336,9 +345,7 @@ function anasayfa() {
             	]
             });
             
-            this.kayitsayfasiniyukle = function(){
-       			 content.load({ url: 'kayit', nocache: true, timeout: 30, scripts: true });
-   			};
+
 		
             var item6 =new Ext.Panel({
             	border: false,
@@ -457,9 +464,10 @@ function anasayfa() {
        			iconCls: 'bmenu',  
        			handler: function()
        			{       				
-       				content.removeAll(true);
-       				content.load({ url: 'anaicerik', nocache: true, timeout: 30, scripts: true });
-           	   		content.doLayout();
+//       				content.removeAll(true);
+//       				content.load({ url: '../resources/static/anaicerik.jsp', nocache: true, timeout: 30, scripts: true });
+//           	   		content.doLayout();
+       				urlhandler("anaicerik.jsp");
        				
        			}
    			},
@@ -478,8 +486,9 @@ function anasayfa() {
         		text: '<b>İletişim</b>',
         		iconCls: 'bmenu',  // <-- icon
        			handler: function(){
-       				content.removeAll(true);
-       				content.load({ url: 'deneme', nocache: true, timeout: 30, scripts: true }); 
+//       				content.removeAll(true);
+//       				content.load({ url: '../resources/static/iletisim.html', nocache: true, timeout: 30, scripts: true }); 
+       				urlhandler("iletisim.html");
        			}
     		}]
 		});
@@ -568,7 +577,7 @@ function anasayfa() {
 		///////////Sifremi Unuttum/////////////////////////////////////////////////
 		
 		
-		content.load({ url: 'anaicerik', nocache: true, timeout: 30, scripts: true });
+		content.load({ url: '../resources/static/anaicerik.jsp', nocache: true, timeout: 30, scripts: true });
 		
 		
 		
