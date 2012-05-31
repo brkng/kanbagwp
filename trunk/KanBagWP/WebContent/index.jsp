@@ -1,1 +1,3 @@
-hello
+<%
+response.sendRedirect("gen/anasayfa.html");
+%>
