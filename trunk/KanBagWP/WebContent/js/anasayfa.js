@@ -134,7 +134,7 @@ function anasayfa() {
                 collapsed: true,
                 padding: '5 5 5 5' ,
                 html: '<a href="#"  onClick="urlhandler(&#34;nerede-kan-verebilirim.html&#34;);" >Nerede Kan verebilirim?</a><br/>' +
-                	  '<a href="#">Kan Bağışlama Süreci</a>'
+                	  '<a href="#" onClick="urlhandler(&#34;kan-bagislama-sureci.html&#34;);"  >Kan Bağışlama Süreci</a>'
             });
 
             var item2 = new Ext.Panel({
@@ -142,93 +142,81 @@ function anasayfa() {
                 collapsed: true,
                 padding: '5 5 5 5' ,
                 collapsible	:	true,
-                html: '<a href="#">Kanın Yapısı ve Görevleri Nelerdir?</a><br/>' +
-                	  '<a href="#">Kan Bağışlarım Nerede kullanılıyor</a><br/>'+
-                	  '<a href="#">Kan Grupları Hakkında Bilgiler</a><br/>'+
-                	  '<a href="#">Kana Yapılan Testler</a><br/>'+
-                	  '<a href="#">Dünya ve Türkiyede Kan Bağışı</a>'
+                html: '<a href="#" onClick="urlhandler(&#34;kan-yapisi-ve-gorevleri-nelerdir.html&#34;);" >Kanın Yapısı ve Görevleri Nelerdir?</a><br/>' +
+                	  '<a href="#" onClick="urlhandler(&#34;kan-bagislarim-nerelerde-kullaniliyor.html&#34;);" >Kan Bağışlarım Nerede kullanılıyor</a><br/>'+
+                	  '<a href="#" onClick="urlhandler(&#34;kan-gruplari-hakkinda-bilgiler.html&#34;);" >Kan Grupları Hakkında Bilgiler</a><br/>'+
+                	  '<a href="#" onClick="urlhandler(&#34;kana-yapilan-testler.html&#34;);" >Kana Yapılan Testler</a><br/>'+
+                	  '<a href="#" onClick="urlhandler(&#34;dunya-ve-turkiyede-kan-bagisi.html&#34;);">Dünya ve Türkiyede Kan Bağışı</a>'
             });
             
             
             this.sss = function(){	
             	
             	var sssPanel = new Ext.Panel({
-	            	title: 'SÄ±kÃ§a Sorulan Sorular',
+	            	title: 'Sıkça Sorulan Sorular',
 	            	//closeAction: 'hide',
 	            	id:'sss',
 	            	bodyStyle:'padding:10px;font-size:12px;background-color:#E6E6E2;',
 	            	items : [
 	            	{
-	            		title: 'Ã‡ok canÄ±m yanar mÄ±?',
+	            		title: 'Çok canım yanar mı?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : 'KullanÄ±lan iÄŸnenin kalÄ±nlÄ±ÄŸÄ± uluslararasÄ± standartlarda bu iÅŸlem iÃ§in uygulanan kalÄ±nlÄ±ktadÄ±r. Hayat kurtarmak iÃ§in alÄ±nan kanÄ±n iÃ§indeki hÃ¼crelere zarar verilmemesi aÃ§Ä±sÄ±ndan iÄŸnenin kalÄ±n olmasÄ± gerekmektedir. Ä°ÄŸnenin kalÄ±n olmasÄ± kan alÄ±mÄ± sÄ±rasÄ±nda iÄŸne iÃ§inden geÃ§en kan hÃ¼crelerinin parÃ§alanmasÄ±nÄ± engeller, oluÅŸabilecek hasarÄ± azaltÄ±r. AcÄ±nÄ±n az hissedilmesi iÃ§in iÄŸne ucu Ã¶zel bir iÅŸlemle lazerle kesilmiÅŸ, silikon ile kaplanmÄ±ÅŸtÄ±r. Personelimiz kan alÄ±mÄ± konusunda Ã¶zel eÄŸitim almÄ±ÅŸ uzmanlardÄ±r. HissettiÄŸiniz acÄ± Ã§ok azdÄ±r.'
+	               		html : 'Kullanılan iğnenin kalınlığı uluslararası standartlarda bu işlem için uygulanan kalınlıktadır. Hayat kurtarmak için alınan kanın içindeki hücrelere zarar verilmemesi açısından iğnenin kalın olması gerekmektedir. İğnenin kalın olması kan alımı sırasında iğne içinden geçen kan hücrelerinin parçalanmasını engeller, oluşabilecek hasarı azaltır. Acının az hissedilmesi için iğne ucu özel bir işlemle lazerle kesilmiş, silikon ile kaplanmıştır. Personelimiz kan alımı konusunda özel eğitim almış uzmanlardır. Hissettiğiniz acı çok azdır.'
 	            	},
 	            	{
-	            		title: 'Kimller kan baÄŸÄ±ÅŸlayabilir?',
+	            		title: 'Kimller kan bağışlayabilir?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : '18-65 YaÅŸ arasÄ±nda, aÄŸÄ±rlÄ±ÄŸÄ± en az 50 kg ve Ã¼zerinde olan her saÄŸlÄ±klÄ± birey kan baÄŸÄ±ÅŸÄ±nda bulunabilir. '
+	               		html : '18-65 YaÅŸ arasÄ±nda, aÄŸÄ±rlÄ±ÄŸÄ± en az 50 kg ve Ã¼zerinde olan her saÄŸlÄ±klÄ± birey kan baÄŸÄ±ÅŸÄ±nda bulunabilir.'
 	            	},
 	            	{
-	            		title: 'Kan baÄŸÄ±ÅŸÄ± ne kadar sÃ¼rer?',
+	            		title: 'Kan bağışı ne kadar sürer?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : 'KayÄ±t, muayene, kan verme ve ikram iÅŸlemlerinin tamamÄ± yaklaÅŸÄ±k olarak 30-35 dakika sÃ¼rmektedir. Bir hayat kurtarÄ±lmasÄ± iÃ§in bu sÃ¼reyi gÃ¶zden Ã§Ä±karmaya deÄŸmez mi? '
+	               		html : 'Kayıt, muayene, kan verme ve ikram işlemlerinin tamamı yaklaşık olarak 30-35 dakika sürmektedir. Bir hayat kurtarılması için bu süreyi gözden çıkarmaya değmez mi?'
 	            	},
 	            	{
-	            		title: 'korkuyorum. Kan baÄŸÄ±ÅŸlayabilir miyim?',
+	            		title: 'korkuyorum. Kan bağışlayabilir miyim?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : 'EÄŸer korkunuz sizi bayÄ±ltacak kadar Ã§ok ise kan vermeniz uygun deÄŸildir. Bir yaÅŸam kurtarma dÃ¼ÅŸÃ¼ncesi, bÃ¼tÃ¼n korkularÄ±nÄ±zÄ± yener. '
+	               		html : 'Eğer korkunuz sizi bayıltacak kadar çok ise kan vermeniz uygun değildir. Bir yaşam kurtarma düşüncesi, bütün korkularınızı yener. '
 	            	},
 	            	{
-	            		title: 'Tarama test sonuÃ§larÄ±m bana bildirilecek mi?',
+	            		title: 'Tarama test sonuçlarım bana bildirilecek mi?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : 'EÄŸer sonuÃ§larÄ±nÄ±z negatif bulunmuÅŸsa size herhangi bir bildirimde bulunulmayacaktÄ±r. '
+	               		html : 'Eğer sonuçlarınız negatif bulunmuşsa size herhangi bir bildirimde bulunulmayacaktır.'
 	            	},
 	            	{
-	            		title: 'Tarama test sonuÃ§larÄ±m bana bildirilecek mi?',
+	            		title: 'çok canım yanar mı?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : 'EÄŸer sonuÃ§larÄ±nÄ±z negatif bulunmuÅŸsa size herhangi bir bildirimde bulunulmayacaktÄ±r. '
+	               		html : 'Kullanılan iğnenin kalınlığı uluslararası standartlarda bu işlem için uygulanan kalınlıktadır. Hayat kurtarmak için alınan kanın içindeki hücrelere zarar verilmemesi açısından iğnenin kalın olması gerekmektedir. İğnenin kalın olması kan alımı sırasında iğne içinden geçen kan hücrelerinin parçalanmasını engeller, oluşabilecek hasarı azaltır. Acının az hissedilmesi için iğne ucu özel bir işlemle lazerle kesilmiş, silikon ile kaplanmıştır. Personelimiz kan alımı konusunda özel eğitim almış uzmanlardır. Hissettiğiniz acı çok azdır.'
 	            	},
 	            	{
-	            		title: 'Ã‡ok canÄ±m yanar mÄ±?',
+	            		title: 'Kimller kan bağışlayabilir?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : 'KullanÄ±lan iÄŸnenin kalÄ±nlÄ±ÄŸÄ± uluslararasÄ± standartlarda bu iÅŸlem iÃ§in uygulanan kalÄ±nlÄ±ktadÄ±r. Hayat kurtarmak iÃ§in alÄ±nan kanÄ±n iÃ§indeki hÃ¼crelere zarar verilmemesi aÃ§Ä±sÄ±ndan iÄŸnenin kalÄ±n olmasÄ± gerekmektedir. Ä°ÄŸnenin kalÄ±n olmasÄ± kan alÄ±mÄ± sÄ±rasÄ±nda iÄŸne iÃ§inden geÃ§en kan hÃ¼crelerinin parÃ§alanmasÄ±nÄ± engeller, oluÅŸabilecek hasarÄ± azaltÄ±r. AcÄ±nÄ±n az hissedilmesi iÃ§in iÄŸne ucu Ã¶zel bir iÅŸlemle lazerle kesilmiÅŸ, silikon ile kaplanmÄ±ÅŸtÄ±r. Personelimiz kan alÄ±mÄ± konusunda Ã¶zel eÄŸitim almÄ±ÅŸ uzmanlardÄ±r. HissettiÄŸiniz acÄ± Ã§ok azdÄ±r.'
+	               		html : '18-65 YaÅŸ arasÄ±nda, aÄŸÄ±rlÄ±ÄŸÄ± en az 50 kg ve Ã¼zerinde olan her saÄŸlÄ±klÄ± birey kan baÄŸÄ±ÅŸÄ±nda bulunabilir.'
 	            	},
 	            	{
-	            		title: 'Kimller kan baÄŸÄ±ÅŸlayabilir?',
+	            		title: 'Kan bağışı ne kadar sürer?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : '18-65 YaÅŸ arasÄ±nda, aÄŸÄ±rlÄ±ÄŸÄ± en az 50 kg ve Ã¼zerinde olan her saÄŸlÄ±klÄ± birey kan baÄŸÄ±ÅŸÄ±nda bulunabilir. '
+	               		html : 'Kayıt, muayene, kan verme ve ikram işlemlerinin tamamı yaklaşık olarak 30-35 dakika sürmektedir. Bir hayat kurtarılması için bu süreyi gözden çıkarmaya değmez mi?'
 	            	},
 	            	{
-	            		title: 'Kan baÄŸÄ±ÅŸÄ± ne kadar sÃ¼rer?',
+	            		title: 'korkuyorum. Kan bağışlayabilir miyim?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : 'KayÄ±t, muayene, kan verme ve ikram iÅŸlemlerinin tamamÄ± yaklaÅŸÄ±k olarak 30-35 dakika sÃ¼rmektedir. Bir hayat kurtarÄ±lmasÄ± iÃ§in bu sÃ¼reyi gÃ¶zden Ã§Ä±karmaya deÄŸmez mi? '
+	               		html : 'Eğer korkunuz sizi bayıltacak kadar çok ise kan vermeniz uygun değildir. Bir yaşam kurtarma düşüncesi, bütün korkularınızı yener. '
 	            	},
 	            	{
-	            		title: 'korkuyorum. Kan baÄŸÄ±ÅŸlayabilir miyim?',
+	            		title: 'Tarama test sonuçlarım bana bildirilecek mi?',
 	                	collapsed: true,
 	               		collapsible	:true,
-	               		html : 'EÄŸer korkunuz sizi bayÄ±ltacak kadar Ã§ok ise kan vermeniz uygun deÄŸildir. Bir yaÅŸam kurtarma dÃ¼ÅŸÃ¼ncesi, bÃ¼tÃ¼n korkularÄ±nÄ±zÄ± yener. '
-	            	},
-	            	{
-	            		title: 'Tarama test sonuÃ§larÄ±m bana bildirilecek mi?',
-	                	collapsed: true,
-	               		collapsible	:true,
-	               		html : 'EÄŸer sonuÃ§larÄ±nÄ±z negatif bulunmuÅŸsa size herhangi bir bildirimde bulunulmayacaktÄ±r. '
-	            	},
-	            	{
-	            		title: 'Tarama test sonuÃ§larÄ±m bana bildirilecek mi?',
-	                	collapsed: true,
-	               		collapsible	:true,
-	               		html : 'EÄŸer sonuÃ§larÄ±nÄ±z negatif bulunmuÅŸsa size herhangi bir bildirimde bulunulmayacaktÄ±r. '
+	               		html : 'Eğer sonuçlarınız negatif bulunmuşsa size herhangi bir bildirimde bulunulmayacaktır.'
 	            	}
 	            	]
 	            });
@@ -262,8 +250,8 @@ function anasayfa() {
                 collapsed: true,
                 padding: '5 5 5 5' ,
                 collapsible	:	true,
-                html: '<a href="#">Site Nasıl Çalışmaktadır</a><br/>' +
-                	  '<a href="#">Kan İsteğinde Nasıl Bulunabilirim?</a><br/>'
+                html: '<a href="#" onClick="urlhandler(&#34;site-nasil-calismaktadir.html&#34;);" >Site Nasıl Çalışmaktadır</a><br/>' +
+                	  '<a href="#" onClick="urlhandler(&#34;kan-isteginde-nasil-bulunabilirim.html&#34;);"  >Kan İsteğinde Nasıl Bulunabilirim?</a><br/>'
             });
 
             var item5 = new Ext.Panel({
@@ -474,12 +462,15 @@ function anasayfa() {
    			{
         		text: '<b>Hakkımızda</b>',
         		iconCls: 'bmenu', 
-       		 	handler: function(){ alert('blah'); }
+       		 	handler: function(){
+       		 		urlhandler("hakkimizda.html"); 
+       		 	}
     		},
     		{
      		    text: '<b>Duyurular</b>',
      		    iconCls: 'bmenu', 
     	        handler: function(){ 
+    	        	urlhandler("duyurular.html"); 
        		}
     		},
     		{
