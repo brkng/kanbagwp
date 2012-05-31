@@ -24,11 +24,11 @@ public class EncodingFilter implements Filter {
 		HttpServletRequest request =(HttpServletRequest)req;
 		HttpServletResponse response = (HttpServletResponse)res;
 	  
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		chain.doFilter(request, response);
 		
-		
+		System.out.println("!!Encodinge girir");
 	}
 
 	public void init(FilterConfig arg0) throws ServletException {

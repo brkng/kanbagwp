@@ -26,7 +26,7 @@ function swapCSS(n){
 }
 </script>
 
-<script type="text/javascript" src="../js/kullanici.js"></script>
+<script type="text/javascript" src="../js/kullanici.js" charset="UTF-8"></script>
 
 
 

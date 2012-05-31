@@ -1,6 +1,7 @@
 package view;
 
 import java.io.IOException;
+import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,6 +35,18 @@ public class KullaniciView {
 	}
 	
 	
+	@RequestMapping(value="/cikis")
+	public void cikis(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+		
+		SessionClientData scd = new SessionClientData();	
+		req.getSession().removeAttribute("scd");
+		JSONObject obj = new JSONObject();
+		obj.put("success", true);
+		resp.getWriter().print(obj);
+		
+	}
+	
+	
 	
 	@RequestMapping(value="/kullanicibilgilerigetir")
 	public void kulbilgetir(HttpServletRequest req, HttpServletResponse resp) throws IOException{
@@ -41,7 +54,7 @@ public class KullaniciView {
 		
 		SessionClientData scd = (SessionClientData) req.getSession().getAttribute("scd");
 		
-		System.out.println("****Ýndiki user "+scd.getUsername());
+		System.out.println("****ï¿½ndiki user "+scd.getUsername());
 		
 		Kullanici kullanici=new Kullanici();
 		KanBagiscisi kanbagiscisi=new KanBagiscisi();
@@ -54,10 +67,17 @@ public class KullaniciView {
 		
 		obj.put("username", kullanici.getUsername());
 		obj.put("kangrubu", kanbagiscisi.getKangrubu());
-		obj.put("sonbagistarihi", kanbagiscisi.getSonkanbagistarihi().toGMTString());
+		obj.put("sonbagistarihi", kanbagiscisi.getSonkanbagistarihi().toString());
+		obj.put("isim",kanbagiscisi.getIsimsoyisim());
 		
-		
-		obj.put("success", true);
+		if(scd != null)
+		{
+			obj.put("success", true);
+		}
+		else
+		{
+			obj.put("success", false);
+		}
 
 		resp.getWriter().print(obj);
 	}
