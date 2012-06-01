@@ -28,6 +28,61 @@ Ext.onReady(function(){
 
 	///////////////////////////////////////////////////////////////////////////////////
 	Ext.QuickTips.init();
+	
+	this.istekgonder = function()
+	{
+		var istek= new Ext.Window({
+			height		:	150,
+			title		:	'İstek Gönder',
+			modal		:	true,
+			resizable	:	false,
+			draggable	:	false,
+			width		:	260,
+			layout		:	'form',
+			bodyStyle	:	'padding : 10px',
+		    buttonAlign : 'center',
+			labelWidth	:	80,
+			defaultType	:	'textfield',
+			items		:	[{
+				id			:	'id',
+				fieldLabel	:	'Kullanıcı ID:',
+				width		:	130,
+				allowBlank:     false
+			}],
+			buttons			:	[{
+				xtype		:	'button',
+				text		:	'Gönder',
+				handler		:	function(btn){
+					Ext.Ajax.request({
+    					url		: 'istekolustur',
+    					params	: {
+    						eposta:Ext.getCmp('eposta').getValue(),
+    					},
+    					success : function(response) {
+    						obj = Ext.util.JSON.decode(response.responseText);
+    						
+    						if(obj.cevap==1)
+    						{
+    							Ext.MessageBox.alert("","Şifre Gönderildi! Lütfen epostanızı kontrol edin");
+    						}
+    						else
+    						{
+    							Ext.MessageBox.alert("","Sistemde bu epostaya sahip kullanıcı bulunamadı");
+    						}
+    					},
+    					failure : function(response) {
+    						
+    					}	
+    				});
+					
+					
+					//Kayıt işlemleri
+				}
+			}]
+		});
+		
+		istek.show();
+	};
 
 
 	//Grid Panel Kullanıcılar için///
@@ -47,7 +102,7 @@ Ext.onReady(function(){
 		                                           	    type : 'string'
 		                                           	},{
 		                                           	    name : 'kangrubu',
-		                                           	    type : 'int'
+		                                           	    type : 'string'
 		                                           	},{
 		                                           	    name : 'hastaneid',
 		                                           	    type : 'int'
@@ -1053,6 +1108,12 @@ Ext.onReady(function(){
 		collapsible	:false,
 		titleCollapse: false 		
 	});
+	
+	var istekgonder = new Ext.Panel({
+		title: '<a style="color: #FFFFFF;text-decoration:none;" href="#"  onClick="istekgonder();" >istek Oluştur</a>',
+		collapsible	:false,
+		titleCollapse: false 		
+	});
 
 	var menuBar = new Ext.Panel({
 		autoScroll: true,
@@ -1064,7 +1125,7 @@ Ext.onReady(function(){
 		split:true,
 		border:true,
 		width: 300,
-		items : [kullanicilar, hastaneler, istekler],
+		items : [kullanicilar, hastaneler, istekler,istekgonder],
 		defaults: {
 			hideCollapseTool : false
 		},

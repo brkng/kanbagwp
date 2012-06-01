@@ -35,6 +35,19 @@ public class KullaniciView {
 	}
 	
 	
+	
+	@RequestMapping(value="/istekolustur")
+	public void istekolustur(HttpServletRequest req, HttpServletResponse resp) throws IOException
+	{
+		
+
+		
+		JSONObject obj = new JSONObject();
+		obj.put("success", true);
+		resp.getWriter().print(obj);
+		
+	}
+	
 	@RequestMapping(value="/cikis")
 	public void cikis(HttpServletRequest req, HttpServletResponse resp) throws IOException{
 		
