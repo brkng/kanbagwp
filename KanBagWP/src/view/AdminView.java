@@ -3,6 +3,7 @@ package view;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.KanBagiscisi;
+import model.KanIstegi;
 import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,7 @@ import security.SessionClientData;
 import service.HastaneService;
 import service.KanBagiscisiService;
 import service.KanBagiscisiServiceImpl;
+import service.KanIstegiService;
 
 import bus.GenBUS;
 
@@ -43,6 +46,9 @@ public class AdminView {
 	@Autowired
 	private HastaneService hastaneService;
 	
+	@Autowired
+	private KanIstegiService kanistegiService; 
+	
 	
 	@RequestMapping(value="/admin")
 	public ModelAndView testing(){
@@ -56,6 +62,25 @@ public class AdminView {
 		JSONObject sendJSON = new JSONObject();
 		sendJSON = kanBagServ.listKanBagiscisisAsJson();
 		resp.getWriter().print(sendJSON);
+	}
+	
+	@RequestMapping(value="/istekolustur")
+	public void istekOlustur(HttpServletRequest req, HttpServletResponse resp) throws IOException{	
+		
+		KanIstegi ki=new KanIstegi();
+		
+		ki.setHastaneId(Integer.parseInt(req.getParameter("hastaneid")));
+		ki.setIstekNotu(req.getParameter("isteknotu"));
+		ki.setKanGrubu(req.getParameter("kangrubu"));
+		ki.setSemt(req.getParameter("semt"));
+		ki.setSure(Integer.parseInt(req.getParameter("sure")));
+		ki.setKoyulduguTarih(Calendar.getInstance().getTime());
+		
+		kanistegiService.saveKanIstegi(ki);
+		
+		JSONObject obj = new JSONObject();
+		obj.put("success", true);
+		resp.getWriter().print(obj);
 	}
 	
 	@RequestMapping(value="/hastanebilgilerinigetir")

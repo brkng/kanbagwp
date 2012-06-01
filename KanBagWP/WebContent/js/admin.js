@@ -5,7 +5,7 @@ Ext.onReady(function(){
 	{
 		var istek= new Ext.Window({
 			height		:	250,
-			title		:	'İstek Gönder',
+			title		:	'Kan İsteği Oluştur',
 			modal		:	true,
 			resizable	:	false,
 			draggable	:	false,
@@ -18,7 +18,6 @@ Ext.onReady(function(){
 			items		:	[{
 				id			:	'kangrubu',
 				xtype		:	'combo',
-				allowBlank  :   false,
 				fieldLabel	:	'Kan Grubu',
 				width		:	50,
 				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
@@ -33,6 +32,14 @@ Ext.onReady(function(){
 				xtype		:	'numberfield',
 				width		:	130
 			},{
+            	id			:	'semt',
+				xtype		:	'combo',
+				fieldLabel	:	'Semt',
+				width		:	130,
+				allowBlank  :   false,
+				store		:	['Göztepe','BeylerBeyi','Bakırkoy','YeniMahalle','Semt2','Semt5','Semt6','Semt7']
+			},
+			{
 				id			:	'isteknotu',
 				fieldLabel	:	'İstek Notu',
 				xtype		:	'textarea',
@@ -49,22 +56,16 @@ Ext.onReady(function(){
     						kangrubu:Ext.getCmp('kangrubu').getValue(),
     						isteknotu:Ext.getCmp('isteknotu').getValue(),
     						hastaneid:Ext.getCmp('hastaneid').getValue(),
-    						sure:Ext.getCmp('sure').getValue()
+    						sure:Ext.getCmp('sure').getValue(),
+    						semt:Ext.getCmp('semt').getValue()
     					},
     					success : function(response) {
-    						obj = Ext.util.JSON.decode(response.responseText);
-    						
-    						if(obj.cevap==1)
-    						{
-    							Ext.MessageBox.alert("","Şifre Gönderildi! Lütfen epostanızı kontrol edin");
-    						}
-    						else
-    						{
-    							Ext.MessageBox.alert("","Sistemde bu epostaya sahip kullanıcı bulunamadı");
-    						}
+    						Ext.MessageBox.alert("","İstek Oluşturuldu!");
+    						istek.close();
     					},
     					failure : function(response) {
-    						
+    						Ext.MessageBox.alert("","Bir Hata Oluştu");
+    						istek.close();
     					}	
     				});
 				}

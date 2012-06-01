@@ -35,19 +35,6 @@ public class KullaniciView {
 	}
 	
 	
-	
-	@RequestMapping(value="/istekolustur")
-	public void istekolustur(HttpServletRequest req, HttpServletResponse resp) throws IOException
-	{
-		
-
-		
-		JSONObject obj = new JSONObject();
-		obj.put("success", true);
-		resp.getWriter().print(obj);
-		
-	}
-	
 	@RequestMapping(value="/cikis")
 	public void cikis(HttpServletRequest req, HttpServletResponse resp) throws IOException{
 		
@@ -66,8 +53,6 @@ public class KullaniciView {
 		 
 		
 		SessionClientData scd = (SessionClientData) req.getSession().getAttribute("scd");
-		
-		System.out.println("****�ndiki user "+scd.getUsername());
 		
 		Kullanici kullanici=new Kullanici();
 		KanBagiscisi kanbagiscisi=new KanBagiscisi();
