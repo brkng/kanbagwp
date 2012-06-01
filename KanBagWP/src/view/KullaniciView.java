@@ -65,7 +65,15 @@ public class KullaniciView {
 		
 		obj.put("username", kullanici.getUsername());
 		obj.put("kangrubu", kanbagiscisi.getKangrubu());
-		obj.put("sonbagistarihi", kanbagiscisi.getSonkanbagistarihi().toString());
+		
+		if(kanbagiscisi.getSonkanbagistarihi()!=null)
+		{
+			obj.put("sonbagistarihi", kanbagiscisi.getSonkanbagistarihi().toString());
+		}
+		else
+		{
+			obj.put("sonbagistarihi", "Henüz Bağış Yapılmadı");
+		}
 		obj.put("isim",kanbagiscisi.getIsimsoyisim());
 		
 		if(scd != null)

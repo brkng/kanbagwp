@@ -112,4 +112,9 @@ public class KanBagiscisiServiceImpl implements KanBagiscisiService {
 		return kanBagiscisiDao.getKanBagiscisiByUsername(username);
 	}
 
+	@Override
+	public List<KanBagiscisi> getKanBagiscisiBySemtAndKanGrubu(String semt,String kangrubu) {
+		return kanBagiscisiDao.getKanBagiscisiBySemtAndKanGrubu(semt, kangrubu);
+	}
+
 }

@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -13,6 +14,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import model.Hastane;
 import model.KanBagiscisi;
 import model.Kullanici;
 
@@ -87,6 +89,27 @@ public class KanBagiscisiDaoImpl implements KanBagiscisiDao {
 		{
 			return null;
 		}
+	}
+
+	@Override
+	public List<KanBagiscisi> getKanBagiscisiBySemtAndKanGrubu(String semt,String kangrubu) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		tx.commit();
+		
+		List<KanBagiscisi> aynisemtddekiler= session.createQuery("from KanBagiscisi where semtid=:semt").setParameter("semt", semt).list();
+		
+		List<KanBagiscisi> ok=new ArrayList<KanBagiscisi>();
+		
+		for(KanBagiscisi kan:aynisemtddekiler)
+		{
+			if(kan.getKangrubu().equals(kangrubu))
+			{
+				ok.add(kan);
+			}
+		}
+		
+		return ok;
 	}
 
 }

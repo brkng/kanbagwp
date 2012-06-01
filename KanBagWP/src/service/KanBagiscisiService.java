@@ -19,6 +19,8 @@ public interface KanBagiscisiService {
 	public List<KanBagiscisi> update(Object data);
 	public void delete(Object data);
 	
+	public List<KanBagiscisi> getKanBagiscisiBySemtAndKanGrubu(String semt, String kangrubu);
+	
 	//its for Ext GridPanel
 	public JSONObject listKanBagiscisisAsJson();
 	public JSONObject getKanBagiscisiByArticleIdAsJson(int articleId);

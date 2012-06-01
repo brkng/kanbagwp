@@ -68,8 +68,8 @@ public class GenView {
 	}
 	
 	private void Gonder(String toMail, String pass){
-		final String username = "faridmovsumov@gmail.com";
-		final String password = "";
+		final String username = "sanguiskanbagisuygulamasi@gmail.com";
+		final String password = "sanguis12345";
  
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -87,14 +87,12 @@ public class GenView {
 		try {
  
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("info@microsoft.com"));
+			message.setFrom(new InternetAddress("Sanguis"));
 			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(toMail));
-			message.setSubject("Sanguis Kan Baðýþ Uygulamasý");
-			message.setText("Merhaba,"+ "\n\n Þifreniz:"+pass);
+			message.setSubject("Sanguis Kan BaÄŸÄ±ÅŸ UygulamasÄ±");
+			message.setText("Merhaba,"+ "\n\nÅžifreniz:"+pass);
  
 			Transport.send(message);
- 
-			System.out.println("Done");
  
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
@@ -154,7 +152,7 @@ public class GenView {
 			
 			if(req.getParameter("pass").equals( kullanici.getPassword()))
 			{
-				//Doðru;
+				//Doï¿½ru;
 				rol=kullanici.getRolId();
 				
 				
@@ -172,13 +170,13 @@ public class GenView {
 			}
 			else
 			{
-				//Þifre yanlýþ
+				//ï¿½ifre yanlï¿½ï¿½
 				rol=-1;
 			}
 		}
 		else
 		{
-			//Kullanýcý adý mevcut deðil
+			//Kullanï¿½cï¿½ adï¿½ mevcut deï¿½il
 			rol=-2;
 		}
 		
