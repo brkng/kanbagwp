@@ -8,7 +8,6 @@ Ext.onReady(function(){
 			title		:	'Kayıt İşlemi',
 			modal		:	true,
 			resizable	:	false,
-			draggable	:	false,
 			//closable	:	false,
 			width		:	260,
 			layout		:	'form',
@@ -126,7 +125,6 @@ Ext.onReady(function(){
 		myWin.show();
 	};
 	
-	
 	this.istekgonder = function()
 	{
 		var istek= new Ext.Window({
@@ -134,7 +132,6 @@ Ext.onReady(function(){
 			title		:	'Kan İsteği Oluştur',
 			modal		:	true,
 			resizable	:	false,
-			draggable	:	false,
 			width		:	260,
 			layout		:	'form',
 			bodyStyle	:	'padding : 10px',
@@ -787,7 +784,7 @@ Ext.onReady(function(){
 
     var resim =new Ext.Panel({
     	border: false,
-    	html: '<p align="center"><img width=250 height=250 src="../images/blood-2.gif" /></p>'
+    	html: '<p align="center"><img width=280 height=620 src="../images/doctor.jpg" /></p>'
     });
 
 	var menuBar2 = new Ext.Panel({

@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.KanBagiscisi;
 import model.KanIstegi;
+import model.Kullaniciİstekleri;
 import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,7 @@ import service.HastaneService;
 import service.KanBagiscisiService;
 import service.KanBagiscisiServiceImpl;
 import service.KanIstegiService;
+import service.KullaniciIstekleriService;
 
 import bus.GenBUS;
 
@@ -56,6 +58,9 @@ public class AdminView {
 	
 	@Autowired
 	private KanIstegiService kanistegiService; 
+	
+	@Autowired
+	private KullaniciIstekleriService kulService;
 	
 	
 	@RequestMapping(value="/admin")
@@ -110,8 +115,15 @@ public class AdminView {
 	{
 		List<KanBagiscisi> bagiscilar = kanBagServ.getKanBagiscisiBySemtAndKanGrubu(ki.getSemt(), ki.getKanGrubu());
 		
+		Kullaniciİstekleri istekler=new Kullaniciİstekleri();
+		
 		for(KanBagiscisi kan:bagiscilar)
 		{
+			istekler.setKid(kan.getKid());
+			istekler.setIid(ki.getId());
+			
+			kulService.saveKullaniciİstekleri(istekler);
+			
 			Gonder(kan.getEmail(), ki.getKanGrubu(),kan.getIsimsoyisim());
 			System.out.println("***Mail");
 			System.out.println(kan.getEmail());
