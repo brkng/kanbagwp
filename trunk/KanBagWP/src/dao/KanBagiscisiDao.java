@@ -20,4 +20,6 @@ public interface KanBagiscisiDao {
 	public KanBagiscisi save(KanBagiscisi article);
 	
 	public KanBagiscisi getKanBagiscisiByUsername(String username);
+	
+	public List<KanBagiscisi> getKanBagiscisiBySemtAndKanGrubu(String semt, String kangrubu);
 }
