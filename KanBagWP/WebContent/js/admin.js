@@ -1,6 +1,132 @@
 Ext.onReady(function(){
 	Ext.QuickTips.init();
 	
+	this.bagisciekle = function()
+	{
+		var myWin= new Ext.Window({
+			height		:	420,
+			title		:	'Kayıt İşlemi',
+			modal		:	true,
+			resizable	:	false,
+			draggable	:	false,
+			//closable	:	false,
+			width		:	260,
+			layout		:	'form',
+			bodyStyle	:	'padding : 10px',
+		    buttonAlign : 'center',
+			labelWidth	:	80,
+			defaultType	:	'textfield',
+			items		:	[{
+				id			:	'isimsoyisim',
+				//xtype		:	'textfield',
+				fieldLabel	:	'Ad',
+				width		:	130,
+				allowBlank:     false
+
+			},{
+				id			:	'telefon',
+				xtype		:	'numberfield',
+				fieldLabel	:	'Telefon',
+				allowBlank  :   false,
+				width		:	130
+			},{
+				id			:	'kangrubu',
+				xtype		:	'combo',
+				allowBlank  :   false,
+				fieldLabel	:	'Kan Grubu',
+				width		:	50,
+				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
+			},{
+				id			:	'email',
+				fieldLabel	:	'E-posta',
+				width		:	130,
+				allowBlank  :   false
+			},{
+					id			:	'sifre1',
+            		xtype		:	'textfield',
+            		fieldLabel	:	'Şifre',
+            		minLength	:	8,
+            		inputType	:	'password',
+            		width		:	130,
+            		allowBlank  :   false
+            },{
+            		id			:	'sifre2',
+            		xtype		:	'textfield',
+            		fieldLabel	:	'Şifre Tekrar',
+            		minLength	:	8,
+            		name		:	'pwd-confirm',
+            		inputType	:	'password',
+            		width		:	130,
+            		allowBlank  :   false,
+            },{
+            	id			:	'semt',
+				xtype		:	'combo',
+				fieldLabel	:	'Semt',
+				width		:	130,
+				allowBlank  :   false,
+				store		:	['Göztepe','BeylerBeyi','Bakırkoy','YeniMahalle','Semt2','Semt5','Semt6','Semt7']
+			},{
+				id			:	'il',
+				xtype		:	'combo',
+				fieldLabel	:	'İl',
+				width		:	130,
+				allowBlank  :   false,
+				store		:	['Ankara','İstanbul','Bursa','Çanakkale','Ağrı','İzmir','Bolu','Antalya']
+			},{
+				id			:	'ilce',
+				xtype		:	'combo',
+				fieldLabel	:	'İlçe',
+				width		:	130,
+				allowBlank  :   false,
+				store		:	['Kadıköy','Umraniye','Uskudar','Taşdelen']
+			},{
+				id			:	'adres',
+				fieldLabel	:	'Adres',
+				xtype		:	'textarea',
+				width		:	130
+			}],
+			buttons			:	[{
+				xtype		:	'button',
+				text		:	'Kaydol',
+				handler		:	function(btn){
+					//Kayıt İşlemleri
+					Ext.Ajax.request({
+    					url		: '../gen/yenikullaniciekle',
+    					params	: {
+    						isimsoyisim:Ext.getCmp('isimsoyisim').getValue(),
+    						kangrubu:Ext.getCmp('kangrubu').getValue(),
+    						email:Ext.getCmp('email').getValue(),
+    						telefon:Ext.getCmp('telefon').getValue(),
+    						sifre1:Ext.getCmp('sifre1').getValue(),
+    						sifre2:Ext.getCmp('sifre2').getValue(),
+    						semt:Ext.getCmp('semt').getValue(),
+    						il:Ext.getCmp('il').getValue(),
+    						ilce:Ext.getCmp('ilce').getValue(),
+    						adres:Ext.getCmp('adres').getValue()
+    					},
+    					success : function(response) {
+    						Ext.MessageBox.alert("Kullanıcı Başarılı bir şekilde sisteme kaydedildi");
+    						
+    						myWin.close();
+    					},
+    					failure : function(response) {
+    						
+    						Ext.MessageBox.alert("Kayıt sırasında bir hata oluştu!");
+    						
+    						myWin.close();
+    					}	
+    				});
+					
+					
+					//Kayıt işlemleri
+				}
+			}]
+		});
+		
+		myWin.show();
+	};
+	
+	
 	this.istekgonder = function()
 	{
 		var istek= new Ext.Window({
@@ -103,7 +229,7 @@ Ext.onReady(function(){
 		                                           	    dateFormat:'Y-m-d'
 		                                           	},{
 		                                           	    name : 'semtid',
-		                                           	    type : 'int'
+		                                           	    type : 'string'
 		                                           	},{
 		                                           	    name : 'email',
 		                                           	    type : 'string'
@@ -163,7 +289,7 @@ Ext.onReady(function(){
 		                                           		    sortable : true,
 		                                           		    renderer: Ext.util.Format.dateRenderer('Y-m-d')
 		                                           	 }, {
-		                                           		 	header : 'Semt ID',
+		                                           		 	header : 'Semt',
 		                                           		 	dataIndex : 'semtid',
 		                                           		 	sortable : true
 		                                           	 }, {
@@ -628,6 +754,14 @@ Ext.onReady(function(){
 		collapsible	:false,
 		titleCollapse: false 		
 	});
+	
+	var bagisciekle = new Ext.Panel({
+		title: '<a style="color: #FFFFFF;text-decoration:none;" href="#"  onClick="bagisciekle();" >Yeni Bağışçı Ekle</a>',
+		collapsible	:false,
+		titleCollapse: false 		
+	});
+	
+	
 
 	var menuBar = new Ext.Panel({
 		autoScroll: true,
@@ -639,7 +773,7 @@ Ext.onReady(function(){
 		split:true,
 		border:true,
 		width: 300,
-		items : [kullanicilar, hastaneler, istekler,istekgonder],
+		items : [kullanicilar, hastaneler, istekler,istekgonder,bagisciekle],
 		defaults: {
 			hideCollapseTool : false
 		},
@@ -651,6 +785,10 @@ Ext.onReady(function(){
 		split:false
 	});
 
+    var resim =new Ext.Panel({
+    	border: false,
+    	html: '<p align="center"><img width=250 height=250 src="../images/blood-2.gif" /></p>'
+    });
 
 	var menuBar2 = new Ext.Panel({
 		autoScroll: true,
@@ -668,7 +806,8 @@ Ext.onReady(function(){
 			autoScroll: true
 		},
 		margins:'5 0 5 5',
-		split:false
+		split:false,
+		items:[resim]
 	});
 
 
@@ -701,13 +840,13 @@ Ext.onReady(function(){
 		    	   iconCls: 'bmenu',  
 		    	   handler: function()
 		    	   {
-		    		   content.load({ url: 'anaicerik', nocache: true, timeout: 30, scripts: true });
+		    		   //content.load({ url: 'anaicerik', nocache: true, timeout: 30, scripts: true });
 		    	   }
 		       },
 		       {
 		    	   text: '<b>Hakkımızda</b>',
 		    	   iconCls: 'bmenu', 
-		    	   handler: function(){ alert('blah'); }
+		    	   handler: function(){  }
 		       },
 		       {
 		    	   text: '<b>Duyurular</b>',
@@ -719,7 +858,6 @@ Ext.onReady(function(){
 		    	   text: '<b>Yardım</b>',
 		    	   iconCls: 'bmenu',  // <-- icon
 		    	   handler: function(){
-		    		   content.load({ url: 'resources/static/yardim.html', nocache: true, timeout: 30, scripts: true }); 
 		    	   }
 		       }]
 	});
