@@ -261,7 +261,7 @@ function anasayfa() {
 					//obj.username
 					s = '<br/><a href="#" onClick="cikisyap();" >Çıkış Yap</a><br/>';
 					Ext.getCmp('kullanicibilgileri').update("<b>Kullanıcı Adı:</b> "+obj.isim+"<br/><b>Kan Grubu:</b> "+
-							obj.kangrubu+"<br/><b>Son Kan Bağış Tarihi:</b> "+obj.sonbagistarihi+s);
+							obj.kangrubu+"<br/><b>Son Kan Bağış Tarihi:</b> "+obj.sonbagistarihi+"<br/><br/><b><a href=&#34;#&#34;>Bekleyen İstek Sayısı:</b>"+obj.isteksayisi+"</a>"+s);
 				},
 				failure : function(response) {
 					window.location = '../gen/anasayfa';

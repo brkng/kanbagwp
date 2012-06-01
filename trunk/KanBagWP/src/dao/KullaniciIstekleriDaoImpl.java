@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import model.Hastane;
-import model.Kullaniciİstekleri;
+import model.Kullaniciistekleri;
 
 @Repository("KullaniciIstekleriDao")
 @Transactional
@@ -20,18 +20,18 @@ public class KullaniciIstekleriDaoImpl implements KullaniciIstekleriDao {
 	private SessionFactory sessionFactory;
 
 	@Override
-	public List<Kullaniciİstekleri> getKullaniciİstekleriBykid(int kid) {
+	public List<Kullaniciistekleri> getKullaniciİstekleriBykid(int kid) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		tx.commit();
 		
-		List<Kullaniciİstekleri> kul= session.createQuery("from KullaniciIstekleri where kid=:hastaneid").setParameter("kid", kid).list();
+		List<Kullaniciistekleri> kul= session.createQuery("from Kullaniciistekleri where kid=:kid").setParameter("kid", kid).list();
 		
 		return kul;
 	}
 
 	@Override
-	public Kullaniciİstekleri saveKullaniciİstekleri(Kullaniciİstekleri kullaniciistekleri) {
+	public Kullaniciistekleri saveKullaniciİstekleri(Kullaniciistekleri kullaniciistekleri) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		tx.commit();
@@ -45,7 +45,7 @@ public class KullaniciIstekleriDaoImpl implements KullaniciIstekleriDao {
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		tx.commit();
-		Object record = session.load(Kullaniciİstekleri.class, id);
+		Object record = session.load(Kullaniciistekleri.class, id);
 		session.delete(record);
 	}
 

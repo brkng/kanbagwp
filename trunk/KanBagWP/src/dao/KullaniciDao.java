@@ -9,7 +9,7 @@ public interface KullaniciDao {
 	
 	public List<Kullanici> listKullanici();
 	
-	public List<KanBagiscisi> getKullaniciByKullaniciId(int kullaniciId);
+	public Kullanici getKullaniciByKullaniciId(int kullaniciId);
 	
 	public Kullanici getKullaniciByUsername(String name);
 	

@@ -2,13 +2,13 @@ package service;
 
 import java.util.List;
 
-import model.Kullaniciİstekleri;
+import model.Kullaniciistekleri;
 
 public interface KullaniciIstekleriService {
 	
-	public List<Kullaniciİstekleri> getKullaniciİstekleriBykid(int kid);
+	public List<Kullaniciistekleri> getKullaniciİstekleriBykid(int kid);
 	
-	public Kullaniciİstekleri saveKullaniciİstekleri(Kullaniciİstekleri kullaniciistekleri);
+	public Kullaniciistekleri saveKullaniciİstekleri(Kullaniciistekleri kullaniciistekleri);
 
 	public void deleteKullaniciİstekleri(int id);
 }

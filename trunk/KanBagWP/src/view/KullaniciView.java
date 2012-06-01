@@ -1,13 +1,17 @@
 package view;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.KanBagiscisi;
+import model.KanIstegi;
 import model.Kullanici;
+import model.Kullaniciistekleri;
 import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +21,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import security.SessionClientData;
 import service.KanBagiscisiService;
+import service.KanIstegiService;
+import service.KullaniciIstekleriService;
 import service.KullaniciService;
 
 @Controller
@@ -27,6 +33,12 @@ public class KullaniciView {
 	
 	@Autowired
 	private KullaniciService kulServ;
+	
+	@Autowired
+	private KullaniciIstekleriService kulisServ;
+	
+	@Autowired
+	private KanIstegiService kanistegiServ;
 	
 	
 	@RequestMapping(value="/kullanici")
@@ -56,12 +68,19 @@ public class KullaniciView {
 		
 		Kullanici kullanici=new Kullanici();
 		KanBagiscisi kanbagiscisi=new KanBagiscisi();
+		List<Kullaniciistekleri> kulis=new ArrayList<Kullaniciistekleri>();
+		List<KanIstegi> kanistekleri=new ArrayList<KanIstegi>();
+		
 		
 		kullanici=kulServ.getKullaniciByName(scd.getUsername());
 		kanbagiscisi=kanBagServ.getKanBagiscisiByUsername(scd.getUsername());
 		
 		
+		//Kullanıcının olduğu istekleri aldım...
+		kulis=kulisServ.getKullaniciİstekleriBykid(kanbagiscisi.getKid());
 		JSONObject obj = new JSONObject();
+		
+		obj.put("isteksayisi", kulis.size());
 		
 		obj.put("username", kullanici.getUsername());
 		obj.put("kangrubu", kanbagiscisi.getKangrubu());
@@ -72,18 +91,11 @@ public class KullaniciView {
 		}
 		else
 		{
-			obj.put("sonbagistarihi", "Henüz Bağış Yapılmadı");
+			obj.put("sonbagistarihi", "Bağış Yok");
 		}
 		obj.put("isim",kanbagiscisi.getIsimsoyisim());
 		
-		if(scd != null)
-		{
-			obj.put("success", true);
-		}
-		else
-		{
-			obj.put("success", false);
-		}
+		obj.put("success", true);
 
 		resp.getWriter().print(obj);
 	}

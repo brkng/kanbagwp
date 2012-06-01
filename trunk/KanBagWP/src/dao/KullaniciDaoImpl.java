@@ -25,14 +25,17 @@ public class KullaniciDaoImpl implements KullaniciDao {
 		Transaction tx = session.beginTransaction();
 		tx.commit();
 		System.out.println("sessionu kecdi");
-		List<Kullanici> lst = session.createQuery("from kullanicilar").list();
+		List<Kullanici> lst = session.createQuery("from Kullanici").list();
 		System.out.println(lst.size());
 		return lst;
 	}
 
 	@Override
-	public List<KanBagiscisi> getKullaniciByKullaniciId(int kullaniciId) {
-		return sessionFactory.getCurrentSession().createQuery("from kullanicilar where id=:kullaniciId").setParameter("id", kullaniciId).list();
+	public Kullanici getKullaniciByKullaniciId(int kullaniciId) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		tx.commit();
+		return (Kullanici) session.createQuery("from Kullanici where id=:id").setParameter("id", kullaniciId);
 	}
 
 	@Override

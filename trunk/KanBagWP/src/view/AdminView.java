@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.KanBagiscisi;
 import model.KanIstegi;
-import model.Kullaniciİstekleri;
+import model.Kullaniciistekleri;
 import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -115,7 +115,7 @@ public class AdminView {
 	{
 		List<KanBagiscisi> bagiscilar = kanBagServ.getKanBagiscisiBySemtAndKanGrubu(ki.getSemt(), ki.getKanGrubu());
 		
-		Kullaniciİstekleri istekler=new Kullaniciİstekleri();
+		Kullaniciistekleri istekler=new Kullaniciistekleri();
 		
 		for(KanBagiscisi kan:bagiscilar)
 		{

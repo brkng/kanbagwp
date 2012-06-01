@@ -27,9 +27,8 @@ public class KullaniciServiceImpl implements KullaniciService {
 	}
 
 	@Override
-	public List<Kullanici> getKullaniciByKullaniciId(int kullaniciId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Kullanici getKullaniciByKullaniciId(int kullaniciId) {
+		return kullaniciDao.getKullaniciByKullaniciId(kullaniciId);
 	}
 
 	@Override
