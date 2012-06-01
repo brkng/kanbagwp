@@ -8,7 +8,7 @@ import net.sf.json.JSONObject;
 public interface KullaniciService {
 	public List<Kullanici> listKullanicilar();
 	
-	public List<Kullanici> getKullaniciByKullaniciId(int kullaniciId);
+	public Kullanici getKullaniciByKullaniciId(int kullaniciId);
 	
 	public Kullanici getKullaniciByName(String name);
 	

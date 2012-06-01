@@ -2,13 +2,13 @@ package dao;
 
 import java.util.List;
 
-import model.Kullaniciİstekleri;
+import model.Kullaniciistekleri;
 
 public interface KullaniciIstekleriDao {
 	
-	public List<Kullaniciİstekleri> getKullaniciİstekleriBykid(int kid);
+	public List<Kullaniciistekleri> getKullaniciİstekleriBykid(int kid);
 	
-	public Kullaniciİstekleri saveKullaniciİstekleri(Kullaniciİstekleri kullaniciistekleri);
+	public Kullaniciistekleri saveKullaniciİstekleri(Kullaniciistekleri kullaniciistekleri);
 
 	public void deleteKullaniciİstekleri(int id);
 }

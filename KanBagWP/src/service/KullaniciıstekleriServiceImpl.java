@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import dao.KullaniciIstekleriDao;
 
-import model.Kullaniciİstekleri;
+import model.Kullaniciistekleri;
 
 @Service
 public class KullaniciıstekleriServiceImpl implements KullaniciIstekleriService {
@@ -16,13 +16,13 @@ public class KullaniciıstekleriServiceImpl implements KullaniciIstekleriService
 	private KullaniciIstekleriDao kulisDao;
 
 	@Override
-	public List<Kullaniciİstekleri> getKullaniciİstekleriBykid(int kid) {
+	public List<Kullaniciistekleri> getKullaniciİstekleriBykid(int kid) {
 		return kulisDao.getKullaniciİstekleriBykid(kid);
 	}
 
 	@Override
-	public Kullaniciİstekleri saveKullaniciİstekleri(
-			Kullaniciİstekleri kullaniciistekleri) {
+	public Kullaniciistekleri saveKullaniciİstekleri(
+			Kullaniciistekleri kullaniciistekleri) {
 		return kulisDao.saveKullaniciİstekleri(kullaniciistekleri);
 	}
 

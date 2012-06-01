@@ -792,7 +792,7 @@ Ext.onReady(function(){
 		defaults: {autoScroll: true},
 		collapsible:false,
 		split:true,
-		bodyStyle:'padding:5px;font-size:12px;background-color:#D0CDCD;',
+		bodyStyle:'padding:5px;font-size:12px;background-color:#ffffff;',
 		region: 'east',
 		width: 300,
 		defaults: {
