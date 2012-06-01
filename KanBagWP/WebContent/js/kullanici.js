@@ -285,7 +285,7 @@ function anasayfa() {
     		var kullanicibilgileri = new Ext.Panel({
     			id		:	'kullanicibilgileri',
             	padding: '5 15 5 15' ,
-            	title: 'Kullan�c� Bilgileri',
+            	title: '<b>Kullanıcı Bilgileri</b>',
             	bodyStyle:'padding:10px;font-size:16px;background-color:#FFFFFF;',
             	layout		:	'hbox',
             	items		:	[{
