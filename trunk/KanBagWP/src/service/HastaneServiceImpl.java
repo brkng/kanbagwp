@@ -53,6 +53,12 @@ public class HastaneServiceImpl implements HastaneService {
 		
 		JSONArray arr = new JSONArray();
 		
+//		int i=lst.size();
+//		JSONObject counter = new JSONObject();
+//		counter.put("totalCount", i);
+//		arr.add(counter);
+		
+
 		for(Hastane kan:lst){
 			
 			JSONObject obj = new JSONObject();
@@ -64,6 +70,7 @@ public class HastaneServiceImpl implements HastaneService {
 			obj.put("bashekimid", kan.getBahekimid());
 			arr.add(obj);
 		}
+
 		
 		JSONObject o = new JSONObject();
 		o.put("data", arr);

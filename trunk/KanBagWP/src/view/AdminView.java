@@ -26,6 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import security.SessionClientData;
+import service.HastaneService;
 import service.KanBagiscisiService;
 import service.KanBagiscisiServiceImpl;
 
@@ -39,6 +40,9 @@ public class AdminView {
 	@Autowired
 	private KanBagiscisiService kanBagServ;
 	
+	@Autowired
+	private HastaneService hastaneService;
+	
 	
 	@RequestMapping(value="/admin")
 	public ModelAndView testing(){
@@ -48,14 +52,16 @@ public class AdminView {
 	
 	
 	@RequestMapping(value="/loadStore")
-	public void loadStore(HttpServletRequest req, HttpServletResponse resp) throws IOException{
-		 
-		SessionClientData scd = (SessionClientData) req.getSession().getAttribute("scd");
-		
-		System.out.println("****Ýndiki user "+scd.getUsername());
-		
+	public void loadStore(HttpServletRequest req, HttpServletResponse resp) throws IOException{		
 		JSONObject sendJSON = new JSONObject();
 		sendJSON = kanBagServ.listKanBagiscisisAsJson();
+		resp.getWriter().print(sendJSON);
+	}
+	
+	@RequestMapping(value="/hastanebilgilerinigetir")
+	public void hastanebilgilerinigetir(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+		JSONObject sendJSON = new JSONObject();
+		sendJSON = hastaneService.listHastanesAsJson();
 		resp.getWriter().print(sendJSON);
 	}
 	

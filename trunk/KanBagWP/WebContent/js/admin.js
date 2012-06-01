@@ -1,38 +1,10 @@
 Ext.onReady(function(){
-//	var topHTML = '<img style="margin-left: 5px" src="Google_maps_logo.png" alt="logo" height="60" width="380">';
-//	Ext.BLANK_IMAGE_URL = 'extjs/resources/images/default/s.gif';
-	///////////////////////////////////////////////////////////////////////////////////
-//	var view = new Ext.Viewport({
-//		title : 'The form container',
-//		layout : 'border',
-//		renderTo : Ext.getBody(),
-//		items : [ {
-//			region : 'center',
-//			layout : 'fit',
-//			layoutConfig : {
-//				align : 'stretch'
-//			},
-//			items : [ grid ]
-//		}, {
-//			region : 'north',
-//			height : 40,
-//			html:topHTML,
-//			layoutConfig : {
-//				align : 'stretch'
-//			}
-//		}, {
-//			region : 'west',
-//			width : 200
-//		} ]
-//	});
-
-	///////////////////////////////////////////////////////////////////////////////////
 	Ext.QuickTips.init();
 	
 	this.istekgonder = function()
 	{
 		var istek= new Ext.Window({
-			height		:	150,
+			height		:	250,
 			title		:	'İstek Gönder',
 			modal		:	true,
 			resizable	:	false,
@@ -44,11 +16,29 @@ Ext.onReady(function(){
 			labelWidth	:	80,
 			defaultType	:	'textfield',
 			items		:	[{
-				id			:	'id',
-				fieldLabel	:	'Kullanıcı ID:',
-				width		:	130,
-				allowBlank:     false
-			}],
+				id			:	'kangrubu',
+				xtype		:	'combo',
+				allowBlank  :   false,
+				fieldLabel	:	'Kan Grubu',
+				width		:	50,
+				store		:	['0 Rh (+)','0 Rh (-)','A Rh (+)','A Rh (-)','B Rh (+)','B Rh (-)','AB Rh (+)','AB Rh (-)']
+			},{
+				id			:	'sure',
+				fieldLabel	:	'Süre (Gün)',
+				xtype		:	'numberfield',
+				width		:	130
+			},{
+				id			:	'hastaneid',
+				fieldLabel	:	'Hastane ID',
+				xtype		:	'numberfield',
+				width		:	130
+			},{
+				id			:	'isteknotu',
+				fieldLabel	:	'İstek Notu',
+				xtype		:	'textarea',
+				width		:	130
+			}
+			],
 			buttons			:	[{
 				xtype		:	'button',
 				text		:	'Gönder',
@@ -56,7 +46,10 @@ Ext.onReady(function(){
 					Ext.Ajax.request({
     					url		: 'istekolustur',
     					params	: {
-    						eposta:Ext.getCmp('eposta').getValue(),
+    						kangrubu:Ext.getCmp('kangrubu').getValue(),
+    						isteknotu:Ext.getCmp('isteknotu').getValue(),
+    						hastaneid:Ext.getCmp('hastaneid').getValue(),
+    						sure:Ext.getCmp('sure').getValue()
     					},
     					success : function(response) {
     						obj = Ext.util.JSON.decode(response.responseText);
@@ -74,9 +67,6 @@ Ext.onReady(function(){
     						
     					}	
     				});
-					
-					
-					//Kayıt işlemleri
 				}
 			}]
 		});
@@ -210,297 +200,6 @@ Ext.onReady(function(){
 		                                           		}
 		                                           	});
 
-//		var remoteProxy = new Ext.data.ScriptTagProxy({
-//			url : 'http://extjsinaction.com/dataQuery.php'
-//		});
-//
-//		var recordFields = [
-//		                    { name : 'id',          mapping : 'id'          },
-//		                    { name : 'firstname',   mapping : 'firstname'   },
-//		                    { name : 'lastname',    mapping : 'lastname'    },
-//		                    { name : 'street',      mapping : 'street'      },
-//		                    { name : 'city',        mapping : 'city'        },
-//		                    { name : 'state',       mapping : 'state'       },
-//		                    { name : 'zip',     mapping : 'zip'         },
-//		                    { name : 'newRecordId', mapping : 'newRecordId' },
-//		                    { name : 'newRecordId', mapping : 'newRecordId' }
-//		                    ];
-//
-//
-//		var remoteJsonStore = new Ext.data.JsonStore({
-//			proxy           : remoteProxy,
-//			storeId         : 'ourRemoteStore',
-//			root            : 'records',
-//			autoLoad        : false,
-//			totalProperty   : 'totalCount',
-//			remoteSort      : true,
-//			fields          : recordFields,
-//			idProperty      : 'id'
-//		});
-//
-//		var textFieldEditor = new Ext.form.TextField();
-//
-//		var comboEditor = {
-//				xtype         : 'combo',
-//				triggerAction : 'all',
-//				displayField  : 'state',
-//				valueField    : 'state',
-//				store         : {
-//					xtype  : 'jsonstore',
-//					root   : 'records',
-//					fields : ['state'],
-//					proxy  :  new Ext.data.ScriptTagProxy({
-//						url :  'http://extjsinaction.com/getStates.php'
-//					})
-//				}
-//		};
-//
-//		var numberFieldEditor = {
-//				xtype     : 'numberfield',
-//				minLength : 5,
-//				maxLength : 5
-//		};
-//
-//		var columnModel = [
-//		                   {
-//		                	   header    : 'Ad Soyad',
-//		                	   dataIndex : 'lastname',
-//		                	   sortable  : true,
-//		                	   editor    : textFieldEditor
-//		                   },
-//		                   {
-//		                	   header    : 'Telefon',
-//		                	   dataIndex : 'firstname',
-//		                	   sortable  : true,
-//		                	   editor    : textFieldEditor
-//		                   },
-//		                   {
-//		                	   header    : 'Adres',
-//		                	   dataIndex : 'street',
-//		                	   sortable  : true,
-//		                	   editor    : textFieldEditor
-//		                   },
-//		                   {
-//		                	   header    : 'kan Grubu',
-//		                	   dataIndex : 'city',
-//		                	   sortable  : true,
-//		                	   editor    : textFieldEditor
-//		                   },
-//		                   {
-//		                	   header    : 'Hastane',
-//		                	   dataIndex : 'state',
-//		                	   sortable  : true,
-//		                	   editor    : comboEditor
-//		                   },
-//		                   {
-//		                	   header    : 'Son Bağış',
-//		                	   dataIndex : 'zipcode',
-//		                	   sortable  : true,
-//		                	   editor    : numberFieldEditor
-//		                   },
-//		                   {
-//		                	   header    : 'Semt',
-//		                	   dataIndex : 'zipcode',
-//		                	   sortable  : true,
-//		                	   editor    : numberFieldEditor
-//		                   },
-//		                   {
-//		                	   header    : 'Email',
-//		                	   dataIndex : 'zipcode',
-//		                	   sortable  : true,
-//		                	   editor    : numberFieldEditor
-//		                   }
-//		                   ];
-//
-//		var onSave = function() {
-//			var modified = remoteJsonStore.getModifiedRecords({
-//				newRecordId : Ext.id()
-//			});
-//
-//			if (modified.length > 0) {
-//				var recordsToSend = [];
-//				Ext.each(modified, function(record) {
-//					recordsToSend.push(record.data);
-//				});
-//
-//				var grid = Ext.getCmp('myEditorGrid');
-//				grid.el.mask('Updating', 'x-mask-loading');
-//				grid.stopEditing();
-//
-//				recordsToSend = Ext.encode(recordsToSend);
-//				Ext.Ajax.request({
-//					url     : 'successTrue.js',
-//					params  : {
-//						records : recordsToSend
-//					},
-//					success : function(response) {
-//						grid.el.unmask();
-//						remoteJsonStore.commitChanges();
-//
-//						var result = Ext.decode(response.responseText);
-//						//                Ext.each(result.records, function(o) {
-//							//                    var rIndex = remoteJsonStore.find('newRecordId', o.newRecordId);
-//						//                    var record = remoteJsonStore.getAt(rIndex);
-//						//
-//						//                    /record.set('id', o.id);
-//						//                    delete record.data.newRecordId;
-//						//                })
-//
-//					}
-//				});
-//			}
-//		};
-//
-//		var onRejectChanges = function() {
-//			remoteJsonStore.rejectChanges();
-//		};
-//
-//
-//		var pagingToolbar = {
-//				xtype       : 'paging',
-//				store       : remoteJsonStore,
-//				pageSize    : 50,
-//				displayInfo : true,
-//				items       : [
-//				               '-',
-//				               {
-//				            	   text    : 'Save Changes',
-//				            	   handler : onSave
-//				               },
-//				               '-',
-//				               {
-//				            	   text    : 'Reject Changes',
-//				            	   handler : onRejectChanges
-//				               },
-//				               '-'
-//				               ]
-//		};
-//
-//		var doDelete = function(rowToDelete) {
-//			var grid  = Ext.getCmp('myEditorGrid');
-//			var recordToDelete = grid.store.getAt(rowToDelete);
-//
-//			if (recordToDelete.phantom) {
-//				grid.store.remove(recordToDelete);
-//				return;
-//			}
-//
-//			grid.el.mask('Updating', 'x-mask-loading');
-//
-//			Ext.Ajax.request({
-//				url    : 'successTrue.js',
-//				params :  {
-//					rowToDelete  : recordToDelete.id
-//				},
-//				success : function() {
-//					grid.store.remove(recordToDelete);
-//					grid.el.unmask();
-//					/*
-//                // For animated
-//                var row = grid.getView().getRow(rowToDelete);
-//                Ext.get(row).ghost('t',{
-//                    callback : function() {
-//                        grid.store.remove(recordToDelete);
-//                    }
-//                })
-//					 */
-//				}
-//			});
-//
-//		};
-//
-//
-//		var onDelete = function() {
-//			var grid     = Ext.getCmp('myEditorGrid');
-//			var selected = grid.getSelectionModel().getSelectedCell();
-//
-//			Ext.MessageBox.confirm(
-//					'Confirm delete',
-//					'Are you sure?',
-//					function(btn) {
-//						if (btn == 'yes') {
-//							doDelete(selected[0]);
-//						}
-//					}
-//			);
-//
-//		};
-//
-//
-//		var onInsertRecord = function() {
-//			var newRecord        = new remoteJsonStore.recordType({
-//				newRecordId : Ext.id()
-//			});
-//			var grid             = Ext.getCmp('myEditorGrid');
-//			var selectedCell     = grid.getSelectionModel().getSelectedCell();
-//			var selectedRowIndex = selectedCell[0];
-//
-//			grid.stopEditing();
-//			remoteJsonStore.insert(selectedRowIndex, newRecord);
-//			grid.startEditing(selectedRowIndex,0);
-//		};
-//
-//		var doCellCtxMenu = function(editorGrid, rowIndex, cellIndex, evtObj) {
-//			evtObj.stopEvent();
-//
-//			var record = editorGrid.getStore().getAt(rowIndex);
-//
-//			if (! editorGrid.rowCtxMenu) {
-//				editorGrid.rowCtxMenu = new Ext.menu.Menu({
-//					items : [
-//					         {
-//					        	 text    : 'Insert Record',
-//					        	 handler : onInsertRecord
-//					         },
-//					         {
-//					        	 text    : 'Delete Record',
-//					        	 handler : onDelete
-//					         }
-//					         ]
-//				});
-//			}
-//			editorGrid.getSelectionModel().select(rowIndex,cellIndex);
-//			editorGrid.rowCtxMenu.showAt(evtObj.getXY());
-//		};
-//
-//		var grid = {
-//				xtype      : 'editorgrid',
-//				columns    : columnModel,
-//				id         : 'myEditorGrid',
-//				store      : remoteJsonStore,
-//				loadMask   : true,
-//				bbar       : pagingToolbar,
-//				stripeRows : true,
-//				viewConfig : {
-//					forceFit : true
-//				},
-//				listeners        : {
-//					cellcontextmenu : doCellCtxMenu,
-//					destroy         : function(thisGrid) {
-//						if (thisGrid.rowCtxMenu) {
-//							thisGrid.rowCtxMenu.destroy();
-//						}
-//					}
-//				}
-//		};
-//
-//		var kullanicigridi = new Ext.Panel({
-//			title: 'Bağışçılar',
-//			height  : 700,
-//			width   : 950,
-//			border  : false,
-//			layout  : 'fit',
-//			items   : grid
-//		});
-//
-//
-//		remoteJsonStore.load({
-//			params : {
-//				start : 0,
-//				limit : 50
-//			}
-//		});
-
 		content.removeAll(true);
 		content.add(Bagiscigrid);
 		content.doLayout();
@@ -510,286 +209,100 @@ Ext.onReady(function(){
 
 ///////////////////////Grid panel Hastaneler için///////////////////////////////////////////////
 	this.hastanetablosu = function() {
+		var Hastane = new Ext.data.Record.create([
+			{
+			    name : 'hid'
+			}, {
+			    name : 'isim',
+			    type : 'string'
+			}, {
+			    name : 'adres',
+			    type : 'string'
+			},{
+			    name : 'bashekimid',
+			    type : 'int'
+			},{
+			    name : 'telefon',
+			    type : 'string'
+		}]);
+
+		var reader = new Ext.data.JsonReader({
+			idProperty: 'hid',
+			root: 'data',
+			successProperty: 'success'
+		}, Hastane); 
 
 
+		var store = new Ext.data.Store({
+			url : 'hastanebilgilerinigetir',
+			id: 'hid',
+			reader:reader,
+			autoLoad:true,
+			fields : Hastane,
+			pruneModifiedRecords : true
+		}); 
 
-		var remoteProxy = new Ext.data.ScriptTagProxy({
-			url : 'http://extjsinaction.com/dataQuery.php'
+		var sm = new Ext.grid.RowSelectionModel();
+
+		var cm = new Ext.grid.ColumnModel([
+			                                           	
+		new Ext.grid.RowNumberer(), 
+		{
+			header : 'ID',
+			dataIndex : 'hid',
+			width:20,
+			sortable : true
+		}, {
+			header : 'İsim',
+			dataIndex : 'isim',
+			sortable : true
+		}, {
+			header : 'Adres',
+			dataIndex : 'adres',
+			sortable : true
+		}, {
+			header : 'Telefon',
+			dataIndex:'telefon',
+			sortable:true                                           	    
+		}, {
+			header : 'Bas Hekim ID',
+			dataIndex : 'bashekimid',
+			sortable : true
+		}]);
+
+		var btnRefresh = new Ext.Button({
+			text : 'Refresh',
+			handler : function() {
+			   store.reload();
+			}
 		});
-
-		var recordFields = [
-		                    { name : 'id',          mapping : 'id'          },
-		                    { name : 'firstname',   mapping : 'firstname'   },
-		                    { name : 'lastname',    mapping : 'lastname'    },
-		                    { name : 'street',      mapping : 'street'      },
-		                    { name : 'city',        mapping : 'city'        },
-		                    { name : 'state',       mapping : 'state'       },
-		                    { name : 'zip',     mapping : 'zip'         },
-		                    { name : 'newRecordId', mapping : 'newRecordId' },
-		                    { name : 'newRecordId', mapping : 'newRecordId' }
-		                    ];
-
-
-		var remoteJsonStore = new Ext.data.JsonStore({
-			proxy           : remoteProxy,
-			storeId         : 'ourRemoteStore',
-			root            : 'records',
-			autoLoad        : false,
-			totalProperty   : 'totalCount',
-			remoteSort      : true,
-			fields          : recordFields,
-			idProperty      : 'id'
-		});
-
-		var textFieldEditor = new Ext.form.TextField();
-
-		var comboEditor = {
-				xtype         : 'combo',
-				triggerAction : 'all',
-				displayField  : 'state',
-				valueField    : 'state',
-				store         : {
-					xtype  : 'jsonstore',
-					root   : 'records',
-					fields : ['state'],
-					proxy  :  new Ext.data.ScriptTagProxy({
-						url :  'http://extjsinaction.com/getStates.php'
-					})
-				}
-		};
-
-		var numberFieldEditor = {
-				xtype     : 'numberfield',
-				minLength : 5,
-				maxLength : 5
-		};
-
-		var columnModel = [
-		                   {
-		                	   header    : 'Hastane Adı',
-		                	   dataIndex : 'lastname',
-		                	   sortable  : true,
-		                	   editor    : textFieldEditor
-		                   },
-		                   {
-		                	   header    : 'Telefon',
-		                	   dataIndex : 'firstname',
-		                	   sortable  : true,
-		                	   editor    : textFieldEditor
-		                   },
-		                   {
-		                	   header    : 'Adres',
-		                	   dataIndex : 'street',
-		                	   sortable  : true,
-		                	   editor    : textFieldEditor
-		                   },
-		                   {
-		                	   header    : 'Baş Hekim',
-		                	   dataIndex : 'city',
-		                	   sortable  : true,
-		                	   editor    : textFieldEditor
-		                   },
-		                   {
-		                	   header    : 'Genel Bilgi',
-		                	   dataIndex : 'state',
-		                	   sortable  : true,
-		                	   editor    : comboEditor
-		                   }
-		                   ];
-
-		var onSave = function() {
-			var modified = remoteJsonStore.getModifiedRecords({
-				newRecordId : Ext.id()
-			});
-
-			if (modified.length > 0) {
-				var recordsToSend = [];
-				Ext.each(modified, function(record) {
-					recordsToSend.push(record.data);
-				});
-
-				var grid = Ext.getCmp('myEditorGrid');
-				grid.el.mask('Updating', 'x-mask-loading');
-				grid.stopEditing();
-
-				recordsToSend = Ext.encode(recordsToSend);
-				Ext.Ajax.request({
-					url     : 'successTrue.js',
-					params  : {
-						records : recordsToSend
-					},
-					success : function(response) {
-						grid.el.unmask();
-						remoteJsonStore.commitChanges();
-
-						var result = Ext.decode(response.responseText);
-						//                Ext.each(result.records, function(o) {
-							//                    var rIndex = remoteJsonStore.find('newRecordId', o.newRecordId);
-						//                    var record = remoteJsonStore.getAt(rIndex);
-						//
-						//                    /record.set('id', o.id);
-						//                    delete record.data.newRecordId;
-						//                })
-
-					}
-				});
-			}
-		};
-
-		var onRejectChanges = function() {
-			remoteJsonStore.rejectChanges();
-		};
-
-
-		var pagingToolbar = {
-				xtype       : 'paging',
-				store       : remoteJsonStore,
-				pageSize    : 50,
-				displayInfo : true,
-				items       : [
-				               '-',
-				               {
-				            	   text    : 'Save Changes',
-				            	   handler : onSave
-				               },
-				               '-',
-				               {
-				            	   text    : 'Reject Changes',
-				            	   handler : onRejectChanges
-				               },
-				               '-'
-				               ]
-		};
-
-		var doDelete = function(rowToDelete) {
-			var grid  = Ext.getCmp('myEditorGrid');
-			var recordToDelete = grid.store.getAt(rowToDelete);
-
-			if (recordToDelete.phantom) {
-				grid.store.remove(recordToDelete);
-				return;
-			}
-
-			grid.el.mask('Updating', 'x-mask-loading');
-
-			Ext.Ajax.request({
-				url    : 'successTrue.js',
-				params :  {
-					rowToDelete  : recordToDelete.id
-				},
-				success : function() {
-					grid.store.remove(recordToDelete);
-					grid.el.unmask();
-					/*
-                // For animated
-                var row = grid.getView().getRow(rowToDelete);
-                Ext.get(row).ghost('t',{
-                    callback : function() {
-                        grid.store.remove(recordToDelete);
-                    }
-                })
-					 */
-				}
-			});
-
-		};
-
-
-		var onDelete = function() {
-			var grid     = Ext.getCmp('myEditorGrid');
-			var selected = grid.getSelectionModel().getSelectedCell();
-
-			Ext.MessageBox.confirm(
-					'Confirm delete',
-					'Are you sure?',
-					function(btn) {
-						if (btn == 'yes') {
-							doDelete(selected[0]);
-						}
-					}
-			);
-
-		};
-
-
-		var onInsertRecord = function() {
-			var newRecord        = new remoteJsonStore.recordType({
-				newRecordId : Ext.id()
-			});
-			var grid             = Ext.getCmp('myEditorGrid');
-			var selectedCell     = grid.getSelectionModel().getSelectedCell();
-			var selectedRowIndex = selectedCell[0];
-
-			grid.stopEditing();
-			remoteJsonStore.insert(selectedRowIndex, newRecord);
-			grid.startEditing(selectedRowIndex,0);
-		};
-
-		var doCellCtxMenu = function(editorGrid, rowIndex, cellIndex, evtObj) {
-			evtObj.stopEvent();
-
-			var record = editorGrid.getStore().getAt(rowIndex);
-
-			if (! editorGrid.rowCtxMenu) {
-				editorGrid.rowCtxMenu = new Ext.menu.Menu({
-					items : [
-					         {
-					        	 text    : 'Insert Record',
-					        	 handler : onInsertRecord
-					         },
-					         {
-					        	 text    : 'Delete Record',
-					        	 handler : onDelete
-					         }
-					         ]
-				});
-			}
-			editorGrid.getSelectionModel().select(rowIndex,cellIndex);
-			editorGrid.rowCtxMenu.showAt(evtObj.getXY());
-		};
-
-		var grid = {
-				xtype      : 'editorgrid',
-				columns    : columnModel,
-				id         : 'myEditorGrid',
-				store      : remoteJsonStore,
-				loadMask   : true,
-				bbar       : pagingToolbar,
-				stripeRows : true,
-				viewConfig : {
-					forceFit : true
-				},
-				listeners        : {
-					cellcontextmenu : doCellCtxMenu,
-					destroy         : function(thisGrid) {
-						if (thisGrid.rowCtxMenu) {
-							thisGrid.rowCtxMenu.destroy();
-						}
-					}
-				}
-		};
-
-		var hastanegridi = new Ext.Panel({
-			title: 'Hastaneler',
-			height  : 700,
-			width   : 950,
-			border  : false,
-			layout  : 'fit',
-			items   : grid
-		})
-
-
-		remoteJsonStore.load({
-			params : {
-				start : 0,
-				limit : 50
+			                                           	
+		var Hastanegrid = new Ext.grid.EditorGridPanel({
+			stripeRows : true,
+			columnLines:true,
+			frame : true,
+			loadMask : {
+			   msg : 'Yukleniyor...'
+			},
+			clicksToEdit : 2,
+			trackMouseOver : false,
+			title : 'Hastaneler',
+			store : store,
+			cm : cm,
+			sm : sm,
+			height : 400,
+			fbar : [btnRefresh],
+			viewConfig : {
+			    enableRowBody : true,
+			    forceFit: true,
+			    emptyText : 'Sergilenecek Kayit Bulunamadi '
 			}
 		});
 
 		content.removeAll(true);
-		content.add(hastanegridi);
+		content.add(Hastanegrid);
 		content.doLayout();
-	}
+	};
 ////////////////////////END/////////////////////////////////////////////////////////////////////
 
 
@@ -1110,7 +623,7 @@ Ext.onReady(function(){
 	});
 	
 	var istekgonder = new Ext.Panel({
-		title: '<a style="color: #FFFFFF;text-decoration:none;" href="#"  onClick="istekgonder();" >istek Oluştur</a>',
+		title: '<a style="color: #FFFFFF;text-decoration:none;" href="#"  onClick="istekgonder();" >İstek Oluştur</a>',
 		collapsible	:false,
 		titleCollapse: false 		
 	});
