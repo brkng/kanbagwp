@@ -1,6 +1,7 @@
 package view;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -12,6 +13,7 @@ import model.KanBagiscisi;
 import model.Kanistegi;
 import model.Kullanici;
 import model.Kullaniciistekleri;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +57,60 @@ public class KullaniciView {
 		JSONObject obj = new JSONObject();
 		obj.put("success", true);
 		resp.getWriter().print(obj);
+	}
+	
+	
+	
+	@RequestMapping(value="/kullanicininkanistekleri")
+	public void istekleriCek(HttpServletRequest req, HttpServletResponse resp) throws IOException{		
+
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		JSONArray arr = new JSONArray();
+		SessionClientData scd = (SessionClientData) req.getSession().getAttribute("scd");
+		KanBagiscisi kb=new KanBagiscisi();
+		kb=kanBagServ.getKanBagiscisiByUsername(scd.getUsername());
+		List<Kullaniciistekleri> kullanicininistekleri = kulisServ.getKullaniciİstekleriBykid(kb.getKid());
 		
+		if(kullanicininistekleri.size()!=0)
+		{
+			for(Kullaniciistekleri ki: kullanicininistekleri)
+			{
+				Kanistegi kan=new Kanistegi();
+				
+				kan=kanistegiServ.getKanIstegiByKanIstegiId(ki.getIid());
+				
+				JSONObject obj = new JSONObject();
+
+				obj.put("id", kan.getId());
+				obj.put("hid", kan.getHastaneId());
+				obj.put("sure", kan.getSure());
+				obj.put("isteknotu", kan.getIstekNotu());
+				obj.put("kangrubu", kan.getKanGrubu());
+				obj.put("semt", kan.getSemt());
+				
+				try{
+					obj.put("koyuldugutarih", formatter.format(kan.getKoyulduguTarih()));
+				}
+				catch(Exception e)
+				{
+					obj.put("koyuldugutarih","");
+				}
+				
+				
+				try{
+					obj.put("kaldirildigitarih", formatter.format(kan.getKaldirildigiTarih()));
+				}
+				catch(Exception e)
+				{
+					obj.put("kaldirildigitarih","");
+				}
+				
+				arr.add(obj);				
+			}
+			JSONObject o = new JSONObject();
+			o.put("data", arr);
+			resp.getWriter().print(o);
+		}
 	}
 	
 	

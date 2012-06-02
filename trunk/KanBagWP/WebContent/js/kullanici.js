@@ -4,21 +4,130 @@ function anasayfa() {
 		
 		this.bekleyenisteklerigoster =function()
 		{
-			
-			
+			var istek = new Ext.data.Record.create([
+			                                		{
+			                                		    name : 'id'
+			                                		}, {
+			                                		    name : 'koyuldugutarih',
+			                                		    type : 'string'
+			                                		}, {
+			                                		    name : 'isteknotu',
+			                                		    type : 'string'
+			                                		},{
+			                                		    name : 'kaldrildigitarih',
+			                                		    type : 'int'
+			                                		},{
+			                                		    name : 'hid',
+			                                		    type : 'string'
+			                                		},{
+			                                		    name : 'kangrubu',
+			                                		    type : 'string'
+			                                		},{
+			                                		    name : 'sure',
+			                                		    type : 'int'
+			                                		},{
+			                                		    name : 'semt',
+			                                		    type : 'string'
+			                                		}]);
+
+			                                		var reader = new Ext.data.JsonReader({
+			                                		   idProperty: 'id',
+			                                		   root: 'data',
+			                                		   successProperty: 'success'
+			                                		}, istek); 
+
+
+			                                		var store = new Ext.data.Store({
+			                                		    url : 'kullanicininkanistekleri',
+			                                		    id: 'id',
+			                                		    reader:reader,
+			                                		    autoLoad:true,
+			                                		    fields : istek,
+			                                		    pruneModifiedRecords : true
+			                                		}); 
+
+			                                		var sm = new Ext.grid.RowSelectionModel();
+
+			                                		var cm = new Ext.grid.ColumnModel([
+			                                		                                      	                                           	
+			                                		new Ext.grid.RowNumberer(), 
+			                                		{
+			                                		    header : 'ID',
+			                                		    dataIndex : 'id',
+			                                		    width:20,
+			                                		    sortable : true
+			                                		}, {
+			                                		    header : 'Koyulduğu Tarih',
+			                                		    dataIndex : 'koyuldugutarih',
+			                                		    sortable : true
+			                                		}, {
+			                                		    header : 'İstek Notu',
+			                                		    dataIndex : 'isteknotu',
+			                                		    sortable : true
+			                                		}, {
+			                                		    header : 'Kaldırıldığı Tarih',
+			                                		    dataIndex:'kaldirildigitarih',
+			                                		    sortable:true                                           	    
+			                                		}, {
+			                                		    header : 'HId',
+			                                		    dataIndex : 'hid',
+			                                		    width:20,
+			                                		    sortable : true
+			                                		}, {
+			                                		    header : 'Kan Grubu',
+			                                		    dataIndex : 'kangrubu',
+			                                		    sortable : true
+			                                		}, {
+			                                		    header : 'Süre(Gün)',
+			                                		    dataIndex : 'sure',
+			                                		    sortable : true
+			                                		}, {
+			                                		    header : 'Semt',
+			                                		    dataIndex : 'semt',
+			                                		    sortable : true
+			                                		}]);
+
+			                                		var btnRefresh = new Ext.Button({
+			                                		    text : 'Refresh',
+			                                		    handler : function() {
+			                                		    store.reload();
+			                                		   }
+			                                		});
+			                                		                                      	                                           	
+			                                		var istekgridi = new Ext.grid.EditorGridPanel({
+			                                		    stripeRows : true,
+			                                		    columnLines:true,
+			                                		    frame : true,
+			                                		    loadMask : {
+			                                		       msg : 'Yukleniyor...'
+			                                		    },
+			                                		    clicksToEdit : 2,
+			                                		    trackMouseOver : false,
+			                                		    title : 'İstekler',
+			                                		    store : store,
+			                                		    cm : cm,
+			                                		    sm : sm,
+			                                		    height : 500,
+			                                		    fbar : [btnRefresh],
+			                                		    viewConfig : {
+			                                		      enableRowBody : true,
+			                                		      forceFit: true,
+			                                		      emptyText : 'Sergilenecek Kayit Bulunamadi '
+			                                		   }
+			                                		   });			
 			var istekler= new Ext.Window({
 				height		:	420,
 				title		:	'Bekleyen İstekler',
 				modal		:	true,
 				resizable	:	false,
 				draggable	:	false,
-				width		:	260,
+				width		:	700,
 				layout		:	'form',
 				bodyStyle	:	'padding : 10px',
 			    buttonAlign : 'center',
 				labelWidth	:	80,
-				defaultType	:	'textfield'
-					
+				defaultType	:	'textfield',
+				items		:	[istekgridi]
 			}).show();
 		};
 
@@ -279,7 +388,7 @@ function anasayfa() {
 				success : function(response) {
 					obj = Ext.util.JSON.decode(response.responseText);
 					//obj.username
-					s = '<br/><a href="#" onClick="cikisyap();" >Çıkış Yap</a><br/>';
+					s = '<br/><br/><a href="#" onClick="cikisyap();" >Çıkış Yap</a><br/>';
 					bi = '<br/><br/><b><a href="#" onClick="bekleyenisteklerigoster();" >Bekleyen İstek Sayısı:</b>'+obj.isteksayisi+'</a>';
 					//bi='<br/><a href="#" onClick="bekleyenisteklerigoster();" >Exit</a><br/>';
 					Ext.getCmp('kullanicibilgileri').update("<b>Kullanıcı Adı:</b> "+obj.isim+"<br/><b>Kan Grubu:</b> "+
