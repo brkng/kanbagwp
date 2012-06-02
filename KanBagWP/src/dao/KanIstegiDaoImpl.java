@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import model.Hastane;
-import model.KanIstegi;
+import model.Kanistegi;
 
 @Repository("KanIstegiDao")
 @Transactional
@@ -20,22 +20,25 @@ public class KanIstegiDaoImpl implements KanIstegiDao {
 	private SessionFactory sessionFactory;
 
 	@Override
-	public List<KanIstegi> listKanIstegi() {
+	public List<Kanistegi> listKanIstegi() {
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		tx.commit();
 		@SuppressWarnings("unchecked")
-		List<KanIstegi> lst = session.createQuery("from KanIstegi").list();
+		List<Kanistegi> lst = session.createQuery("from Kanistegi").list();
+		System.out.println("+++Toplam kan isteği:"+lst.size());
+		
+		
 		return lst;
 	}
 
 	@Override
-	public KanIstegi getKanIstegiByKanIstegiId(int kanIstegiId) {
+	public Kanistegi getKanIstegiByKanIstegiId(int kanIstegiId) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		tx.commit();
 		
-		List<KanIstegi> kul= session.createQuery("from KanIstegi where id=:kid").setParameter("kid", kanIstegiId).list();
+		List<Kanistegi> kul= session.createQuery("from Kanistegi where id=:kid").setParameter("kid", kanIstegiId).list();
 		
 		if(kul.size()!=0)
 		{
@@ -48,16 +51,16 @@ public class KanIstegiDaoImpl implements KanIstegiDao {
 	}
 
 	@Override
-	public List<KanIstegi> getKanIstegiBySemt(String semt) {
+	public List<Kanistegi> getKanIstegiBySemt(String semt) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		tx.commit();
 		
-		List<KanIstegi> kul= session.createQuery("from KanIstegi where semt=:smt").setParameter("smt", semt).list();
+		List<Kanistegi> kul= session.createQuery("from Kanistegi where semt=:smt").setParameter("smt", semt).list();
 		
 		if(kul.size()!=0)
 		{
-			return (List<KanIstegi>) kul.get(0);
+			return (List<Kanistegi>) kul.get(0);
 		}
 		else
 		{
@@ -66,7 +69,7 @@ public class KanIstegiDaoImpl implements KanIstegiDao {
 	}
 
 	@Override
-	public KanIstegi saveKanIstegi(KanIstegi kanIstegi) {
+	public Kanistegi saveKanIstegi(Kanistegi kanIstegi) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		tx.commit();
@@ -80,7 +83,7 @@ public class KanIstegiDaoImpl implements KanIstegiDao {
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		tx.commit();
-		Object record = session.load(KanIstegi.class, kanIstegiId);
+		Object record = session.load(Kanistegi.class, kanIstegiId);
 		session.delete(record);
 	}
 

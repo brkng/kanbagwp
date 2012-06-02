@@ -13,7 +13,7 @@ import org.codehaus.jackson.annotate.JsonAutoDetect;
 @JsonAutoDetect
 @Entity
 @Table(name = "kanistekleri")
-public class KanIstegi {
+public class Kanistegi {
 	
 	@Id
 	@GeneratedValue

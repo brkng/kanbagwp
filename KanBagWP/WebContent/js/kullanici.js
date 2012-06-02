@@ -1,6 +1,26 @@
 function anasayfa() {
 
 		Ext.QuickTips.init();
+		
+		this.bekleyenisteklerigoster =function()
+		{
+			
+			
+			var istekler= new Ext.Window({
+				height		:	420,
+				title		:	'Bekleyen İstekler',
+				modal		:	true,
+				resizable	:	false,
+				draggable	:	false,
+				width		:	260,
+				layout		:	'form',
+				bodyStyle	:	'padding : 10px',
+			    buttonAlign : 'center',
+				labelWidth	:	80,
+				defaultType	:	'textfield'
+					
+			}).show();
+		};
 
 		this.kayit = function()
 		{
@@ -260,8 +280,10 @@ function anasayfa() {
 					obj = Ext.util.JSON.decode(response.responseText);
 					//obj.username
 					s = '<br/><a href="#" onClick="cikisyap();" >Çıkış Yap</a><br/>';
+					bi = '<br/><br/><b><a href="#" onClick="bekleyenisteklerigoster();" >Bekleyen İstek Sayısı:</b>'+obj.isteksayisi+'</a>';
+					//bi='<br/><a href="#" onClick="bekleyenisteklerigoster();" >Exit</a><br/>';
 					Ext.getCmp('kullanicibilgileri').update("<b>Kullanıcı Adı:</b> "+obj.isim+"<br/><b>Kan Grubu:</b> "+
-							obj.kangrubu+"<br/><b>Son Kan Bağış Tarihi:</b> "+obj.sonbagistarihi+"<br/><br/><b><a href=&#34;#&#34;>Bekleyen İstek Sayısı:</b>"+obj.isteksayisi+"</a>"+s);
+							obj.kangrubu+"<br/><b>Son Kan Bağış Tarihi:</b> "+obj.sonbagistarihi+ bi +s);
 				},
 				failure : function(response) {
 					window.location = '../gen/anasayfa';

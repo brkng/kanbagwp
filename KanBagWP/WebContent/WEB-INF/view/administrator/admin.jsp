@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Kan Bağışı Web Portalı Anasayfa</title>
+<title>Administrator</title>
 </head>
 <script src="../scripts/ext-3.3.1/adapter/ext/ext-base.js"></script>
 <script src="../scripts/ext-3.3.1/ext-all.js"></script>
