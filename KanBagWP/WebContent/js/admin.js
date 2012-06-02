@@ -684,9 +684,18 @@ Ext.onReady(function(){
 		    	   }
 		       },
 		       {
-		    	   text: '<b>Yardım</b>',
+		    	   text: '<b>Çıkış Yap</b>',
 		    	   iconCls: 'bmenu',  // <-- icon
 		    	   handler: function(){
+						Ext.Ajax.request({
+							url		: 'cikis',
+							success : function(response) {
+								window.location = '../gen/anasayfa';
+							},
+							failure : function(response) {
+								
+							}	
+						});
 		    	   }
 		       }]
 	});

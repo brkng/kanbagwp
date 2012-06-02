@@ -43,6 +43,8 @@ public class KanIstegiServiceImpl implements KanIstegiService {
 	public void deleteKanIstegi(int kanIstegiId) {
 		kanIstegiDao.deleteKanIstegi(kanIstegiId);
 	}
+	
+
 
 	@Override
 	public JSONObject listkanIstegiAsJson() {
