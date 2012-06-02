@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import dao.KanIstegiDao;
 
 import model.Hastane;
-import model.KanIstegi;
+import model.Kanistegi;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -20,22 +20,22 @@ public class KanIstegiServiceImpl implements KanIstegiService {
 	private KanIstegiDao kanIstegiDao;
 	
 	@Override
-	public List<KanIstegi> listKanIstegi() {
+	public List<Kanistegi> listKanIstegi() {
 		return kanIstegiDao.listKanIstegi();
 	}
 
 	@Override
-	public KanIstegi getKanIstegiByKanIstegiId(int kanIstegiId) {
+	public Kanistegi getKanIstegiByKanIstegiId(int kanIstegiId) {
 		return kanIstegiDao.getKanIstegiByKanIstegiId(kanIstegiId);
 	}
 
 	@Override
-	public List<KanIstegi> getKanIstegiBySemt(String semt) {
+	public List<Kanistegi> getKanIstegiBySemt(String semt) {
 		return kanIstegiDao.getKanIstegiBySemt(semt);
 	}
 
 	@Override
-	public KanIstegi saveKanIstegi(KanIstegi kanIstegi) {
+	public Kanistegi saveKanIstegi(Kanistegi kanIstegi) {
 		return kanIstegiDao.saveKanIstegi(kanIstegi);
 	}
 
@@ -47,19 +47,22 @@ public class KanIstegiServiceImpl implements KanIstegiService {
 	@Override
 	public JSONObject listkanIstegiAsJson() {
 		
-		List<KanIstegi> lst = kanIstegiDao.listKanIstegi();
+		List<Kanistegi> lst = kanIstegiDao.listKanIstegi();
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		JSONArray arr = new JSONArray();		
 
-		for(KanIstegi kan:lst){
+		
+		
+		for(Kanistegi kan:lst){
 			
 			JSONObject obj = new JSONObject();
 
 			obj.put("id", kan.getId());
-			obj.put("hastaneid", kan.getHastaneId());
+			obj.put("hid", kan.getHastaneId());
 			obj.put("sure", kan.getSure());
 			obj.put("isteknotu", kan.getIstekNotu());
 			obj.put("kangrubu", kan.getKanGrubu());
+			obj.put("semt", kan.getSemt());
 			
 			try{
 				obj.put("koyuldugutarih", formatter.format(kan.getKoyulduguTarih()));
@@ -78,6 +81,7 @@ public class KanIstegiServiceImpl implements KanIstegiService {
 				obj.put("kaldirildigitarih","");
 			}
 			
+			System.out.println("+++ Json İstek id:"+kan.getId());
 			arr.add(obj);
 		}
 		

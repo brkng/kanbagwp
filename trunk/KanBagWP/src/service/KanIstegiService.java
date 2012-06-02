@@ -4,17 +4,17 @@ import java.util.List;
 
 import net.sf.json.JSONObject;
 
-import model.KanIstegi;
+import model.Kanistegi;
 
 public interface KanIstegiService {
 	
-	public List<KanIstegi> listKanIstegi();
+	public List<Kanistegi> listKanIstegi();
 	
-	public KanIstegi getKanIstegiByKanIstegiId(int kanIstegiId);
+	public Kanistegi getKanIstegiByKanIstegiId(int kanIstegiId);
 	
-	public List<KanIstegi> getKanIstegiBySemt(String semt);
+	public List<Kanistegi> getKanIstegiBySemt(String semt);
 	
-	public KanIstegi saveKanIstegi(KanIstegi kanIstegi);
+	public Kanistegi saveKanIstegi(Kanistegi kanIstegi);
 
 	public void deleteKanIstegi(int kanIstegiId);
 	

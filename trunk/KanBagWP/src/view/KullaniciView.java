@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.KanBagiscisi;
-import model.KanIstegi;
+import model.Kanistegi;
 import model.Kullanici;
 import model.Kullaniciistekleri;
 import net.sf.json.JSONObject;
@@ -69,7 +69,7 @@ public class KullaniciView {
 		Kullanici kullanici=new Kullanici();
 		KanBagiscisi kanbagiscisi=new KanBagiscisi();
 		List<Kullaniciistekleri> kulis=new ArrayList<Kullaniciistekleri>();
-		List<KanIstegi> kanistekleri=new ArrayList<KanIstegi>();
+		List<Kanistegi> kanistekleri=new ArrayList<Kanistegi>();
 		
 		
 		kullanici=kulServ.getKullaniciByName(scd.getUsername());
