@@ -1,0 +1,1 @@
+Bu proje kanın acil bir ihtiyaç olmaktan çıkıp,  sürekli bir ihtiyaç haline geldiği dünyamızda kan bağışıyla ilgili işlemleri elektronik ortama taşıyarak insan hayatlarını kurtarmak amacıyla geliştirilmektedir
